@@ -6,7 +6,7 @@
   * [Linux Lift and Shift into Azure](#linux-lift-and-shift-into-azure)
   * [Distributed Architecture](#distributed-architecture)
   * [High Availability and Business Continuity / Disaster Recovery](#high-availability-and-business-continuity---disaster-recovery)
-  * [Monitoring &amp; Management](#monitoring--amp--management)
+  * [Monitoring &amp; Management](#monitoring--management)
   * [Performance &amp; Scalability](#performance--scalability)
   * [Security](#security)
 
