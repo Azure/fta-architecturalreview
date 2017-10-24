@@ -5,7 +5,7 @@
   * [Azure Design Principles with Lift and Shift](#azure-design-principles-with-lift-and-shift)
   * [Linux Lift and Shift into Azure](#linux-lift-and-shift-into-azure)
   * [Distributed Architecture](#distributed-architecture)
-  * [High Availability and Business Continuity / Disaster Recovery](#high-availability-and-business-continuity---disaster-recovery)
+  * [High Availability and Business Continuity / Disaster Recovery](#high-availability-and-business-continuity--disaster-recovery)
   * [Monitoring &amp; Management](#monitoring--management)
   * [Performance &amp; Scalability](#performance--scalability)
   * [Security](#security)
