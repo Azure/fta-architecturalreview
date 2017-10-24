@@ -1,7 +1,7 @@
 # FastTrack for Azure Architectural Discussion Framework - Lift and Shift
 
 - [FastTrack for Azure Architectural Discussion Framework - Lift and Shift Solution](#fasttrack-for-azure-architectural-discussion-framework---lift-and-shift-solution)
-  * [App &amp; Data Migration](#app--amp--data-migration)
+  * [App &amp; Data Migration](#app--data-migration)
   * [Azure Design Principles with Lift and Shift](#azure-design-principles-with-lift-and-shift)
   * [Linux Lift and Shift into Azure](#linux-lift-and-shift-into-azure)
   * [Distributed Architecture](#distributed-architecture)
