@@ -7,7 +7,7 @@
   * [Distributed Architecture](#distributed-architecture)
   * [High Availability and Business Continuity / Disaster Recovery](#high-availability-and-business-continuity---disaster-recovery)
   * [Monitoring &amp; Management](#monitoring--amp--management)
-  * [Performance &amp; Scalability](#performance--amp--scalability)
+  * [Performance &amp; Scalability](#performance--scalability)
   * [Security](#security)
 
 ## App &amp; Data Migration  
