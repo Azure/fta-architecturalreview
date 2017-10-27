@@ -3,7 +3,7 @@
 See our [FastTrack for Azure landing page](https://github.com/Azure/FastTrackForAzure) for more information.
 
 # Architectural Review 
-* [Introduction](0 - Introduction.md)
+* [Introduction](https://github.com/Azure/fta-architecturalreview/blob/master/0%20-%20Introduction.md)
 
 # Contributing
 
