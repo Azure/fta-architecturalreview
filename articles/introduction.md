@@ -52,11 +52,11 @@ This guide supports discussion duringFast Track for Azure Architectural Guidance
 
 ## Review the appropriate sections for your solution:
 
-* [Application Modernisation](AppModernisation.md)
-* [Backup, Disaster Recovery & Archive](BackupDRArchive.md)
-* [Database](Database.md)
-* [DevTest](DevTest.md)
-* [Lift and Shift](LiftShift.md)
+* [Application Modernisation](application-modernisation.md)
+* [Backup, Archive & Disaster Recovery](backup-archive-disaster-recovery.md)
+* [Database](database.md)
+* [DevTest](devtest.md)
+* [Lift and Shift](lift-and-shift.md)
 
 ## References
 * [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)

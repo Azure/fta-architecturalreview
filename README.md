@@ -3,11 +3,13 @@
 See our [FastTrack for Azure landing page](https://github.com/Azure/FastTrackForAzure) for more information.
 
 # Architectural Review 
-* [Introduction](https://github.com/Azure/fta-architecturalreview/blob/master/0%20-%20Introduction.md)
-* [Application Modernisation](https://github.com/Azure/fta-architecturalreview/blob/master/AppModernisation.md)
-* [Backup, Disaster Recovery & Archive](https://github.com/Azure/fta-architecturalreview/blob/master/BackupDRArchive.md)
-* [Database](https://github.com/Azure/fta-architecturalreview/blob/master/Database.md)
-* [Lift and Shift](https://github.com/Azure/fta-architecturalreview/blob/master/LiftShift.md)
+* [Introduction](articles/introduction.md)
+* [Application Modernisation](articles/application-modernisation.md)
+* [Backup, Archive & Disaster Recovery](articles/backup-archive-disaster-recovery.md)
+* [Database](articles/database.md)
+* [DevTest](articles/devtest.md)
+* [Lift and Shift](articles/lift-and-shift.md)
+
 
 # Contributing
 
