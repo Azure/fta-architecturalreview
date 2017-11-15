@@ -2,21 +2,21 @@
 
 - [FastTrack for Azure Architectural Discussion Framework - Application Modernization](#fasttrack-for-azure-architectural-discussion-framework---application-modernization)
 - [App Services](#app-services)
-  * [App &amp; Data Migration](#app--amp--data-migration)
+  * [App and Data Migration](#app-and-data-migration)
   * [Distributed Architecture](#distributed-architecture)
-  * [High Availability and Business Continuity / Disaster Recovery](#high-availability-and-business-continuity---disaster-recovery)
-  * [Monitoring &amp; Management](#monitoring--amp--management)
-  * [Performance &amp; Scalability](#performance--amp--scalability)
+  * [High Availability, Business Continuity and Disaster Recovery](#high-availability,-business-continuity-and-disaster-recovery)
+  * [Monitoring and Management](#monitoring-and-management)
+  * [Performance and Scalability](#performance-and-scalability)
   * [Security](#security)
 - [Service Fabric](#service-fabric)
   * [Build Applications and Services](#build-applications-and-services)  
-  * [Manage Applications (Performance and Scalability)](#manage-applications--performance-and-scalability-)
+  * [Manage Applications: Performance and Scalability](#manage-applications:-performance-and-scalability)
   * [Create and manage Clusters](#create-and-manage-clusters)
   * [Monitor and Diagnose](#monitor-and-diagnose)
   * [App Migration](#app-migration)
-  * [Distributed Architecture](#distributed-architecture-1)
-  * [High Availability and Business Continuity / Disaster Recovery](#high-availability-and-business-continuity---disaster-recovery-1)
-  * [Security](#security-1)
+  * [Distributed Architecture](#distributed-architecture)
+  * [High Availability, Business Continuity and Disaster Recovery](#high-availability,-business-continuity-and-disaster-recovery)
+  * [Security](#security)
 
 
 * **Have you looked into the range of Azure compute (hosting) options and compared their features before making a decision?**
@@ -29,7 +29,7 @@
 
 # App Services
 
-## App &amp; Data Migration    
+## App and Data Migration    
 
 * **Are you migrating existing Web app or API Apps from Windows Server or Linux Server? Are you aware of Azure App Service Migration Assistant tool?**
 
@@ -92,7 +92,7 @@
     
   > [Resiliency strategies](https://docs.microsoft.com/en-us/azure/architecture/resiliency/index#resiliency-strategies)
 
-## High Availability and Business Continuity / Disaster Recovery    
+## High Availability, Business Continuity and Disaster Recovery    
 
 * **Do you have Availability Requirements defined for the workload? How much downtime acceptable? (RTO)  How much data loss is acceptable?(RPO)**
 
@@ -141,7 +141,7 @@
     
   > [Asynchronous Programming with async and await](https://docs.microsoft.com/en-us/dotnet/articles/csharp/async)
 
-## Monitoring & Management    
+## Monitoring and Management    
 
 * **Is there a strategy in place to Monitor the application?**
 
@@ -188,7 +188,7 @@
     
     > [Monitoring and Diagnostics guidance](https://docs.microsoft.com/en-us/azure/architecture/best-practices/monitoring)
 
-## Performance & Scalability    
+## Performance and Scalability    
 
 * **Is your application architected to be scalable? Can individual components of the application, i.e. your web app, API and database be scaled independently?**
 
@@ -286,7 +286,7 @@
     >
     > [https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/](https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/)
 
-## Manage Applications (Performance and Scalability)    
+## Manage Applications: Performance and Scalability    
 
 * **Are you familiar with the Service Fabric application lifecycle?**
 
@@ -382,7 +382,7 @@
     
     > [Service Fabric and containers](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-containers-overview)
 
-## Distributed Architecture    
+## Distributed Architecture  
 
 * **Microservices Architecture Experience in the team, here are some best practices**
 
