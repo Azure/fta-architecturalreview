@@ -10,7 +10,7 @@
   * [Security](#security)
 - [Service Fabric](#service-fabric)
   * [Build Applications and Services](#build-applications-and-services)  
-  * [Manage Applications: Performance and Scalability](#manage-applications:-performance-and-scalability)
+  * [Manage Applications - Performance and Scalability](#manage-applications---performance-and-scalability)
   * [Create and manage Clusters](#create-and-manage-clusters)
   * [Monitor and Diagnose](#monitor-and-diagnose)
   * [App Migration](#app-migration)
@@ -286,7 +286,7 @@
     >
     > [https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/](https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/)
 
-## Manage Applications: Performance and Scalability    
+## Manage Applications - Performance and Scalability    
 
 * **Are you familiar with the Service Fabric application lifecycle?**
 
