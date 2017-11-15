@@ -1,6 +1,6 @@
-# FastTrack for Azure Architectural Discussion Framework - Application Modernisation
+# FastTrack for Azure Architectural Discussion Framework - Application Modernization
 
-- [FastTrack for Azure Architectural Discussion Framework - Application Modernisation](#fasttrack-for-azure-architectural-discussion-framework---application-modernisation)
+- [FastTrack for Azure Architectural Discussion Framework - Application Modernization](#fasttrack-for-azure-architectural-discussion-framework---application-modernization)
 - [App Services](#app-services)
   * [App &amp; Data Migration](#app--amp--data-migration)
   * [Distributed Architecture](#distributed-architecture)

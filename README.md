@@ -4,7 +4,7 @@ See our [FastTrack for Azure landing page](https://github.com/Azure/FastTrackFor
 
 # Architectural Review 
 * [Introduction](articles/introduction.md)
-* [Application Modernisation](articles/application-modernisation.md)
+* [Application Modernization](articles/application-modernization.md)
 * [Backup, Archive & Disaster Recovery](articles/backup-archive-disaster-recovery.md)
 * [Database](articles/database.md)
 * [DevTest](articles/devtest.md)
