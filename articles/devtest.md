@@ -21,13 +21,20 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
     
     > [https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops#release](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops#release)
 
-* **If you have designed a build pipeline - How have you configured your builds to trigger? <ul><li>Continuous Integration</li><li>Off a particular branch?</li><li>Daily / Nightly Build</li><li>Combination, depending upon scenario</li></ul><br><br> If this is performed on a trigger event, what is the trigger? (e.g. which particular branch)**
+* **If you have designed a build pipeline - How have you configured your builds to trigger?**
+
+    * Continuous Integration
+    * Off a particular branch?
+    * Daily / Nightly Build
+    * Combination, depending upon scenario
+    
+    If this is performed on a trigger event, what is the trigger? (e.g. which particular branch)
 
     If a pipeline has been established, could this be triggering too many builds or triggering off a build of a branch that does not represent a &#39;shippable version of the solution? For CI - Consider adopting a trunk based development model. In this model, developers commit to a single branch (the trunk). There is a requirement that commits never break the build. This model facilitates CI, because all feature work is done in the trunk, and any merge conflicts are resolved when the commit happens.    
     
     > [https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops)
 
-* **Are you using Infrastructure as Code to automate the deployment of your Azure environment? <br><br> Are you aware of Azure Resource Manager templates? Have you used them to deploy your DevTest solution?**
+* **Are you using Infrastructure as Code to automate the deployment of your Azure environment? Are you aware of Azure Resource Manager templates? Have you used them to deploy your DevTest solution?**
 
     Determine whether there is an approach to automating the deployment of their environment, so that multiple environments (Dev/Test/Prod) can be implemented easily.    
     
@@ -37,9 +44,11 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
     >
     > [https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template)
 
-* **Are you aware of the Azure Resource Manager template best practices?<br><br>Have you designed your Azure Resource Manager templates with these in mind?**
+* **Are you aware of the Azure Resource Manager template best practices? Have you designed your Azure Resource Manager templates with these in mind?**
 
-    Determine whether the template has been parameterised, so that it can be easily deployed across multiple environments, or whether parameters have been limited and a t-shirt sizing approach has been used.<br><br>There are a number of other practices that are recommended. These can be reviewed in those articls linked in the associated documentation.    
+    Determine whether the template has been parameterised, so that it can be easily deployed across multiple environments, or whether parameters have been limited and a t-shirt sizing approach has been used.
+    
+    There are a number of other practices that are recommended. These can be reviewed in those articls linked in the associated documentation.    
     
     > [https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-template-best-practices](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-template-best-practices)
     >
@@ -53,7 +62,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 * **Are you using a separate environment for your development environment, and promoting application code between those environments?**
 
-    If development and test environments don&#39;t match the production environment, it is hard to test and diagnose problems. Therefore, keep development and test environments as close to the production environment as possible. Make sure that test data is consistent with the data used in production, even if it&#39;s sample data and not real production data (for privacy or compliance reasons). Plan to generate and anonymize sample test data.    
+    If development and test environments don&#39;t match the production environment, it is hard to test and diagnose problems. Therefore, keep development and test environments as close to the production environment as possible. Make sure that test data is consistent with the data used in production, even if it's sample data and not real production data (for privacy or compliance reasons). Plan to generate and anonymize sample test data.    
 
 * **Are your components tightly coupled? Or are you using message brokering to separate the components, to help the application gracefully degrade?**
 
@@ -68,20 +77,23 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 * **Have you deployed any resources where there is only one instance of a particular resource?**
 
     Determine whether there are Single Points of failure in the solution. If there are, what is the potential risk for this component? How could this impact the wider solution? What steps can be taken to mitigate this risk?    
-    
-    >  
 
-* **Have you thought about redundancy across your solution?<ul><li>VMs in a load balancer </li><li>Replicating databases</li><li>Geo-replication (e.g. via Traffic Manager)</li><li> Deploying to more than one region</li><li>Using automatic failover but manual failback</li><li>Redundancy for traffic manager</li>**
+* **Have you thought about redundancy across your solution?**
 
-    Determine whether redundancy has been built into the solution. &nbsp; Are there single points of failures in the solution? Could the solution be impacted by a failure of an Azure region? If so, would the requirements warrant the need for a geo-distributed application?    
+    * VMs in a load balancer
+    * Replicating databases
+    * Geo-replication (e.g. via Traffic Manager)
+    * Deploying to more than one region
+    * Using automatic failover but manual failback
+    * Redundancy for traffic manager
+
+    Determine whether redundancy has been built into the solution. Are there single points of failures in the solution? Could the solution be impacted by a failure of an Azure region? If so, would the requirements warrant the need for a geo-distributed application?    
     
     > [https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/redundancy](https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/redundancy)
 
 * **Do you have any dependencies on resources that are external to your solution? (e.g. third party, such as payment providers or e-mail messaging). How are you protected against that third party service from failing?**
 
-    Determine if there are dependencies on third parties that could cause a failure of the solution itself. (Be careful, as these could be upstream or downstream dependencies).<br><br>If so, how can this be mitigated? Are there agreements or SLAs in place? What are the escalation paths?    
-    
-    >   
+    Determine if there are dependencies on third parties that could cause a failure of the solution itself. (Be careful, as these could be upstream or downstream dependencies). If so, how can this be mitigated? Are there agreements or SLAs in place? What are the escalation paths?    
 
 * **DevTest on IaaS - Have you placed your virtual machines into an availability set?**
 
@@ -91,7 +103,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 * **DevTest on IaaS  – Do you know about the difference between unmanaged and managed disks? Have you leveraged Azure Managed disks?**
 
-    Determine whether the level of IOPS / throughput have been safeguarded to  VM disks.<br><br>If using unmanaged disks, the placement of disks across storage accounts must be considered to maintain performance and resilience.    
+    Determine whether the level of IOPS / throughput have been safeguarded to  VM disks. If using unmanaged disks, the placement of disks across storage accounts must be considered to maintain performance and resilience.    
     
     > [https://docs.microsoft.com/en-gb/azure/storage/storage-managed-disks-overview](https://docs.microsoft.com/en-gb/azure/storage/storage-managed-disks-overview)
 
@@ -104,15 +116,15 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 ## Monitoring & Management    
 
-* **Do you require an environment that allows you to empower your developers and testers, but also allows IT to control Governance and Cost?<br><br>If so, are you using / planning to use DevTest labs?**
+* **Do you require an environment that allows you to empower your developers and testers, but also allows IT to control Governance and Cost? If so, are you using / planning to use DevTest labs?**
 
-    Azure DevTest Labs is a service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost.<br><br> A customer can test the latest version of your application by quickly provisioning Windows and Linux environments using reusable templates and artifacts.    
+    Azure DevTest Labs is a service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost. A customer can test the latest version of your application by quickly provisioning Windows and Linux environments using reusable templates and artifacts.    
     
     > [https://docs.microsoft.com/en-au/azure/devtest-lab/devtest-lab-overview](https://docs.microsoft.com/en-au/azure/devtest-lab/devtest-lab-overview)
 
 * **Are you monitoring for cost within your DevTest environment?**
 
-    Determine whether there has been any consideration to cost, ahead of a run state of a DevTest environment. <br><br> Who is accountable for managing and maintaining this? At what point does that individual take action if this cost is too high? Is this clearly defined, so that developers and testers are aware of the parameters in which they should operate?    
+    Determine whether there has been any consideration to cost, ahead of a run state of a DevTest environment. Who is accountable for managing and maintaining this? At what point does that individual take action if this cost is too high? Is this clearly defined, so that developers and testers are aware of the parameters in which they should operate?    
     
     > [https://docs.microsoft.com/en-au/azure/devtest-lab/devtest-lab-configure-cost-management](https://docs.microsoft.com/en-au/azure/devtest-lab/devtest-lab-configure-cost-management)
     > 
@@ -120,7 +132,9 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 * **Have you implemented a mechanism/policy to control cost, and turn off resources when they are not required?**
 
-    Determine if auto-start up / auto-shutdown hsa been implemented to ensure resources are used only when required.<br><br>DevTest labs provides native functionality to control this for Virtual Machines. If there is a need to manage  costs for PaaS resources, Azure Automation and Run books may need to be considered. (For example, changing the SKU of resource type to a lower level, when not required)    
+    Determine if auto-start up / auto-shutdown hsa been implemented to ensure resources are used only when required.
+    
+    DevTest labs provides native functionality to control this for Virtual Machines. If there is a need to manage  costs for PaaS resources, Azure Automation and Run books may need to be considered. (For example, changing the SKU of resource type to a lower level, when not required)    
     
     > [https://docs.microsoft.com/en-au/azure/devtest-lab/devtest-lab-set-lab-policy](https://docs.microsoft.com/en-au/azure/devtest-lab/devtest-lab-set-lab-policy)
     > 
@@ -128,20 +142,20 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 * **Do you have a single pane of glass view of the health of your application?**
 
-    Understand whether there is a clear view into the application. &nbsp; How soon would there be awareness of an issue after it occurs? Is infrastructure monitoring only being performed, meaning that application level events may not be discovered? <br><br> Or, is there a single monitoring dashboard which covers both application and infrastructure monitoring?    
+    Understand whether there is a clear view into the application. &nbsp; How soon would there be awareness of an issue after it occurs? Is infrastructure monitoring only being performed, meaning that application level events may not be discovered? Or, is there a single monitoring dashboard which covers both application and infrastructure monitoring?    
     
     > [https://www.visualstudio.com/learn/what-is-monitoring/](https://www.visualstudio.com/learn/what-is-monitoring/)
 
 * **Have you considered how to make insight easier for your operations team?**
 
-  * Make all actions observable, so you can trace through your system (e.g. correlation ID)
-  * Instrument for monitoring
-  * Instrument for root cause analysis
-  * Use distributed tracing
-  * Standardise logs and metrics
-  * Automate management tasks
+    * Make all actions observable, so you can trace through your system (e.g. correlation ID)
+    * Instrument for monitoring
+    * Instrument for root cause analysis
+    * Use distributed tracing
+    * Standardise logs and metrics
+    * Automate management tasks
 
-  Understand whether there is a clear view into the application. &nbsp; Can the lines of offending code be identified when an issue occurs, and can this be remediated quickly? Or would a search through logs need to take place, potentially joining a number of pieces of application telemetry to understand the problem?    
+    Understand whether there is a clear view into the application. &nbsp; Can the lines of offending code be identified when an issue occurs, and can this be remediated quickly? Or would a search through logs need to take place, potentially joining a number of pieces of application telemetry to understand the problem?    
     
     > [https://docs.microsoft.com/en-gb/azure/application-insights/app-insights-overview](https://docs.microsoft.com/en-gb/azure/application-insights/app-insights-overview)
     > 
@@ -149,7 +163,10 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 * **Are you aware of the Health Endpoint Monitoring pattern? Have you implemented this in your solution?**
 
-    Implement health monitoring by sending requests to an endpoint on the application. The application should perform the necessary checks, and return an indication of its status. <br><br>A health monitoring check typically combines two factors: <ul><li>The checks (if any) performed by the application or service in response to the request to the health verification endpoint.  </li><li>Analysis of the results by the tool or framework that performs the health verification check. </li></ul>    
+    Implement health monitoring by sending requests to an endpoint on the application. The application should perform the necessary checks, and return an indication of its status. A health monitoring check typically combines two factors: 
+    
+    * The checks (if any) performed by the application or service in response to the request to the health verification endpoint.     
+    * Analysis of the results by the tool or framework that performs the health verification check. 
     
     > [https://docs.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-monitoring](https://docs.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-monitoring)
 
@@ -169,7 +186,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
     
     > [https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops)
 
-* **Which types of tests are you running? <ul><li>Unit</li><li>Integration</li></ul><br><br>Do you know how much code coverage you have from your tests? How do you ensure that your level of coverage is appropriate?**
+* **Which types of tests are you running?Unit? Integration? Do you know how much code coverage you have from your tests? How do you ensure that your level of coverage is appropriate?**
 
     Software testing is like insurance. Creating tests is buying coverage against risks. Redundant tests, flaky tests or running tests unnecessarily is paying too much in premiums for the coverage you get. But it is hard to keep track of what you spend on a large software project. Using historical data about executing tests, we can derive expected cost and benefit of each test execution and make decisions for whether the price is worth it. Even a simple cost model can be very effective and save us money and time in testing.    
     
@@ -181,7 +198,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
     > 
     > [https://www.visualstudio.com/learn/getting-noise-test-runs/](https://www.visualstudio.com/learn/getting-noise-test-runs/)
 
-* **How often are you load/performance testing your application?<br><br>Are you at least performance testing before a major production release? Are these tests being ran at a level of scale that is on part with expected load in production, AND future growth?**
+* **How often are you load/performance testing your application? Are you at least performance testing before a major production release? Are these tests being ran at a level of scale that is on part with expected load in production, AND future growth?**
 
     The impact of a serious performance issue can be just as severe as a bug in the code. While automated functional tests can prevent application bugs, they might not detect performance problems. Define acceptable performance goals for metrics like latency, load times, and resource usage. Include automated performance tests in your release pipeline, to make sure the application meets those goals. &nbsp; An application might work fine under test conditions, and then have problems in production due to scale or resource limitations. Always define the maximum expected capacity and usage limits. Test to make sure the application can handle those limits, but also test what happens when those limits are exceeded. Capacity testing should be performed at regular intervals. &nbsp; After the initial release, you should run performance and capacity tests whenever updates are made to production code. Use historical data to fine tune tests and to determine what types of tests need to be performed.    
     
@@ -207,9 +224,14 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
     Identify whether you understand how the solution itself will scale, and whether the solution is setup in such a way that components can scale up as needed. Also determine whether the scaling approach is overcomplicated for the solution at hand.   
 
-* **Are you aware of the scalability checklist? Some thoughts include<ul><li>Have you considered a share-nothing architecture?</li><li>Have you evaluated the chatiness vs size of requests in your solution?</li><li>Have you offloaded CPU/IO tasks?</li><li>Are you using Async calls?</li></ul>**
+* **Are you aware of the scalability checklist? Some thoughts include**
 
-    Scalability is an important aspect in cloud. <br><br>Understand whether you have considered scalability as part of the solution, or whether the expectation is that this is a feature of the cloud.    
+    * Have you considered a share-nothing architecture?
+    * Have you evaluated the chatiness vs size of requests in your solution?
+    * Have you offloaded CPU/IO tasks?
+    * Are you using Async calls?
+
+    Scalability is an important aspect in cloud. Understand whether you have considered scalability as part of the solution, or whether the expectation is that this is a feature of the cloud.    
     
     > [Scalability Checklist](https://docs.microsoft.com/en-us/azure/best-practices-scalability-checklist)
     > 
@@ -241,23 +263,35 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 * **Are you using a dataset in DevTest that is representative of production, but does not contain customer-sensitive data? &nbsp; Or is your dataset not representative of production data?**
 
-    Is testing taking place in the production environment with real production data? If this is the case, be aware of the risk that developers or testers may have access to sensitive data, which could leak.<br><br>Also determine whether tests are being performed against non-repreentative data. If this is the case, are there scenarios that could arise in production that had not been thoroughly tested due to the dummy data?   
+    Is testing taking place in the production environment with real production data? If this is the case, be aware of the risk that developers or testers may have access to sensitive data, which could leak.
+    
+    Also determine whether tests are being performed against non-repreentative data. If this is the case, are there scenarios that could arise in production that had not been thoroughly tested due to the dummy data?   
 
 * **Consider the development pipeline - Is code being reviewed to to ensure that there is no malicious code?**
 
-    Determine whether code is being used from a third party, e.g. a vendor or third party package.<br><br>Has the code been reviewed prior to it being released onto production servers? Could there be any malicious content, e.g. capturing user data.<br><br>While this question focuses on third parties, this could also be the case if there was a rogue developer inside the organisation.  
+    Determine whether code is being used from a third party, e.g. a vendor or third party package.
+    
+    Has the code been reviewed prior to it being released onto production servers? Could there be any malicious content, e.g. capturing user data.
+    
+    While this question focuses on third parties, this could also be the case if there was a rogue developer inside the organisation.  
 
 * **Consider the development pipline - What steps are being taken to ensure that secrets are not being stored in source control?**
 
-    Determine whether any passwords, connection strings or additional secrets are being stored in source control.<br><br>If there are, developers or testers may have access to production values. If a developer goes rogue, or you get a disgruntled employee leaving the organisation, this could pose a risk. This would also be a risk if you open sourced code, or code leaked.    
+    Determine whether any passwords, connection strings or additional secrets are being stored in source control.
+    
+    If there are, developers or testers may have access to production values. If a developer goes rogue, or you get a disgruntled employee leaving the organisation, this could pose a risk. This would also be a risk if you open sourced code, or code leaked.    
 
 * **How are you securing your source control? Are there third party users or vendors who may have access to the underlying code, and could potentially exploit this?**
 
-    Determine whether access to source control is secure, as well as the overall delivery pipeline the leads to production. <br><br>If not, could a third party, or even internal audience, be injecting some kind of malicious tasks into the delivery pipeline to production and could cause a compromise?   
+    Determine whether access to source control is secure, as well as the overall delivery pipeline the leads to production. 
+    
+    If not, could a third party, or even internal audience, be injecting some kind of malicious tasks into the delivery pipeline to production and could cause a compromise?   
 
 * **Have you considered security when you were building your DevOps pipeline? What have you specifically built in to achieve a Secure DevOps workflow?**
 
-    Determine whether access to source control is secure, as well as the overall delivery pipeline the leads to production. <br><br>If not, could a third party, or even internal audience, be injecting some kind of malicious tasks into the delivery pipeline to production and could cause a compromise?    
+    Determine whether access to source control is secure, as well as the overall delivery pipeline the leads to production. 
+    
+    If not, could a third party, or even internal audience, be injecting some kind of malicious tasks into the delivery pipeline to production and could cause a compromise?    
     
     > [https://www.microsoft.com/itshowcase/Article/Content/919/Building-cloud-apps-using-the-Secure-DevOps-Kit-for-Azure](https://www.microsoft.com/itshowcase/Article/Content/919/Building-cloud-apps-using-the-Secure-DevOps-Kit-for-Azure)
     > 
@@ -265,7 +299,9 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 * **Within your solution, have you built your own identity provider? Or have you leveraged an existing identity provider, e.g. Azure AD and leveraged their authentication (e.g. Oauth)**
 
-    Determine if passwords or secrets are being stored in a database (potentially with just a hash).<br><br> A commonly noted bad practice is storing MD5 password hashes, which is not a safe mechanism. Identify whether there is an opportunity to use an identity provider (such as Azure Active Directory, or Azure Active Directory B2C), so that the risk of managing identity in-house is mitigated. 
+    Determine if passwords or secrets are being stored in a database (potentially with just a hash).
+    
+    A commonly noted bad practice is storing MD5 password hashes, which is not a safe mechanism. Identify whether there is an opportunity to use an identity provider (such as Azure Active Directory, or Azure Active Directory B2C), so that the risk of managing identity in-house is mitigated. 
 
 * **Are you applying the same security practices or measures to your development and test environments as your production environments?**
 

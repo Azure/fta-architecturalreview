@@ -61,7 +61,7 @@
     >
     > [https://docs.microsoft.com/en-us/azure/architecture/patterns/sharding](https://docs.microsoft.com/en-us/azure/architecture/patterns/sharding)
 
-* **Do you use readable secondaries?<br> Have you considered how you might make use of them?**
+* **Do you use readable secondaries? Have you considered how you might make use of them?**
 
     Determine whether this has been considered as part of the wider solution. This will lead the conversation to High Aailability, and also the load balancing of read activity at the database layer.    
     
@@ -79,7 +79,14 @@
 
 * **Are you running your SQL tier on Azure IaaS? What is your planned approach to High Availability or Disaster Recovery?**
 
-    Determine the High Availability vs Disaster Recovery strategy. Common options include <br><br>**High Availability**<ul><li> Always on Availability Groups</li><li>Fail-Over Clustering</li></ul>**Disaster Recovery (Azure Only)**<ul><li>Availability Groups</li><li>Backup and Restore with Azure Blob</li><li>Transaction Log Shipping </li></ul>    
+    Determine the High Availability vs Disaster Recovery strategy. Common options include 
+    * **High Availability**
+      * Always on Availability Groups
+      * Fail-Over Clustering
+    * **Disaster Recovery (Azure Only)**
+      * Availability Groups
+      * Backup and Restore with Azure Blob
+      * Transaction Log Shipping
     
     > [https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr)
     >
@@ -131,7 +138,9 @@
 
 * **What solutions do your DBAs use to manage the data estate?**
 
-    Determine whether there is a reliance on a DBA using RDP onto the servers.<br><br>Determine if there is a more appropriate approach to managing the fleet driving the data layer.    
+    Determine whether there is a reliance on a DBA using RDP onto the servers.
+    
+    Determine if there is a more appropriate approach to managing the fleet driving the data layer.    
 
 * **How do you determine the current patch level across the estate?**
 
@@ -159,7 +168,9 @@
 
 * **Azure SQL Server on IaaS – Do you know about the difference between unmanaged and managed disks? Have you leveraged Azure Managed disks?**
 
-    Determine whether level of IOPS / throughput have been safeguarded to  VM disks.<br><br>If using unmanaged disks, the placement of disks across storage accounts must be considered to maintain performance and resilience.    
+    Determine whether level of IOPS / throughput have been safeguarded to  VM disks.
+    
+    If using unmanaged disks, the placement of disks across storage accounts must be considered to maintain performance and resilience.    
     
     > [https://docs.microsoft.com/en-gb/azure/storage/storage-managed-disks-overview](https://docs.microsoft.com/en-gb/azure/storage/storage-managed-disks-overview)
 

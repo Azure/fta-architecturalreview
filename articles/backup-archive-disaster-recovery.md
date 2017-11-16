@@ -23,7 +23,7 @@
     
     > [https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-support-matrix-to-azure#support-for-replicated-machine-os-versions](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-support-matrix-to-azure#support-for-replicated-machine-os-versions)
 
-* **What types of workloads are you looking to backup?<br><br>Do those workloads need to be filesystem or application consistent?**
+* **What types of workloads are you looking to backup? Do those workloads need to be filesystem or application consistent?**
 
     Depending on Filesystem or Application consistency, that will dictate the backup solution to leverage (Azure Backup Agent, Azure Backup Server, or Azure Backup for IaaS).    
     
@@ -81,7 +81,9 @@
 
 * **Do you have a current Xen Infrastructure for which you want to provide a DR capability?**
 
-    Understand that Azure Site Recovery can provide an option to protect Xendesktop Infrastructure.<br><br>See further details in the associated Citrix whitepaper.    
+    Understand that Azure Site Recovery can provide an option to protect Xendesktop Infrastructure.
+    
+    See further details in the associated Citrix whitepaper.    
     
     > [https://www.citrix.com/content/dam/citrix/en_us/documents/white-paper/xenapp-and-xendesktop-using-microsoft-azure-site-recovery.pdf](https://www.citrix.com/content/dam/citrix/en_us/documents/white-paper/xenapp-and-xendesktop-using-microsoft-azure-site-recovery.pdf)
 
@@ -109,7 +111,7 @@
 
 ## Security   
 
-* **What are your requirements for encryption?<br><br>Is there a requirement for customer-managed keys vs. Microsoft-managed keys?**
+* **What are your requirements for encryption? Is there a requirement for customer-managed keys vs. Microsoft-managed keys?**
 
     Determine whether the extra management overhead and complexity is required for customer-managed keys, or whether Microsoft-managed keys would be suitable.    
     
