@@ -2,53 +2,87 @@
 
 - [FastTrack for Azure Architectural Discussion Framework](#fasttrack-for-azure-architectural-discussion-framework)
   * [Introduction](#introduction)
-  * [Gain an understanding into the purpose of the solution](#gain-an-understanding-into-the-purpose-of-the-solution)
-  * [Decompose the overall architecture](#decompose-the-overall-architecture)
-    + [Whiteboarding Section](#use-a-whiteboard-to-map-out-)
-    + [Determine solution specific architectural questions](#once-you-have-a-clear-view-of-your-architecture--determine-the-answer-to-the-following-questions-)
+  * [Rules of Engagement](#rules-of-engagement)
+    + [Focus on](#focus-on)
+    + [Avoid](#avoid)
+    + [Steps](#steps)
+    + [Engagement Output](#engagement-output)
   * [Review the appropriate sections for your solution](#review-the-appropriate-sections-for-your-solution-)
   * [References](#references)
 
 ## Introduction
-This guide supports discussion duringFast Track for Azure Architectural Guidance sessions. Questions stem from recommended patterns and practices, and link back to technical documentation on Azure.com.
+This guide supports discussion during FastTrack for Azure Architectural Guidance/Review sessions. Questions stem from recommended patterns and practices, and link back to technical documentation on Azure.com.
 
-## Gain an understanding into the purpose of the solution
+## Rules of Engagement
+### Keep in mind the FastTrack charter
+* We need customers to be knowledgeable, and feel confident and supported in building (and betting) their businesses on Azure
+* Generic cloud concerns - it is up to the IT Directors and/or Dev/Ops leaders to come up with the game plan to move from on-premises to the cloud. Concerns around security, integration, reliability, compliance and other areas, need to be addressed before any broad scale deployments take shape
+* Take a solution centric approach
 
-* What is the purpose of the solution from a business perspective? What does it do? Why is it needed?
-* What is the origin of the solution? Is it a Lift and Shift, refactored for the cloud, or born in the cloud application?
-* What are the availability, uptime and business continuity requirements for the solution?
-* Why is an architectural review required? Has there been a recent outage, or is this proactive architectural planning?
-* How many users (total and concurrently active will use the solution? How are they geographically distributed?
-* How many operations/messages per second must the solution handle? Is there any seasonality to usage of the solution?
-* Who designed the solution originally? In-house design, third party?
-* Are there any internal policies, legal, or compliance considerations to note as part of your architectural design?
+### Focus on
+* Business requirements, Goals, and Objectives
+  * Non Functional Requirements
+    * SLAs / RTO / RPO / Cost of down time
+    * Availability, uptime, business continuity, geographic (single vs. multi-region)
+  * Purpose of the solution, what does it do? Why is it needed?
+  * Why is an architectural review required? Has there been a recent outage, or is this proactive architectural planning?
+  * Total number of users (total and concurrently active) and geographical distributed
+  * Internal policies, legal, or compliance considerations
+* High level technical design
+  * What are the major components
+    * Internal to the solution and 3rd party
+  * Dependency map
+    * Across components and 3rd party services
+* Strategic dicussion
+* Publicly documented recommended practices and design principles
+* Work top down - start high level and make your way down to the technical details
 
-## Decompose the overall architecture
+### Avoid
+* Low level technical requirements (don’t go into the weeds)
+* Tactical discussion
+  * Stay high level, and do not get distracted by deep amounts of detail. Remain focused on the priorities which the customer has defined. (be aware of tips and tricks, e.g. parking lot)
+  * Red Flag: If there are customer-initiated questions that go into detailed design questions, is there an engagement that could help them?
+* Deep design or specific configuration points
+* Ambiguity - make no assumptions. If the customer answers in a vague way, ask them to confirm what they mean
 
-### Use a whiteboard to map out:
+### Steps
+* Step 1 - Define Goals & Objectives
+What is the vision for the end state
+  * Focus is on creating clear definitions of the problem/goals and understanding the high level approach to solving the problem
+  * Ensure a common vision and reach consensus among the team members
 
-* The major components of the solution architecture.
-* Note down dependencies for these major components (These can be subtle. For example, dependencies relating to security or identity such as Active Directory for Infrastructure as a Service (IaaS) solutions or third-party services such as a payment provider or e-mail messaging service.
-* Detemrine how  dependencies across components and third party services are tied together. For example, E.g. vNet Peering, Express Route, VPN Connections, API calls over public Internet, Loose Coupling.  You don't care so much about the configuration of those resources, e.g. SKU, cost, etc.
-* Annotate all components with
-	* SLA requirements
-	* Geographical locations (Single region / multi-region)
-	* Recovery Time Objective (RTO)
-	* Recovery Point Objective (RPO)
-* Annotate resource and define whether there is some kind of health metric associated. Also determine how this is monitored, for example Application level monitoring, Infrastructure level Monitoring or monitoring of the business processes.
+* Step 2 - Identify Business Goals (Non-Functional Requirements)
+Vision for the end state driven by:
+  * High level requirements, business goals
+    * Reduce TCO (hardware, reliability, etc)
+    * Maximize ROI
+  * Design goals
+    * High availability and reliability (improve SLA), robust security, high performance and scalability, consolidation of servers, single points of failure/transient faults, health, etc
+  * Scope
+  ** A common way of gathering and analyzing information is through developing use-cases and building usage scenarios to document the business processes and user requirements. While use cases describe the high level interactions between an individual and the system, usage scenarios provide additional information about the activities and task sequences that constitute a process
 
-### Once you have a clear view of your architecture, determine the answer to the following questions:
+* Step 3 - High-Level Techical Design (dependency map)
+  * Solution concept
+    * Outlines the high level approach the team will take for all components of the system (includes a high level solution design strategy)
+    * Includes assessment of technologies (the solution concept focuses on the concepts and not the details)
+    * Factors to consider – business needs, technical feasibility, time/budget
 
-* Is there a single point of failure in any of the components?
-* How does the solution scale? How is extra capacity added, and in which situations would this be required? 
-* How do transient faults in each component affect the health of the overall solution (including internal or 3rd party dependencies)?
-* How do you determine the health of a tier / set of resources?
-* Are there any upstream/downstream dependencies of this solution to other customer or 3rd party solutions?
-* Additionally, are there workloads within the solution with different RPO/RTO targets?
-	* RPO (recovery point objective â€“ how much data can be lost during a failure)
-	* RTO (recovery time objective how long can the system take to recover from a failure) targets?
-* How big are the largest databases of the solution? Have you considered the annual growth rate?
-* What is the  strategy to OS level updates and application updates?
+* Step 4 - Solution Specific Questions
+Assess architecture proposed by customer
+  * Application (migration (lift/shift), modernization, etc)
+    * Does the app interoperate with other apps/systems - where are they located
+  * Database (migration)
+    * What specialized features are used
+    * Shared by multiple apps
+  * Infrastructure
+    * Compute, storage, network and connectivity, identity
+    * What are the 'abilities' needed? Availability, scalability, manageability, security
+  * Users - who are they and how will they consume the service
+
+### Engagement Output
+Stay high level, and do not get distracted by deep amounts of detail. Remain focused on the priorities which the customer has defined
+* Refer the customer to public available documentation, and guide the customer as appropriate. Do not provide customised reports, or deeps amount of detail relating to specific configurations of their solution
+* Advise the customer on matters relating to the deployment / migration. For example, has the customer load tested? If so, is this in relation to their current level of expected load? If yes, does this also take into account the business’ future plans for growth?
 
 ## Review the appropriate sections for your solution:
 
