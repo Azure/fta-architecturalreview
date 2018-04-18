@@ -11,7 +11,7 @@
   * [Customer Examples](#customer-examples)
 
 ## DevOps Self-Assessment Tool 
-Are you aware of the DevOps Self-Assessment tool? If not, this may be a great place to start to baseline your DevOps practices! [https://www.devopsassessment.net/][1]
+Are you aware of the DevOps Self-Assessment tool? If not, this may be a great place to start to baseline your DevOps practices! [DevOps Self-Assessment](https://www.devopsassessment.net/)
 
 ## App & Data Migration    
 
@@ -19,7 +19,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
     Determine whether the solution is being manually deployed to Azure (which is error-prone, and time consuming). Or, whether some form of tooling (e.g. Jenkins, VSTS) is being used to deploy either in a Continous Integration (CI), daily build or gated check-in approach. &nbsp; Automate deploying the application to test, staging, and production environments. Automation enables faster and more reliable deployments, and ensures consistent deployments to any supported environment. It removes the risk of human error caused by manual deployments. It also makes it easy to schedule releases for convenient times, to minimize any effects of potential downtime.    
     
-    > [https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops#release](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops#release)
+    > [DevOps Checklist: Release](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops#release)
 
 * **If you have designed a build pipeline - How have you configured your builds to trigger?**
 
@@ -32,17 +32,17 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
     If a pipeline has been established, could this be triggering too many builds or triggering off a build of a branch that does not represent a &#39;shippable version of the solution? For CI - Consider adopting a trunk based development model. In this model, developers commit to a single branch (the trunk). There is a requirement that commits never break the build. This model facilitates CI, because all feature work is done in the trunk, and any merge conflicts are resolved when the commit happens.    
     
-    > [https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops)
+    > [DevOps Checklist](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops)
 
 * **Are you using Infrastructure as Code to automate the deployment of your Azure environment? Are you aware of Azure Resource Manager templates? Have you used them to deploy your DevTest solution?**
 
     Determine whether there is an approach to automating the deployment of their environment, so that multiple environments (Dev/Test/Prod) can be implemented easily.    
     
-    > [https://www.visualstudio.com/learn/what-is-infrastructure-as-code/](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/)
+    > [What is Infrastructure as Code?](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/)
     >
-    > [https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment)
+    > [Resource Manager template deployment](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment)
     >
-    > [https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template)
+    > [Create and deploy your first Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template)
 
 * **Are you aware of the Azure Resource Manager template best practices? Have you designed your Azure Resource Manager templates with these in mind?**
 
@@ -50,9 +50,9 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
     
     There are a number of other practices that are recommended. These can be reviewed in those articls linked in the associated documentation.    
     
-    > [https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-template-best-practices](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-template-best-practices)
+    > [Understand the structure and syntax of Resource Manager templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-template-best-practices)
     >
-    > [https://docs.microsoft.com/en-us/azure/azure-resource-manager/best-practices-resource-manager-design-templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/best-practices-resource-manager-design-templates)
+    > [Design patterns for Resource Manager templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/best-practices-resource-manager-design-templates)
 
 * **In addition to defining the Azure resources required for your solution (e.g. Azure Resource Manager template), how are you configuring the system / components on the box? (e.g. Manual, DSC, Chef, Puppet)**
 
@@ -68,9 +68,9 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
     If components are tightly coupled, then this would mean that there is a risk of components being brought down by other components (up-stream or downstream dependencies).    
     
-    > [https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling](https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)
+    > [Queue-Based Load Leveling Pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)
     >
-    > [https://docs.microsoft.com/en-us/azure/architecture/patterns/retry](https://docs.microsoft.com/en-us/azure/architecture/patterns/retry)
+    > [Retry Pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/retry)
 
 ## High Availability and Business Continuity / Disaster Recovery    
 
@@ -89,7 +89,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
     Determine whether redundancy has been built into the solution. Are there single points of failures in the solution? Could the solution be impacted by a failure of an Azure region? If so, would the requirements warrant the need for a geo-distributed application?    
     
-    > [https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/redundancy](https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/redundancy)
+    > [Design principal: Make all things redundant](https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/redundancy)
 
 * **Do you have any dependencies on resources that are external to your solution? (e.g. third party, such as payment providers or e-mail messaging). How are you protected against that third party service from failing?**
 
@@ -99,13 +99,13 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
     To provide redundancy to your application, it is recommended that you group two or more virtual machines in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meets the 99.95% Azure SLA.    
     
-    > [https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability)
+    > [Manage the availability of Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability)
 
 * **DevTest on IaaS  – Do you know about the difference between unmanaged and managed disks? Have you leveraged Azure Managed disks?**
 
     Determine whether the level of IOPS / throughput have been safeguarded to  VM disks. If using unmanaged disks, the placement of disks across storage accounts must be considered to maintain performance and resilience.    
     
-    > [https://docs.microsoft.com/en-gb/azure/storage/storage-managed-disks-overview](https://docs.microsoft.com/en-gb/azure/storage/storage-managed-disks-overview)
+    > [Azure Managed Disks overview](https://docs.microsoft.com/en-gb/azure/storage/storage-managed-disks-overview)
 
 * **Have you deployed your environment in a way that is fully representative of production?**
 
@@ -120,15 +120,15 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
     Azure DevTest Labs is a service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost. A customer can test the latest version of your application by quickly provisioning Windows and Linux environments using reusable templates and artifacts.    
     
-    > [https://docs.microsoft.com/en-au/azure/devtest-lab/devtest-lab-overview](https://docs.microsoft.com/en-au/azure/devtest-lab/devtest-lab-overview)
+    > [About Azure DevTest Labs](https://docs.microsoft.com/en-au/azure/devtest-lab/devtest-lab-overview)
 
 * **Are you monitoring for cost within your DevTest environment?**
 
     Determine whether there has been any consideration to cost, ahead of a run state of a DevTest environment. Who is accountable for managing and maintaining this? At what point does that individual take action if this cost is too high? Is this clearly defined, so that developers and testers are aware of the parameters in which they should operate?    
     
-    > [https://docs.microsoft.com/en-au/azure/devtest-lab/devtest-lab-configure-cost-management](https://docs.microsoft.com/en-au/azure/devtest-lab/devtest-lab-configure-cost-management)
+    > [View the monthly estimated lab cost trend in Azure DevTest Labs](https://docs.microsoft.com/en-au/azure/devtest-lab/devtest-lab-configure-cost-management)
     > 
-    > [https://azure.microsoft.com/en-au/blog/new-power-bi-content-pack-for-azure-enterprise-users/](https://azure.microsoft.com/en-au/blog/new-power-bi-content-pack-for-azure-enterprise-users/)
+    > [New Power BI content pack for Azure Enterprise users](https://azure.microsoft.com/en-au/blog/new-power-bi-content-pack-for-azure-enterprise-users/)
 
 * **Have you implemented a mechanism/policy to control cost, and turn off resources when they are not required?**
 
@@ -136,15 +136,15 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
     
     DevTest labs provides native functionality to control this for Virtual Machines. If there is a need to manage  costs for PaaS resources, Azure Automation and Run books may need to be considered. (For example, changing the SKU of resource type to a lower level, when not required)    
     
-    > [https://docs.microsoft.com/en-au/azure/devtest-lab/devtest-lab-set-lab-policy](https://docs.microsoft.com/en-au/azure/devtest-lab/devtest-lab-set-lab-policy)
+    > [Manage all policies for a lab in Azure DevTest Labs](https://docs.microsoft.com/en-au/azure/devtest-lab/devtest-lab-set-lab-policy)
     > 
-    > [https://docs.microsoft.com/en-us/azure/automation/automation-runbook-gallery](https://docs.microsoft.com/en-us/azure/automation/automation-runbook-gallery)
+    > [Runbook and module galleries for Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-runbook-gallery)
 
 * **Do you have a single pane of glass view of the health of your application?**
 
     Understand whether there is a clear view into the application. &nbsp; How soon would there be awareness of an issue after it occurs? Is infrastructure monitoring only being performed, meaning that application level events may not be discovered? Or, is there a single monitoring dashboard which covers both application and infrastructure monitoring?    
     
-    > [https://www.visualstudio.com/learn/what-is-monitoring/](https://www.visualstudio.com/learn/what-is-monitoring/)
+    > [What is Monitoring?](https://www.visualstudio.com/learn/what-is-monitoring/)
 
 * **Have you considered how to make insight easier for your operations team?**
 
@@ -157,9 +157,9 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
     Understand whether there is a clear view into the application. &nbsp; Can the lines of offending code be identified when an issue occurs, and can this be remediated quickly? Or would a search through logs need to take place, potentially joining a number of pieces of application telemetry to understand the problem?    
     
-    > [https://docs.microsoft.com/en-gb/azure/application-insights/app-insights-overview](https://docs.microsoft.com/en-gb/azure/application-insights/app-insights-overview)
+    > [What is Application Insights?](https://docs.microsoft.com/en-gb/azure/application-insights/app-insights-overview)
     > 
-    > [https://docs.microsoft.com/en-gb/azure/application-insights/app-insights-detect-triage-diagnose](https://docs.microsoft.com/en-gb/azure/application-insights/app-insights-detect-triage-diagnose)
+    > [Overview of Application Insights for DevOps](https://docs.microsoft.com/en-gb/azure/application-insights/app-insights-detect-triage-diagnose)
 
 * **Are you aware of the Health Endpoint Monitoring pattern? Have you implemented this in your solution?**
 
@@ -168,7 +168,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
     * The checks (if any) performed by the application or service in response to the request to the health verification endpoint.     
     * Analysis of the results by the tool or framework that performs the health verification check. 
     
-    > [https://docs.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-monitoring](https://docs.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-monitoring)
+    > [Health Endpoint Monitoring Pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-monitoring)
 
 * **Facilitate hypothesis based development**
 
@@ -184,25 +184,25 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
     Manually testing software is tedious and susceptible to error. Automate common testing tasks and integrate the tests into your build processes. Automated testing ensures consistent test coverage and reproducibility. Integrated UI tests should also be performed by an automated tool.    
     
-    > [https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops)
+    > [DevOps checklist](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops)
 
 * **Which types of tests are you running?Unit? Integration? Do you know how much code coverage you have from your tests? How do you ensure that your level of coverage is appropriate?**
 
     Software testing is like insurance. Creating tests is buying coverage against risks. Redundant tests, flaky tests or running tests unnecessarily is paying too much in premiums for the coverage you get. But it is hard to keep track of what you spend on a large software project. Using historical data about executing tests, we can derive expected cost and benefit of each test execution and make decisions for whether the price is worth it. Even a simple cost model can be very effective and save us money and time in testing.    
     
-    > [https://msdn.microsoft.com/en-us/library/ms182021(v=vs.100).aspx](https://msdn.microsoft.com/en-us/library/ms182021(v=vs.100).aspx)
+    > [Guidelines for checking in quality code](https://msdn.microsoft.com/en-us/library/ms182021(v=vs.100).aspx)
     > 
-    > [https://www.visualstudio.com/learn/software-testing-scale-increase-velocity/](https://www.visualstudio.com/learn/software-testing-scale-increase-velocity/)
+    > [Software testing at scale to increase velocity](https://www.visualstudio.com/learn/software-testing-scale-increase-velocity/)
     > 
-    > [https://www.visualstudio.com/learn/100-code-coverage-worth-cost/](https://www.visualstudio.com/learn/100-code-coverage-worth-cost/)
+    > [Is 100% code coverage worth the cost?](https://www.visualstudio.com/learn/100-code-coverage-worth-cost/)
     > 
-    > [https://www.visualstudio.com/learn/getting-noise-test-runs/](https://www.visualstudio.com/learn/getting-noise-test-runs/)
+    > [Getting the noise out of test runs](https://www.visualstudio.com/learn/getting-noise-test-runs/)
 
 * **How often are you load/performance testing your application? Are you at least performance testing before a major production release? Are these tests being ran at a level of scale that is on part with expected load in production, AND future growth?**
 
     The impact of a serious performance issue can be just as severe as a bug in the code. While automated functional tests can prevent application bugs, they might not detect performance problems. Define acceptable performance goals for metrics like latency, load times, and resource usage. Include automated performance tests in your release pipeline, to make sure the application meets those goals. &nbsp; An application might work fine under test conditions, and then have problems in production due to scale or resource limitations. Always define the maximum expected capacity and usage limits. Test to make sure the application can handle those limits, but also test what happens when those limits are exceeded. Capacity testing should be performed at regular intervals. &nbsp; After the initial release, you should run performance and capacity tests whenever updates are made to production code. Use historical data to fine tune tests and to determine what types of tests need to be performed.    
     
-    > [https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops)
+    > [DevOps checklist](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops)
     > 
     > [Load test your application by using Visual Studio Team Services](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-vso-load-test)
     > 
@@ -214,11 +214,11 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
     In a distributed environment, calls to remote resources and services can fail due to transient faults, such as slow network connections, timeouts, or the resources being overcommitted or temporarily unavailable. &nbsp; These faults can range in severity from a partial loss of connectivity to the complete failure of a service. In these situations it might be pointless for an application to continually retry an operation that is unlikely to succeed, and instead the application should quickly accept that the operation has failed and handle this failure accordingly.    
     
-    > [https://docs.microsoft.com/en-us/azure/architecture/checklist/availability#errors-and-failures](https://docs.microsoft.com/en-us/azure/architecture/checklist/availability#errors-and-failures)
+    > [Availability checklist: Errors and failures](https://docs.microsoft.com/en-us/azure/architecture/checklist/availability#errors-and-failures)
     > 
-    > [https://docs.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker](https://docs.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker)
+    > [Circuit Breaker pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker)
     > 
-    > [https://docs.microsoft.com/en-us/azure/architecture/patterns/retry](https://docs.microsoft.com/en-us/azure/architecture/patterns/retry)
+    > [Retry pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/retry)
 
 * **Walk through how your solution will scale. (i.e. How hard is it to scale the entire solution to the right level for each component)**
 
@@ -237,7 +237,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
     > 
     > [Task-based Asynchronous Pattern (TAP)](https://msdn.microsoft.com/library/hh873175.aspx)
     > 
-    > [https://docs.microsoft.com/en-us/azure/architecture/patterns/retry](https://docs.microsoft.com/en-us/azure/architecture/patterns/retry)
+    > [Retry pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/retry)
 
 * **Have you considered horizontal scaling, instead of vertical scaling?**
 
@@ -248,16 +248,16 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
     There are two main ways that an application can scale:  &nbsp; Vertical scaling, also called scaling up and down, means changing the capacity of a resource. For example, you could move an application to a larger VM size. Vertical scaling often requires making the system temporarily unavailable while it is being redeployed. Therefore, it is less common to automate vertical scaling. Horizontal scaling, also called scaling out and in, means means adding or removing instances of a resource. The application continues running without interruption as new resources are provisioned. When the provisioning process is complete, the solution is deployed on these additional resources. If demand drops, the additional resources can be shut down cleanly and deallocated.  &nbsp; Many cloud-based systems, including Microsoft Azure, support automatic horizontal scaling. The rest of this article focuses on horizontal scaling.    
     
-    > [https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/scale-out](https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/scale-out)
+    > [Design to scale out](https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/scale-out)
     > 
-    > [https://docs.microsoft.com/en-us/azure/architecture/best-practices/auto-scaling](https://docs.microsoft.com/en-us/azure/architecture/best-practices/auto-scaling)
+    > [Autoscaling](https://docs.microsoft.com/en-us/azure/architecture/best-practices/auto-scaling)
     
 
 * **Is there a large amount of static content on your website (e.g. images, videos)? Are you aware of the Static Content Hosting pattern, and have you implemented it in your solution?**
 
     In most cloud hosting environments it&#39;s possible to minimize the need for compute instances (for example, use a smaller instance or fewer instances), by locating some of an application’s resources and static pages in a storage service. The cost for cloud-hosted storage is typically much less than for compute instances.    
     
-    > [https://docs.microsoft.com/en-us/azure/architecture/patterns/static-content-hosting](https://docs.microsoft.com/en-us/azure/architecture/patterns/static-content-hosting)
+    > [Static Content Hosting Pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/static-content-hosting)
 
 ## Security    
 
@@ -293,9 +293,9 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
     
     If not, could a third party, or even internal audience, be injecting some kind of malicious tasks into the delivery pipeline to production and could cause a compromise?    
     
-    > [https://www.microsoft.com/itshowcase/Article/Content/919/Building-cloud-apps-using-the-Secure-DevOps-Kit-for-Azure](https://www.microsoft.com/itshowcase/Article/Content/919/Building-cloud-apps-using-the-Secure-DevOps-Kit-for-Azure)
+    > [Building cloud apps using the Secure DevOps Kit for Azure](https://www.microsoft.com/itshowcase/Article/Content/919/Building-cloud-apps-using-the-Secure-DevOps-Kit-for-Azure)
     > 
-    > [https://www.microsoft.com/itshowcase/Article/Content/769/DevOps-practices-for-cloud-security](https://www.microsoft.com/itshowcase/Article/Content/769/DevOps-practices-for-cloud-security)
+    > [DevOps practices for cloud security](https://www.microsoft.com/itshowcase/Article/Content/769/DevOps-practices-for-cloud-security)
 
 * **Within your solution, have you built your own identity provider? Or have you leveraged an existing identity provider, e.g. Azure AD and leveraged their authentication (e.g. Oauth)**
 
@@ -307,7 +307,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
     Reduce the attack surface by ensure all environments are secured. Ensure tests are carried out in a similar environment and that additional security measures in production will not break functionality.    
     
-    > [https://azure.microsoft.com/en-us/resources/videos/how-to-set-security-in-your-devtest-lab/](https://azure.microsoft.com/en-us/resources/videos/how-to-set-security-in-your-devtest-lab/)
+    > [How to set security in DevTest Labs](https://azure.microsoft.com/en-us/resources/videos/how-to-set-security-in-your-devtest-lab/)
 
 * **Are you sure that your dev and production environments are segregated?**
 
