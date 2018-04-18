@@ -101,7 +101,7 @@
 
     Azure Backup Server may be required to protect workloads on-premises 
 
-    > [Which Azure backup components should I use?](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use
+    > [Which Azure backup components should I use?](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use)
 
 ## Monitoring & Management   
 
@@ -144,7 +144,7 @@
     
     > [Back up and restore encrypted virtual machines with Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption)
     > 
-    > [Restore Key Vault key and secret for encrypted VMs using Azure Backup]    (https://docs.microsoft.com/en-us/azure/backup/backup-azure-restore-key-secret)
+    > [Restore Key Vault key and secret for encrypted VMs using Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-restore-key-secret)
     > 
     > [Storage Service Encryption using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/en-gb/azure/storage/common/storage-service-encryption-customer-managed-keys)
 
