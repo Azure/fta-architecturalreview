@@ -16,10 +16,9 @@
 
     This assessment will automatically inspect your on-premises environment, whether it is bare metal or already virtualized. After that, the tool will provide you with tailored guidance and recommendations for migrating your environment to Microsoft Azure. If you’re running Active Directory, SQL, or SharePoint this tool will make it easy for you to get started.    
     
-    > [https://azure.microsoft.com/en-us/downloads/vm-readiness-assessment/](https://azure.microsoft.com/en-us/downloads/vm-readiness-assessment/)
+    > [Azure Virtual Machine Readiness Assessment](https://azure.microsoft.com/en-us/downloads/vm-readiness-assessment/)
 
 ## Azure Design Principles with Lift and Shift   
-
 * **Have you considered your approach to governance and taxonomy in an Azure environment?**
 
     The goal is to determine the approach to governance in the Azure environment, facilitating business discussion to plan where the workloads will go and also separate Production from DevTest. This will also lead to a naming convention and planning for subscription placement. It also allows for a set of defined TAGS and implementation of policies once the solution has been moved.    
@@ -28,9 +27,9 @@
     > 
     >  [Azure Taxonomy](https://blogs.msdn.microsoft.com/cclayton/2011/06/07/standard-cloud-taxonomies-and-windows-azure/)
     >
-    > [https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags)
+    > [Use tags to organise your Azure resourcess](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags)
     >
-    > [https://azure.microsoft.com/en-us/updates/organize-your-azure-resources-with-tags/](https://azure.microsoft.com/en-us/updates/organize-your-azure-resources-with-tags/)
+    > [Organise your Azure resources with tags](https://azure.microsoft.com/en-us/updates/organize-your-azure-resources-with-tags/)
     > 
     > [Divide subscription based on Prod, Dev, Test or regions](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/)
     > 
@@ -49,7 +48,7 @@
 
     It is important to plan the vm size and storage appropriately, ensuring that performance is not compromised once the solution has been migrated to Azure. Plan on your storage. Will it be Standard or Premium storage? Understand the vm sizes and how they will support memory, processing, and the throttling of storage.    
     
-    > [https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes)
+    > [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes)
     > 
     > [Capacity Planning VMware Environments](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-deployment-planner)
     >
@@ -59,55 +58,53 @@
 
     The goal to understand the network capacity to transfer data and also to secure the application across tiers.    
     
-    > [https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/)
+    > [Hybrid networking Reference Architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/)
     > 
-    > [https://docs.microsoft.com/en-us/azure/architecture/](https://docs.microsoft.com/en-us/azure/architecture/)
+    > [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)
     > 
-    > [VNET Peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview)
+    > [vNET Peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview)
     > 
     > [Bandwidth Planning for replicating workloads to Azure](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-deployment-planner)
     > 
-    > [https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-capacity-planning-for-hyper-v-replication](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-capacity-planning-for-hyper-v-replication)
+    > [Whitepaper - Mesh and hub-and-spoke networks on Azure](https://azure.microsoft.com/en-us/resources/mesh-and-hub-spoke-networks-on-azure/en-us/)
+    >
+    > [Hyper-V Capacity planner tool for site recovery](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-capacity-planning-for-hyper-v-replication)
     > 
     > [Drive shipping workloads for low bandwidth](https://docs.microsoft.com/en-us/azure/storage/common/storage-import-export-service)
 
 ## App & Data Migration 
 
-* **What are the current set of dependencies that your current and legacy applications have?  Do you plan to extend your current authorization and authentication for applications or do you plan to create a hosting domain to insulate your internal Active Directory? &nbsp; &nbsp;**
+* **What are the current set of dependencies that your current and legacy applications have?  Do you plan to extend your current authorization and authentication for applications or do you plan to create a hosting domain to insulate your internal Active Directory>**
 
     The goal is to understand whether there is an on-premises environment and considerations made for the moving of the application to a new environment.  Which Azure services are used within the solution?  Are there any third party services used within the solution?  Does the solution talk to any on-premises components? Are the applications currently virtualized in VMWare and moving to Azure? Understanding of the planning that must occur if Azure Site Recovery will be used.    
     
-    > [Minimize and understand service dependencies](Reference - Minimize and understand service dependencies)
+    > [Minimize and understand service dependencies](https://docs.microsoft.com/en-us/azure/architecture/checklist/availability#application-design)
+    > [Azure Site Recovery support matrix for replicating from Azure to Azure](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-azure-to-azure-prereq)
+    > [#ASRHowTo Video2: Migrate Virtual Machines to Azure](https://azure.microsoft.com/en-us/resources/videos/asrhowto-video2-migrate-virtual-machines-to-azure/)
     > 
-    > [https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-azure-to-azure-prereq](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-azure-to-azure-prereq)
-    > 
-    > [https://azure.microsoft.com/en-us/resources/videos/asrhowto-video2-migrate-virtual-machines-to-azure/](https://azure.microsoft.com/en-us/resources/videos/asrhowto-video2-migrate-virtual-machines-to-azure/)
-    > 
-    > [https://blogs.technet.microsoft.com/hybridcloud/2016/03/03/move-vmware-aws-hyper-v-and-physical-servers-to-azure-with-azure-site-recovery/](https://blogs.technet.microsoft.com/hybridcloud/2016/03/03/move-vmware-aws-hyper-v-and-physical-servers-to-azure-with-azure-site-recovery/)
-    > 
-    > [https://docs.microsoft.com/en-us/azure/site-recovery/vmware-walkthrough-overview](https://docs.microsoft.com/en-us/azure/site-recovery/vmware-walkthrough-overview)
-    > 
-    > [https://blogs.msdn.microsoft.com/zxue/2016/07/30/tips-and-tricks-on-doing-lift-and-shift-on-prem-systems-to-azure/](https://blogs.msdn.microsoft.com/zxue/2016/07/30/tips-and-tricks-on-doing-lift-and-shift-on-prem-systems-to-azure/)
+    > [Move VMware, AWS, Hyper-V and physical servers to Azure with Azure Site Recovery](https://blogs.technet.microsoft.com/hybridcloud/2016/03/03/move-vmware-aws-hyper-v-and-physical-servers-to-azure-with-azure-site-recovery/)
+    > [Set up disaster recovery to Azure for on-premises VMware VMs](https://docs.microsoft.com/en-us/azure/site-recovery/vmware-walkthrough-overview)
+    > [Tips and Tricks on Doing “Lift and Shift” On-Prem Systems to Azure](https://blogs.msdn.microsoft.com/zxue/2016/07/30/tips-and-tricks-on-doing-lift-and-shift-on-prem-systems-to-azure/)
 
 * **Have you considered the feasibility of your internet connection, in line with the volume of data to be uploaded?**
 
     Establish if there is a sufficiently fast connection to the internet and if there is an opportunity to move unstructured data into Azure    
     
-    > [https://docs.microsoft.com/en-us/azure/storage/common/storage-import-export-service](https://docs.microsoft.com/en-us/azure/storage/common/storage-import-export-service)
+    > [Use the Microsoft Azure Import/Export service to transfer data to Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-import-export-service)
     > 
-    > [https://docs.microsoft.com/en-us/azure/storage/common/storage-import-export-using-the-rest-api](https://docs.microsoft.com/en-us/azure/storage/common/storage-import-export-using-the-rest-api)
+    > [Using the Azure Import/Export service REST API](https://docs.microsoft.com/en-us/azure/storage/common/storage-import-export-using-the-rest-api)
 
 * **Are you aware of the options available to migrate your data to Azure?**
 
     Establish which options in moving the data to Azure will align best with your scenario and solution.    
-    
-    > [https://docs.microsoft.com/en-us/azure/storage/common/storage-moving-data](https://docs.microsoft.com/en-us/azure/storage/common/storage-moving-data)
+
+    > [Moving data to and from Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-moving-data)
 
 * **The data that you want to move into Azure how much of it is data that is intended to be archived or actual live data you plan to use on a daily basis?**
 
     Determine whether the data needs to be moved for daily use or if the data is intended for archive    
     
-    > [https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup)
+    > [Overview of the features in Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup)
 
 ## Linux Lift and Shift into Azure   
 
@@ -115,7 +112,7 @@
 
     Understand what OSS workloads that are currently running and the file systems that are currently running.    
     
-    > [https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-support-matrix-to-azure](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-support-matrix-to-azure)
+    > [Azure Site Recovery support matrix for replicating from on-premises to Azure](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-support-matrix-to-azure)
 
 ## Distributed Architecture  
 
@@ -123,7 +120,7 @@
 
     Is part of the application on-premises, or an alternate cloud provider, or third party? Ensure that you are aware of the risk of upstream or downstream dependency failures.    
     
-    > [https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-migrate-aws-to-azure](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-migrate-aws-to-azure)
+    > [Migrate Amazon Web Services (AWS) VMs to Azure](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-migrate-aws-to-azure)
     > 
     > [Host applications in multiple datacenters](https://docs.microsoft.com/en-gb/azure/best-practices-availability-checklist)
     > 
@@ -137,7 +134,7 @@
 
 * **Do you have Availability Requirements defined for the workload? How much downtime is acceptable? Have you defined a Recovery Time OBjective (RTO) and Recovery Point Objective (RPO)?**
 
-    It is critical that there are defind Resiliency (High Availability &amp; Disaster Recovery) metrics like RPO/RTO/SLA. Without these metrics it will be hard to design an application to hit business needs.    
+    It is critical that there are defind Resiliency (High Availability and Disaster Recovery) metrics like RPO/RTO/SLA. Without these metrics it will be hard to design an application to hit business needs.    
     
     > [Designing resilient applications for Azure](https://docs.microsoft.com/en-us/azure/architecture/resiliency/index#defining-your-resiliency-requirements)
 
@@ -157,15 +154,13 @@
 
 * **Do you require a level of high availability for your Open Source Application systems when they are migrated to Azure? Do you require your Linux system to be a failover cluster?**
 
-    Understand if the Open Source System requires high availability as part of the application design.    
-    
-    >  TBC  
+    Understand if the Open Source System requires high availability as part of the application design. 
 
 * **Does your MySQL database have any high availability requirements?**
 
     Be aware of the associated guidance for MySQL on Azure.    
     
-    > [http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
+    > [MySQL High Availability Architecture in Microsoft Azure](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
 
 ## Monitoring & Management
 
@@ -175,14 +170,13 @@
     
     > [Reference - Monitoring and diagnostics guidance](https://docs.microsoft.com/en-gb/azure/best-practices-monitoring)
     >
-    > [https://docs.microsoft.com/en-us/azure/backup/backup-azure-configure-reports](https://docs.microsoft.com/en-us/azure/backup/backup-azure-configure-reports)
+    > [Configure Azure Backup Reports](https://docs.microsoft.com/en-us/azure/backup/backup-azure-configure-reports)
     > 
-    > [https://blogs.technet.microsoft.com/msoms/2016/07/27/introducing-oms-network-performance-monitor/](https://blogs.technet.microsoft.com/msoms/2016/07/27/introducing-oms-network-performance-monitor/)
+    > [Introducing OMS Network Performance Monitor](https://blogs.technet.microsoft.com/msoms/2016/07/27/introducing-oms-network-performance-monitor/)
 
 * **If you are offering an SLA, do you have any methods of monitoring the SLA that you are providing?**
 
     Many commercial systems that support paying customers make guarantees about the performance of the system in the form of SLAs. Essentially, SLAs state that the system can handle a defined volume of work within an agreed time frame and without losing critical information. SLA monitoring is concerned with ensuring that the system can meet measurable SLAs. &nbsp;    
-    
     > [SLA Monitoring](https://docs.microsoft.com/en-gb/azure/best-practices-monitoring#sla-monitoring)
 
 * **What is the resource utilization across deployed resources? How much headroom (capacity) is there across the deployed resources? &nbsp;**
@@ -213,7 +207,7 @@
 
     Explain the benefit of Managed Disks as well as how they are supported in ASR during lift and shift.    
     
-    > [https://azure.microsoft.com/en-us/blog/managed-disks-with-azure-site-recovery/](https://azure.microsoft.com/en-us/blog/managed-disks-with-azure-site-recovery/)
+    > [Azure Site Recovery now supports managed disks for on-premises to Azure](https://azure.microsoft.com/en-us/blog/managed-disks-with-azure-site-recovery/)
 
 ## Performance & Scalability  
 
@@ -247,14 +241,14 @@
 
     Understand if the current workload has or will require encryption.    
     
-    > [https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys)
+    > [Storage Service Encryption using customer managed keys in Azure Key Vault](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys)
     > 
-    > [https://azure.microsoft.com/en-us/documentation/articles/security-get-started-overview/](https://azure.microsoft.com/en-us/documentation/articles/security-get-started-overview/)
+    > [Azure security overview](https://azure.microsoft.com/en-us/documentation/articles/security-get-started-overview/)
 
 * **Who currently requires access to the application during and after the migration?**
 
     Define the security requirements and if there are new security requirements once the solution has moved onto Azure.    
     
-    > [https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources)
+    > [Lock resources to prevent unexpected changes](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources)
     > 
-    > [https://docs.microsoft.com/en-us/azure/backup/backup-rbac-rs-vault](https://docs.microsoft.com/en-us/azure/backup/backup-rbac-rs-vault)
+    > [Use Role-Based Access Control to manage Azure Backup recovery points](https://docs.microsoft.com/en-us/azure/backup/backup-rbac-rs-vault)
