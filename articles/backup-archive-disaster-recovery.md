@@ -1,133 +1,169 @@
 # FastTrack for Azure Architectural Discussion Framework - Backup, Archive and Disaster Recovery Solution
 
 - [FastTrack for Azure Architectural Discussion Framework - Backup, Archive and Disaster Recovery Solution](#fasttrack-for-azure-architectural-discussion-framework---backup--archive-and-disaster-recovery-solution)
-  * [App & Data Migration](#app---data-migration)
-  * [Distributed Architecture](#distributed-architecture)
-  * [High Availability and Business Continuity / Disaster Recovery](#high-availability-and-business-continuity---disaster-recovery)
+  * [Business Objectives](#business-objectives)
+  * [Workload Considerations](#workload-considerations)
+  * [Hybrid Architecture](#hybrid-architecture)
   * [Monitoring &amp; Management](#monitoring--amp--management)
   * [Performance &amp; Scalability](#performance--amp--scalability)
   * [Security](#security)
   * [Understand the Portfolio of applications are supported for Disaster Recovery](#understand-the-portfolio-of-applications-are-supported-for-disaster-recovery)
 
-## App & Data Migration   
+## Business Objectives
 
-* **What does your on-premises infrastructure look like? Hyper-V, VMware, Baremetal, etc?**
+* **What are your defined Recovery Point Objectives (RPOs), Recovery Time Objectives (RTOs) and Service Level Agreement (SLAs)?**
 
-    Determine the supportability in DR migration. This will dictate the path that should be taken with Azure Site Recovery.    
-    
-    > [https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-workload](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-workload)
+    Varying RPOs, RTOs and SLAs will have an impact upon your choice of Azure services, 3rd party services and software design choices. For example, a lower RTO will influence bandwidth requirements and technology choice. From a Disaster Recovery perspective, your RPO and RTO will determine whether you are aiming for a hot or warm Disaster Recovery solution. A strict availability SLA will determine your high availability requirements, and decision to deploy across data centers or Azure regions. 
 
-* **What types of Operating Systems are in place today for your applications? &nbsp;**
+    > [Disaster recovery for Azure applications](https://docs.microsoft.com/en-us/azure/architecture/resiliency/disaster-recovery-azure-applications)
 
-    Understand what Operating Systems will be supported for migration. Depending on the OS, the VHD may need to be lifted and shifted as Azure Site Recovery may not support the OS. &nbsp;    
-    
-    > [https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-support-matrix-to-azure#support-for-replicated-machine-os-versions](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-support-matrix-to-azure#support-for-replicated-machine-os-versions)
+* **Who makes the decision to commit to a failover?**
 
-* **What types of workloads are you looking to backup? Do those workloads need to be filesystem or application consistent?**
+    When building any solution (on-premises or cloud), people and process is a key part of the overall solution’s success. In the unlikely event that a failover is required, who is responsible for making that decision? 
 
-    Depending on Filesystem or Application consistency, that will dictate the backup solution to leverage (Azure Backup Agent, Azure Backup Server, or Azure Backup for IaaS).    
-    
-    > [https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use)
+    If it is unclear who is responsible for the processes and procedures for Disaster Recovery, then this should be defined as a high priority to move forward with a successful Azure Site Recovery implementation. 
 
-## Distributed Architecture   
-
-* **Are you looking at Disaster Recovery between on-premises to Azure or Azure to Azure?**
-
-    Determine the desired Disaster Recovery scenario, and how Azure Site Recovery can be used for Disaster Recovery.    
-    
-    > [https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-overview#what-can-i-replicate](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-overview#what-can-i-replicate)
-
-* **For backups, are you protecting workloads in Azure or only on-premises?**
-
-    Understand the need for Locally Redundant Storage (LRS) vs Geograpically Redundant Storage (GRS) for retaining data. Consider the wider scenario to meet attestations of &quot;offsite&quot; data, this will decrease risk of a large failure.    
-    
-    > [https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-first-look-arm#create-a-recovery-services-vault-for-a-vm#set-storage-replication](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-first-look-arm#create-a-recovery-services-vault-for-a-vm#set-storage-replication)
-
-## High Availability and Business Continuity / Disaster Recovery   
-
-* **What is your defined Recovery Point Objective (RPO), Recovery Time Objective (RTO) and Service Level Agreement (SLA)?**
-
-    RPO can influence bandwidth requirements.    
-    
-    >  N/A - Discovery Question - leads to potential solution options  
-
-* **Are you looking for a HOT or WARM Disaster Recovery solution?**
-
-    Azure Site Recovery should not be used for Hot workloads. If a hot solution is required, thought should be given to distributing and scaling the architecture to the cloud naturally via App Modernization or running the workloads actively in multiple regions.       
-
-* **Is failback required from Azure to on-premises?**
-
-    Depending on the solution architecture, additional infrastructure may be needed to handle failback.    
-    
-    > [https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-how-to-reprotect](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-how-to-reprotect)
-
-* **Who is the individual that makes the decision to commit to a failover?**
-
-    If it is unclear who is responsible for the processes and procedures for Disaster Recovery, then this will need to be defined as a first priority to take the next steps in moving forward with a successful Azure Site Recovery implementation.    
-    
-    >  Review Disaster Recovery Plan and update list of stakeholders who will and are authorized to make the call to initiate a failover.  
+    Once the project is live, you should regularly review and test your Disaster Recovery Plan and update the list of stakeholders who are authorized to make the call to initiate a failover. 
 
 * **Do you have a defined Disaster Recovery plan today?**
 
-    Determine how this fits with Recovery Plans in Azure. This can help automate, orchestrate and document failover steps to ensure a successful Disaster Recovery solution.    
-    
-    > [https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-runbook-automation](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-runbook-automation)
+    Having a Disaster Recovery plan defined for your on-premises computing systems gives you a baseline in determining your Disaster Recovery needs in the cloud. However, some of these steps may be manual and prone to errors. Azure has built in capabilities to help you in automating such steps as part of your Disaster Recovery process. 
+
+    Consider Recovery Plans in Azure, as this can help automate, orchestrate and document failover steps to ensure a successful Disaster Recovery solution without manual interaction post failover. 
+
+    > [Create and customize recovery plans](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-create-recovery-plans)
 
 * **Do you test and validate your Disaster Recovery plans today?**
 
-    Determine whether Disaster Recovery is initiated only in the event of a disaster. Consider utilising an environment to conduct effective testing within Azure.    
-    
-    > [https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-test-failover-to-azure](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-test-failover-to-azure)
+    Having a Disaster Recovery plan defined is a good initial step, though you also need to have the confidence that the plan itself is valid and will provide you with the ongoing level of service that you are expecting. 
 
-* **Do you have a current Xen Infrastructure for which you want to provide a DR capability?**
+    Consider utilizing an environment to conduct regular effective testing within Azure without impacting production deployments, to help provide confidence that your steps should work in the event of a real scenario. 
 
-    Understand that Azure Site Recovery can provide an option to protect Xendesktop Infrastructure.
+    > [Test failover to Azure in Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-test-failover-to-azure)
+
+* **Have you planned for capacity and scale of the infrastructure needed to support Disaster Recovery?**
+
+    It is important to be sure there is sufficient network bandwidth, and the necessary on-premises and target environment infrastructure to support the protection of workloads. 
+
+    > [Plan capacity and scaling for VMware replication with Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-plan-capacity-vmware)
+
+## Workload Considerations
+
+* **What does your on-premises infrastructure look like? Hyper-V, VMware, Baremetal, etc?**
+
+    The makeup of your on-premises estate, and specifically the virtualization technology (if any), will guide the migration options onto Azure.   
     
-    See further details in the associated Citrix whitepaper.    
+    > [What workloads can you protect with Azure Site Recovery?](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-workload)
+    > 
+    > [Hyper-V to Azure replication architecture](https://docs.microsoft.com/en-us/azure/site-recovery/hyper-v-azure-architecture)
+    > 
+    > [VMware to Azure replication architecture](https://docs.microsoft.com/en-us/azure/site-recovery/vmware-azure-architecture)
+    > 
+    > [Physical server to Azure replication architecture](https://docs.microsoft.com/en-us/azure/site-recovery/physical-azure-architecture)
+
+* **What Operating System (OS) do you use?**
+
+    OS specific dependencies will influence your available migration paths. For example, Azure Site Recovery supports specific guest OS versions    
     
-    > [https://www.citrix.com/content/dam/citrix/en_us/documents/white-paper/xenapp-and-xendesktop-using-microsoft-azure-site-recovery.pdf](https://www.citrix.com/content/dam/citrix/en_us/documents/white-paper/xenapp-and-xendesktop-using-microsoft-azure-site-recovery.pdf)
+    > [Support for replicated machine OS versions](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-support-matrix-to-azure#support-for-replicated-machine-os-versions)
+
+* **What workloads will you protect?**
+
+    Document existing workloads and their dependencies, both inter-workload and on-premises. Some workloads have been tested and documented as supported by Microsoft.    
+    
+    > [Site recovery workload summary](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-workload#workload-summary)
+
+## Hybrid Architecture   
+
+* **Are you looking at Disaster Recovery between on-premises to Azure or Azure to Azure?**
+
+    Azure can be used as your primary site, DR site, or even both.    
+    
+    > [What can you replicate with Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-overview#what-can-i-replicate)
+
+* **Do you need to protect workloads to a physically separate location?**
+
+    Azure Site Recovery can replicate workloads across regions, and Azure Backup can store data in Geo-Redundant Storage    
+    
+    > [Set storage replication](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-first-look-arm#create-a-recovery-services-vault-for-a-vm#set-storage-replication)
+    > 
+    > [Replicate an Azure VM to another Azure region](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-quickstart)
+
+* **Is failback required from Azure to on-premises?**
+
+    If your primary site comes back online after a DR situation, you may require additional infrastructure to handle the failback process. 
+
+    > [Failback from Azure to an on-premises site (VMWare/Physical)](https://docs.microsoft.com/en-us/azure/site-recovery/vmware-azure-failback) 
+    > 
+    > [Failback from Azure to an on-premises site (Hyper-V)](https://docs.microsoft.com/en-us/azure/site-recovery/hyper-v-azure-failback)
+
+* **For backups, are you protecting workloads in Azure or only on-premises?**
+
+    Azure Backup Server may be required to protect workloads on-premises 
+
+    > [Which Azure backup components should I use?](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use
 
 ## Monitoring & Management   
 
-* **What metrics do you gather today around Backups?**
+* **What metrics do you gather today around  replication?**
+* **What metrics do you gather today around   backups?**
 
-    Deterine whether configuring reports for Azure Backup can act as a replacement for those metrics that are captured in the current environment.    
-    
-    > [https://docs.microsoft.com/en-us/azure/backup/backup-azure-configure-reports](https://docs.microsoft.com/en-us/azure/backup/backup-azure-configure-reports)
+    Determine those metrics and monitoring information that you require to evaluate the operational health of your Disaster Recovery and backup strategy, assess this against the capabilities of the service that you are planning to adopt. 
+
+    For example, your requirements may determine that configuring reports for Azure Backup is sufficient, or utilizing advanced reporting in Azure Backup to augment your existing monitoring solution     
+    > [Monitoring and troubleshooting Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-monitor-and-troubleshoot)
+    > [Configure Azure Backup reports](https://docs.microsoft.com/en-us/azure/backup/backup-azure-configure-reports)
 
 ## Performance & Scalability   
 
-* **Consider Disaster Recovery between on-premises and Azure. Have you run the capacity planning tools?**
+* **Have you run the capacity planning tools?**
 
-    This is the first step that should taken in right-sizing Azure Site Recovery for an environment both on-premises and in Azure.    
+    If you are targeting a hybrid architecture, then you should consider the capacity requirements between your live and DR sites. Are you comfortable that you have sufficient bandwidth to adhere to your DR strategy? 
     
-    > [https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-capacity-planner](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-capacity-planner)
-
-* **Consider the existing backup solution. How is data handled today? Off-site, offload to cloud, etc?**
-
-    Determine bandwidth feasibility on data size. Additionally, offline backups to Azure via Import/Export service may need to be considered based upon the volume of data.    
+    Consider running these tools as the first step in right-sizing Azure Site Recovery for an environment both on-premises and in Azure.     
     
-    > [https://docs.microsoft.com/en-us/azure/backup/backup-azure-backup-import-export](https://docs.microsoft.com/en-us/azure/backup/backup-azure-backup-import-export)
+    > [Azure Site Recovery Deployment Planner for VMware to Azure](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-deployment-planner)
+    > 
+    > [Azure Site Recovery Deployment Planner for Hyper-V to Azure](https://docs.microsoft.com/en-us/azure/site-recovery/hyper-v-deployment-planner-overview)
+
+* **How do you handle backup of data today?**
+
+    Consider again whether you are comfortable that you have sufficient bandwidth to adhere to your backup strategy, without compromising the bandwidth of other on-premises services. 
+
+    Additionally, offline backups to Azure via Import/Export service may need to be considered based upon the volume of data.
+    
+    > [Offline-backup workflow in Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-backup-import-export)
 
 ## Security   
 
 * **What are your requirements for encryption? Is there a requirement for customer-managed keys vs. Microsoft-managed keys?**
 
-    Determine whether the extra management overhead and complexity is required for customer-managed keys, or whether Microsoft-managed keys would be suitable.    
+    A common requirement is for disks to be encrypted. You should consider the level of encryption that is needed (bring your own keys vs. Microsoft-managed keys). 
     
-    > [https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption-customer-managed-keys](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption-customer-managed-keys)
+    You should determine at an overall solution level whether the extra management overhead and complexity is required for bringing your own keys, or whether Microsoft-managed keys would be suitable.     
+    
+    > [Back up and restore encrypted virtual machines with Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption)
+    > 
+    > [Restore Key Vault key and secret for encrypted VMs using Azure Backup]    (https://docs.microsoft.com/en-us/azure/backup/backup-azure-restore-key-secret)
+    > 
+    > [Storage Service Encryption using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/en-gb/azure/storage/common/storage-service-encryption-customer-managed-keys)
 
 * **Who has access to backups today?**
 
-    Consider those RBAC rules that are needed to the backups and associated locks. This will help protect a backup solution being removed accidentally or maliciously.    
+    Regularly review those RBAC rules that are needed to the backups and associated resource locks. This will help protect a backup solution being removed accidentally or maliciously.     
     
-    > [https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources)
+    > [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance#role-based-access-control)
+    > 
+    > [Use Role-Based Access Control to manage Azure Backup recovery points](https://docs.microsoft.com/en-us/azure/backup/backup-rbac-rs-vault)
+    > [Lock resources to prevent unexpected changes](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources)
 
 * **Do you leverage Multi Factor Authentication (MFA) today?**
 
-    Multi Factor Authentication should  be enforced to prevent malicious activity on Azure subscriptions.    
+    Consider this as part of your wider solution requirements. What is the risk of a compromised account with access to your Azure Resources? 
+
+    You should consider leveraging Multi Factor Authentication to add an extra layer of protection against malicious activity on Azure subscriptions.   
     
-    > [https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance)
+    > [Azure identity management security overview](https://docs.microsoft.com/en-us/azure/security/security-identity-management-overview)
 
 ## Understand the Portfolio of applications are supported for Disaster Recovery  
 
