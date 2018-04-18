@@ -22,7 +22,9 @@
     Determine if there are plans to re-platform the solution to use the Platform as a Service (PaaS) alternative, reducing the overall management overhead of the solution. If so, it is important to consider potential compatibility issues of the PaaS approach. It is also worth understanding that there is tooling available to assess the feasibility of migrating databases onto Azure    
     
     > [SQL Server database migration to Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-cloud-migrate)
+    > 
     > [Migrate your SQL Server database to Azure SQL Database using DMS](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-migrate-your-sql-server-database)
+    > 
     > [Database Migration Guide](https://datamigration.microsoft.com/)
 
 * **What size is your database and how many databases are you planning to migrate?**
@@ -54,6 +56,7 @@
     If the database keeps on growing, could you potentially hit some technical limit of the platform? Additionally, consider data access as part of your sharing strategy and using different tiers of storage.    
     
     > [Data partitioning best practices](https://docs.microsoft.com/en-us/azure/architecture/best-practices/data-partitioning)
+    > 
     > [Sharding pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/sharding)
 
 * **Do you use readable secondaries? Have you considered how you might make use of them?**
@@ -61,6 +64,7 @@
     Identify whether High Availability at the database layer has been considered as part of the solution. Determine whether a secondary instance of the database in a read-only format could aid in the load balancing of database activity. You may want to consider the CQRS pattern in this scenario.     
     
     > [Readable secondary replicas (Always On availability groups)](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/active-secondaries-readable-secondary-replicas-always-on-availability-groups)
+    > 
     > [Command and Query Responsibility Segregation (CQRS) pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs)
 
 ## High Availability and Business Continuity / Disaster Recovery    
@@ -168,6 +172,7 @@
 
     Identify whether the throughput levels of your underlying disks and compute has been considered to safeguard the performance of your solution. Also be aware of managed disks, and the benefits that this could bring to the reliability of your solution.   
     > [Performance best practices for SQL Server in Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)
+    > 
     > [Azure Managed Disks Overview](https://docs.microsoft.com/en-gb/azure/storage/storage-managed-disks-overview)
 
 * **Are you using SQL Server on IaaS? Have you configured your implementation to the recommendations in the performance best practices documentation?**
@@ -183,6 +188,7 @@
     Security is a top concern when managing databases, and it has always been a priority for Azure SQL Database. Your databases can be tightly secured to help satisfy most regulatory or security requirements.
     
     > [Azure SQL Database security best practices](https://docs.microsoft.com/en-us/azure/security/azure-database-security-best-practices)
+    > 
     > [Azure database security checklist](https://docs.microsoft.com/en-us/azure/security/azure-database-security-checklist)
 
 * **Is the data stored in your database sensitive? Do you require special data handling?**
@@ -190,8 +196,11 @@
     Identify the encryption and protection requirements of the solution. Leverage the associated documentation in providing a solution to this problem.    
     
     > [Azure SQL Database Discovery and Classification](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-data-discovery-and-classification)
+    > 
     > [Always Encrypted (Database Engine)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine)
+    > 
     > [Transparent Data Encryption (TDE)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-tde)
+    > 
     > [SQL Server Encryption](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/sql-server-encryption)
 
 * **Do you audit access to the servers and the DDL queries that are run?**
