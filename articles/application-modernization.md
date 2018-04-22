@@ -35,7 +35,7 @@ This architecture discussion can be run by anyone who is responsible for applica
 
 # App Services
 
-## App and Data Migration    
+## App and data migration    
 
 * **Are you migrating existing Web app or API Apps from Windows Server or Linux Server? Are you aware of Azure App Service Migration Assistant tool?**
 
@@ -64,7 +64,7 @@ This architecture discussion can be run by anyone who is responsible for applica
     Web Apps do not support access to shared subsystems in Windows and do not support write access to any registry keys. 
 
 
-## Distributed Architecture    
+## Distributed architecture    
 
 * **Have you considered deploying your application to multiple regions?**
 
@@ -96,21 +96,21 @@ This architecture discussion can be run by anyone who is responsible for applica
 
     > [Cloud Design Patterns](https://docs.microsoft.com/en-us/azure/architecture/patterns/)
 
-## High Availability, Business Continuity and Disaster Recovery    
+## High availability, business continuity and disaster recovery    
 
-* **Do you have Availability Requirements defined for the workload? How much downtime acceptable? (RTO)  How much data loss is acceptable?(RPO)**
+* **Do you have Availability Requirements defined for the workload? How much downtime is acceptable? (RTO) How much data loss is acceptable? (RPO)**
 
-    It is critical that we have defined Resiliency (High Availability &amp; Disaster Recovery) metrics like RPO/RTO/SLA. Without these metrics it will be hard to design an application and meet your end-customer expectations.    
+    It is critical that you have defined Resiliency (High Availability & Disaster Recovery) metrics like RPO/RTO/SLA. Without these metrics it will be hard to design an application and meet your end-customer expectations.    
     
     > [Defining your resiliency requirements](https://docs.microsoft.com/en-us/azure/architecture/resiliency/index#defining-your-resiliency-requirements)
 
 * **Is there a defined SLA for the workload?**
 
-    Microsoft provides SLA for each of the Azure service. Customer should define their own target SLA for each workload. An SLA makes it possible to evaluate whether the architecture meets the business requirements.  Customer should calculate Composite SLA (SLA of multiple Azure &amp; other dependent services that makes up the workload) and see if that meets their business SLA requirements    
+    Microsoft provides an SLA for each of the Azure services. A customer should define their own target SLA for each workload. This makes it possible to evaluate whether the architecture meets the proposed business requirements. A customer should calculate the composite SLA (SLA of multiple Azure & other dependent services that makes up the workload) and see if that meets their business SLA requirements.    
     
-    > [Defining your resiliency requirements](https://docs.microsoft.com/en-us/azure/architecture/resiliency/index#defining-your-resiliency-requirements)
+    > [Defining your target SLA](https://docs.microsoft.com/en-us/azure/architecture/resiliency/index#slas)
 
-* **Is there any third-party services used part of your workload? If so does the third-party provide SLA?**
+* **Are there any third-party services used as part of your workload? If so, does the third-party provide an SLA?**
 
     If your application depends on a third-party service, but the third party provides no guarantee of availability in the form of an SLA, your application's availability also cannot be guaranteed. Your SLA is only as good as the least available component of your application.    
 
@@ -120,30 +120,26 @@ This architecture discussion can be run by anyone who is responsible for applica
     
     > [Failure mode analysis](https://docs.microsoft.com/en-us/azure/architecture/resiliency/failure-mode-analysis)
 
-* **Did you design the workload with Resiliency in mind? Are you following one or more of the following common Resiliency Strategies?**
-  * Retry Transient failures
-  * Load balance across multiple instances
-  * Replicate data
-  * Degrade gracefully
-  * Throttle high volume users
-  * Use a circuit breaker
-  * Use load leveling to smooth out spikes in traffic
-  * Isolate critical resources* Apply compensating transactions
-  * Testing for resiliency
-  * Resilient deployment
-  * Monitoring and Diagnostics
+* **How do I know when we have a problem that will require either failover or intervention and how will I failover to a secondary implementation?**
 
-  The cloud is built for scale, which means you may encounter transient faults or failures across your underlying application infrastructure.
-  
-  When you design your application for a distributed environment, it is  important to design for resiliency using well known resiliency strategies.    
+    In the time it takes you to intervene to failover a service, your service is down – consider automatic failover, or rapid alerts to your operations team.
+
+* **Are my backups / replicas stored in (or replicated to) a different region from my primary store?**
+    In the event that you need to restore data to an alternative region, you need to ensure that your data is accessible in the event of an outage of the primary region. Consider geo Replication technologies, such as RA-GRS, Azure Backup, Azure SQL Database Active Geo-Replication / Geo Restore, or Azure CosmosDB.
+
+* **Do I deploy a HA or DR copy of my service in an Active-Active vs. Active-Passive design?**
+    Active-Active architectures reduce the amount of compute resource wasted and sitting idle when compared to Active-Passive, which are less complex to implement and create lower network egress charges.
     
-  > [Resiliency strategies](https://docs.microsoft.com/en-us/azure/architecture/resiliency/index#resiliency-strategies)
+    > [Disaster Recovery](https://docs.microsoft.com/en-us/azure/architecture/resiliency/disaster-recovery-azure-applications)
 
-* **Have you implemented Async operation whenever possible?**
+    > [High Availability](https://docs.microsoft.com/en-us/azure/architecture/resiliency/high-availability-azure-applications)
 
-  Synchronous operations can monopolize resources and block other operations while the caller waits for the process to complete. Design each part of your application to allow for asynchronous operations whenever possible    
+
+* **Have you implemented async operation whenever possible?**
+
+  Synchronous operations can monopolize resources and block other operations while the caller waits for the process to complete. Design each part of your application to allow for asynchronous operations whenever possible.   
     
-  > [Asynchronous Programming with async and await](https://docs.microsoft.com/en-us/dotnet/articles/csharp/async)
+  > [Asynchronous programming](https://docs.microsoft.com/en-us/dotnet/articles/csharp/async)
 
 ## Monitoring and Management    
 
