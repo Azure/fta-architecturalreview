@@ -68,15 +68,15 @@ This architecture discussion can be run by anyone who is responsible for applica
 
 * **Have you considered deploying your application to multiple regions?**
 
-    Consider the rare scenario a service outage in a region, or an entire Azure region going offline. Do you need to prevent against this scenario? If so, it is necessary to deploy the application to two regions to achieve high availability with Traffic Manager at the front.
-    
-    Use Azure Traffic Manager to route your application's traffic to different regions, Replicate Storage, Database and other components.
-    
-    Does the business demand this?    
-    
-    > [Run a web application in multiple regions](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/managed-web-app/multi-region-web-app)
+    Consider the rare scenario of a service outage in a region, or an entire Azure region going offline. Do you need to protect against this scenario? If so, it is necessary to deploy the application into two regions to achieve high availability with Traffic Manager at the front.
 
-* **Did you design the workload with Resiliency in mind? Are you following one or more of the following common Resiliency Strategies?**
+    Use Azure Traffic Manager to route your application's traffic to different regions, whilst using other services built-in features to geo-replicate storage, databases and other components.
+
+    Consider if this level of HA is actually required, are you willing to pay for the extra expense for the extra potential uptime?
+
+    > [Run a web application in multiple regions](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/)
+
+* **Did you design the workload with resiliency in mind? Are you following one or more of the following common resiliency strategies?**
   * Retry Transient failures
   * Load balance across multiple instances
   * Replicate data
@@ -90,9 +90,11 @@ This architecture discussion can be run by anyone who is responsible for applica
   * Resilient deployment
   * Monitoring and Diagnostics
 
-  When you designing their application for a distributed environment like cloud, It is important that you design for resiliency using well known resiliency strategies.    
+  When you design the application for a distributed environment like cloud, it is important that you design for resiliency using well known strategies and design patterns.    
     
-  > [Resiliency strategies](https://docs.microsoft.com/en-us/azure/architecture/resiliency/index#resiliency-strategies)
+    > [Resiliency strategies](https://docs.microsoft.com/en-us/azure/architecture/resiliency/index#resiliency-strategies)
+
+    > [Cloud Design Patterns](https://docs.microsoft.com/en-us/azure/architecture/patterns/)
 
 ## High Availability, Business Continuity and Disaster Recovery    
 
