@@ -143,18 +143,18 @@ This architecture discussion can be run by anyone who is responsible for applica
 
 ## Monitoring and Management    
 
-* **Is there a strategy in place to Monitor the application?**
+* **Is there a strategy in place to monitor the application?**
 
-    Performance issues in your cloud app can impact your business. With multiple interconnected components and frequent releases, degradations can happen at any time. And if you’re developing an app, your users usually discover issues that you didn’t find in testing. You should know about these issues immediately, and have tools for diagnosing and fixing the problems. Azure has a range of tools for identifying these problems.
+    Performance issues in your cloud app can impact your business. With multiple interconnected components and frequent releases, degradations can happen at any time. And if you’re developing an app, your users usually discover issues that you didn’t find in testing. You should know about these issues immediately and have tools for diagnosing and fixing the problems. Azure has a range of tools for identifying these problems.
     
     * Azure Monitor
     * Application Insights
     * Log Analytics
     * Third Party Solution
     
-    > [Overview of Monitoring in Microsoft Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview)
+    > [Read more about monitoring:](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview)
 
-* **Are you aware of App Service built in monitoring capabilities?**
+* **Are you aware of App Service's built in monitoring capabilities?**
 
     App Service provides built in monitoring functionality in the Azure Portal. This includes the ability to review quotas and metrics for an app as well as the App Service plan, setting up alerts and even scaling automatically based on these metrics    
     
@@ -164,75 +164,83 @@ This architecture discussion can be run by anyone who is responsible for applica
 
     Ensure that your health logic checks the critical parts of the system and responds appropriately to health probes.
     
-    1. The health probes for  [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview/) and  [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview/) serve a specific function. For Traffic Manager, the health probe determines whether to fail over to another region. For a load balancer, it determines whetherto remove a VM from rotation.
-    2. For a Traffic Manager probe, your health endpoint should check any critical dependencies that are deployed within the same region, and whose failure should trigger a failover to another region.
-    3. For a load balancer, the health endpoint should report the health of the VM. Don't include other tiers or external services. Otherwise, a failure that occurs outside the VM will cause the load balancer to remove the VM from rotation.
+    The health probes for  [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview/) and  [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview/) serve a specific function. For Traffic Manager, the health probe determines whether to fail over to another region. For a load balancer, it determines whether to remove a VM from rotation.
+    
+    For a Traffic Manager probe, your health endpoint should check any critical dependencies that are deployed within the same region, and whose failure should trigger a failover to another region.
+    
+    For a load balancer, the health endpoint should report the health of the VM. Don't include other tiers or external services. Otherwise, a failure that occurs outside the VM will cause the load balancer to remove the VM from rotation.
     
     > [Health Endpoint Monitoring Pattern](https://msdn.microsoft.com/library/dn589789.aspx)
 
-* **Does the workload have any dependencies on third-party services? If so is there a way to monitor and view diagnostics information of those services?**
+* **Does the workload have any dependencies on third-party services? If so, is there a way to monitor and view diagnostics information of those services?**
 
-    If your application has dependencies on third-party services, identify where and how these third-party services can fail and what effect those failures will have on your application. A third-party service may not include monitoring and diagnostics, so it's important to log your invocations of them and correlate them with your application's health and diagnostic logging using a unique identifier. For more information on proven practices for monitoring and diagnostics    
+    If your application has dependencies on third-party services, identify where and how these third-party services can fail and what effect those failures will have on your application. A third-party service may not include monitoring and diagnostics, so it's important to log your invocations of them and correlate them with your application's health and diagnostic logging using a unique identifier. For more information on proven practices for monitoring and diagnostics.
     
     > [Monitoring and Diagnostics guidance](https://docs.microsoft.com/en-us/azure/architecture/best-practices/monitoring)
 
 * **Are you aware that you can setup various alerts based on App Service plan metrics and Application Insights metrics?**
 
-    The benefits of alerts is that you can proactively get notified whewhenre certain conditions are met, for example a metric alerty such as CPU or Memory exceeding a certain limit. Activity Log alerts notifies when a new Service Health incident occurs or a user performs a given event.    
+    The benefits of alerts are that you can proactively get notified when certain conditions are met, for example a metric alert such as CPU or memory exceeding a certain limit. Activity Log alerts notify when a new Service Health incident occurs, or a user performs a given event.    
     
     > [Various alerts in Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-alerts)
 
-* **Have you looked into various general best practices for monitoring and alerting in your application?**
+* **Have you investigated various general best practices for monitoring and alerting in your application?**
 
-    Without appropriate monitoring, diagnostics, and alerting, there is no way to detect failures in your application and alert an operator to fix the underlying issues.    
+    Without appropriate monitoring, diagnostics, and alerting, there is no way to detect failures in your application and alert an operator to fix the underlying issues.
     
     > [Monitoring and Diagnostics guidance](https://docs.microsoft.com/en-us/azure/architecture/best-practices/monitoring)
 
-## Performance and Scalability    
+## Performance and scalability    
 
 * **Is your application architected to be scalable? Can individual components of the application, i.e. your web app, API and database be scaled independently?**
 
-    A recommended practice is to enable the Web tier, App tier and DB tier to scale independently of each other using different App Service Plans. Refer to the associated link on how to accomplish this.    
+    A recommended practice is to enable the Web tier, App tier and DB tier to scale independently of each other using different App Service Plans. Refer to the associated link on how to accomplish this.
     
-    > [Improve scalability in a web application](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/managed-web-app/scalable-web-app)
+    > [Improve scalability in a web application](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app)
 
 * **Is your application configured to auto scale as the load increases?**
 
-    If your application is not configured to scale out automatically as load increases, it is possible that your application's services will fail if they become saturated with user requests.    
+    If your application is not configured to scale out automatically as load increases, it is possible that your application's services will fail if they become saturated with user requests.
     
     > [Scalability checklist](https://docs.microsoft.com/en-us/azure/architecture/checklist/scalability)
     >
     > [Azure App Service: Scale instance count manually or automatically](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-how-to-scale/)
     >
-    > [Autoscale Best Practices](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-autoscale-best-practices)
+    > [Autoscale best practices](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-autoscale-best-practices)
 
 * **Have you performed or considered performing load test of your APP?**
 
-    Your application is only as scalable as your weakest link. Your Application's SLA is as strong as the performance of the underlying code.<br><br>Additionally, consider regular load tests as part of your application development. At a minimum, consider this prior to pushing a new build into production to validate acceptable levels of performance.    
+    Your application is only as scalable as your weakest link. Your Application's SLA is as strong as the performance of the underlying code, this should be baselined and measured prior to deployment. 
+
+    Additionally, consider regular load tests as part of your application development. At a minimum, consider this prior to pushing a new build into production to validate acceptable levels of performance.
+
     
-    > [Add and Remove Capacity for Web/App, Data tier scaled independently](https://docs.microsoft.com/en-us/vsts/load-test/get-started-simple-cloud-load-test)
+    > [Run URL-based load tests with VSTS](https://docs.microsoft.com/en-us/vsts/load-test/get-started-simple-cloud-load-test?view=vsts)
 
 ## Security    
 
-* **Have you looked in to Azure App Service Security Best practices?**
+* **Have you looked in to Azure App Service Security best practices?**
 
     Security in Azure App Service has two levels:
     
-    * Infrastructure and platform security - You trust Azure to have the services you need to actually run things securely in the cloud.
-    * Application security - You need to design the app itself securely. This includes how you integrate with Azure Active Directory, how you manage certificates, and how you make sure that you can securely talk to different services
+    * Infrastructure and platform security - You trust Azure to have the services you need to run things securely in the cloud.
+    
+    * Application security - You need to design the app itself securely. This includes how you integrate with Azure Active Directory, how you manage certificates, and how you make sure that you can securely talk to different services.
+
     
     While Azure is responsible for securing the underlying infrastructure and platform that your application runs on, it is your responsibility to secure your application itself. In other words, you need to develop, deploy, and manage your application code and content in a secure way. Without this, your application code or content can still be vulnerable to threats such as:
-    1. SQL Injection
-    2. Session hijacking
-    3. Cross-site-scripting
-    4. Application-level MITM
-    5. Application-level DDoS    
+
+    * SQL Injection
+    * Session hijacking
+    * Cross-site-scripting
+    * Application-level MITM
+    * Application-level DDoS    
     
     > [Secure an app in Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-security?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-* **Have you performed Penetration testing on your app?**
+* **Have you performed penetration testing on your app?**
 
-    One of the easiest ways to get started with testing for vulnerabilities on your App Service app is to use the [integration with Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) to perform one-click vulnerability scanning on your app. You can view the test results in an easy-to-understand report, and learn how to fix each vulnerability with step-by-step instructions. If you prefer to perform your own penetration tests or want to use another scanner suite or provider, you must follow the [Azure penetration testing approval process](https://security-forms.azure.com/penetration-testing/terms) and obtain prior approval to perform the desired penetration tests    
+    One of the easiest ways to get started with testing for vulnerabilities on your App Service app is to use the [integration with Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) to perform one-click vulnerability scanning on your app. You can view the test results in an easy-to-understand report and learn how to fix each vulnerability with step-by-step instructions. Its recommended that you perform your own pen testing on your applications, because when you enhance the security of your applications, you help make the entire Azure ecosystem more secure. Microsoft no longer requires pre-approval to conduct a penetration tests against Azure resources
     
     > [Web Vulnerability Scanning for Azure App Service powered by Tinfoil Security](https://azure.microsoft.com/en-us/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
     >
@@ -254,9 +262,14 @@ This architecture discussion can be run by anyone who is responsible for applica
 
 * **Does the App Service need to authenticate with an on-premises Active Directory?**
 
-    If your company policy prohibits AD data from being stored in Azure, you can leverage an on-premises secure token service (STS) like Active Directory Federation Service (AD FS)    
+    If your company policy prohibits AD data from being stored in Azure, you can leverage an on-premises secure token service (STS) like Active Directory Federation Service (AD FS) or pass through authentication. 
+
+    Note: If you do this, ensure that your ADFS service is considered in your dependency graph and Failure Mode Analysis for your application, as then your on-premises AD infrastructure becomes a downstream application dependency.
+
+    > [Integrate your on-premises directories with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect)
     
-    > [Authenticate with on-premises Active Directory in your Azure app](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-authentication-authorization?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+    > [Failure mode analysis](https://docs.microsoft.com/en-us/azure/architecture/resiliency/failure-mode-analysis)
+
 
 # Service Fabric  
  
