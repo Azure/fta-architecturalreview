@@ -1,6 +1,7 @@
 # FastTrack for Azure Architectural Discussion Framework - Application Modernization
 
-- [FastTrack for Azure Architectural Discussion Framework - Application Modernization](#fasttrack-for-azure-architectural-discussion-framework---application-modernization)
+- [Introduction](#introduction)
+
 - [App Services](#app-services)
   * [App and Data Migration](#app-and-data-migration)
   * [Distributed Architecture](#distributed-architecture)
@@ -18,14 +19,19 @@
   * [High Availability, Business Continuity and Disaster Recovery](#high-availability,-business-continuity-and-disaster-recovery)
   * [Security](#security)
 
+## Introduction
+The Architectural discussion framework is a series of questions that guides discussion of application architecture for Azure. It stems from recommended patterns and practices and contain links to supporting technical documentation. This framework is adopted by various Azure teams including FastTrack for Azure while engaging with hundreds of customers across various industries. You can use these questions within your own organization, to help you plan and validate your architecture on Azure. The questions are deliberately open-ended, they are meant to facilitate discussion among the various stakeholders in your organization.
 
-* **Have you looked into the range of Azure compute (hosting) options and compared their features before making a decision?**
+This architecture discussion can be run by anyone who is responsible for application architecture, this could be an Architect or Lead Developer. They should involve the necessary stakeholders as needed while discussing SLA (Service Level Agreements), availability requirements (including uptime), business continuity (RPO, RTO) etc. they need to involve business stakeholders and while discussing monitoring, alerting, etc. involve operations teams.
 
-    Azure offers several compute options: Azure App Service, Service Fabric, Azure Container Service, Azure Functions, Virtual Machine, Cloud Service (legacy). It is critical that you chooses right hosting model by comparing various options and select the right hosting model(s) based on your requirements.    
+
+* **Have you investigated the full range of Azure compute (hosting) options and compared their features before making a decision?**
+
+    Azure offers several compute options: Azure App Service, Service Fabric, Azure Container Services, Azure Functions, Virtual Machines, Cloud Services (legacy). It is critical that you choose the right hosting model by comparing different options and select the right hosting model(s) based on your requirements.   
     
     > [Criteria for choosing an Azure compute option](https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-comparison)
     >
-    > [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison: on-premises](https://docs.microsoft.com/en-us/azure/app-service-web/choose-web-site-cloud-service-vm#onprem)
+    > [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](https://docs.microsoft.com/en-us/azure/app-service/choose-web-site-cloud-service-vm)
 
 # App Services
 
@@ -35,7 +41,7 @@
 
     The App Service Migration assistant tool creates a readiness report to identify any potential blocking issues which may prevent a successful migration from on-premises to Azure. If you do not feel comfortable using the tool to migrate (i.e. prefer a manual migration), then you can use the readiness report as a minimum to identify potential blocking issues.    
     
-    > [Azure App Service Migration Assistant](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-migration-from-iis-server)
+    > [Azure App Service Migration Assistant](http://www.migratetoazure.net)
 
 * ****Existing App Migration**: What type of authentication being used?**
 
