@@ -45,27 +45,23 @@ This architecture discussion can be run by anyone who is responsible for applica
 
 * ****Existing App Migration**: What type of authentication being used?**
 
-    Web Apps supports Anonymous Authentication by default and Forms Authentication where specified by an application. Windows Authentication can be used by integrating with Azure Active Directory and ADFS only. All other forms of authentication - for example, Basic Authentication - are not currently supported.    
-    
-    > [Azure App Service Migration Assistant](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-migration-from-iis-server)
-
+    Web Apps support Anonymous Authentication by default and Forms Authentication where specified by an application. Windows Authentication is not supported within App Service; however Azure Active Directory can be used (optionally with ADFS) by implementing token based Authentication (SAML / Oauth based), this approach can also provide a fully integrated Single Sign On Experience if required. All other forms of authentication - for example, Basic Authentication - are not currently supported.    
+        
 * ****Existing App Migration**: Does the application references assemblies from the GAC (Global Assembly Cache)?**
 
     The GAC is not supported in Web Apps. If your application references assemblies which you usually deploy to the GAC, you will need to deploy to the application bin folder in Web Apps.    
     
-    > [Azure App Service Migration Assistant](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-migration-from-iis-server)
-
 * ****Existing App Migration**: Does the application makes use of COM Components?**
-
-    Web Apps does not allow the registration of COM Components on the platform. If your websites or applications make use of any COM Components, you must rewrite them in managed code and deploy them with the website or application.    
+    Web Apps do not allow the registration of COM Components on the platform. If your websites or applications make use of any COM Components, you must rewrite them in managed code and deploy them with the website or application.
     
-    > [Azure App Service Migration Assistant](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-migration-from-iis-server)
 
 * ****Existing App Migration**: What Port Bindings are being used?**
 
-    Web Apps only supports Port 80 for HTTP and Port 443 for HTTPS traffic. Different port configurations will be ignored and traffic will be routed to 80 or 443.    
-    
-    > [Azure App Service Migration Assistant](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-migration-from-iis-server)
+    Web Apps only support Port 80 for HTTP and Port 443 for HTTPS traffic, these ports are automatically exposed and load-balanced across multiple instances. The migration tool will ensure that any migrated applications are listening on these ports by default. 
+
+* ****Existing App Migration**: Does your app call any User32/GDI32 functions directly, or registry accesses?**
+
+    Web Apps do not support access to shared subsystems in Windows and do not support write access to any registry keys. 
 
 
 ## Distributed Architecture    
