@@ -151,8 +151,8 @@ This architecture discussion can be run by anyone who is responsible for applica
     * Application Insights
     * Log Analytics
     * Third Party Solution
-    
-    > [Read more about monitoring:](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview)
+
+    > [Monitoring Azure applications and resources](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview)
 
 * **Are you aware of App Service's built in monitoring capabilities?**
 
@@ -234,7 +234,7 @@ This architecture discussion can be run by anyone who is responsible for applica
     * Session hijacking
     * Cross-site-scripting
     * Application-level MITM
-    * Application-level DDoS    
+    * Application-level DDoS
     
     > [Secure an app in Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-security?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
