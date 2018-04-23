@@ -10,14 +10,14 @@
   * [Performance and Scalability](#performance-and-scalability)
   * [Security](#security)
 - [Service Fabric](#service-fabric)
-  * [Build Applications and Services](#build-applications-and-services)  
-  * [Manage Applications - Performance and Scalability](#manage-applications---performance-and-scalability)
-  * [Create and manage Clusters](#create-and-manage-clusters)
-  * [Monitor and Diagnose](#monitor-and-diagnose)
-  * [App Migration](#app-migration)
-  * [Distributed Architecture](#distributed-architecture)
-  * [High Availability, Business Continuity and Disaster Recovery](#high-availability,-business-continuity-and-disaster-recovery)
+  * [App Migration](#app-migration)  
+  * [Distributed architecture](#distributed-architecture)
+  * [High availability, business continuity and disaster recovery](#high-availability,-business-continuity-and-disaster-recovery)
+  * [Monitor and diagnose](#monitor-and-diagnose)
+  * [Performance and scalability](#performance-and-scalability)
   * [Security](#security)
+
+- [Summary](#summary)
 
 ## Introduction
 The Architectural discussion framework is a series of questions that guides discussion of application architecture for Azure. It stems from recommended patterns and practices and contain links to supporting technical documentation. This framework is adopted by various Azure teams including FastTrack for Azure while engaging with hundreds of customers across various industries. You can use these questions within your own organization, to help you plan and validate your architecture on Azure. The questions are deliberately open-ended, they are meant to facilitate discussion among the various stakeholders in your organization.
@@ -96,7 +96,7 @@ This architecture discussion can be run by anyone who is responsible for applica
 
     > [Cloud Design Patterns](https://docs.microsoft.com/en-us/azure/architecture/patterns/)
 
-## High availability, business continuity and disaster recovery    
+## High availability, business continuity and disaster recovery
 
 * **Do you have Availability Requirements defined for the workload? How much downtime is acceptable? (RTO) How much data loss is acceptable? (RPO)**
 
@@ -141,7 +141,7 @@ This architecture discussion can be run by anyone who is responsible for applica
     
   > [Asynchronous programming](https://docs.microsoft.com/en-us/dotnet/articles/csharp/async)
 
-## Monitoring and Management    
+## Monitoring and Management
 
 * **Is there a strategy in place to monitor the application?**
 
@@ -190,7 +190,7 @@ This architecture discussion can be run by anyone who is responsible for applica
     
     > [Monitoring and Diagnostics guidance](https://docs.microsoft.com/en-us/azure/architecture/best-practices/monitoring)
 
-## Performance and scalability    
+## Performance and scalability
 
 * **Is your application architected to be scalable? Can individual components of the application, i.e. your web app, API and database be scaled independently?**
 
@@ -273,155 +273,143 @@ This architecture discussion can be run by anyone who is responsible for applica
 
 # Service Fabric  
  
-## Build Applications and Services    
+## App Migration
+* **Are you looking to migrate a solution built in Cloud Services Web and Worker Roles to Service Fabric?**
 
-* **Are you looking at Service Fabric Platform from for future implementation or are you already deployed on the platform with your applications? What programming models are you considering to build your applications in Service Fabric?**
+    For Application Migration, you can learn about the differences between Cloud Services and Service Fabric before migrating your applications. You also have the option to convert Web and Worker roles to Service Fabric stateless services. If you are still evaluating which platform to use, consider App Services as well.
 
-    Service Fabric offers multiple ways to write and manage your services. It is important to decide on which programming model your teams will be using.   Be aware of guidelines on when to use Actors and when to use Reliable Services.    
+    > [Guide to converting Web and Worker Roles to Service Fabric stateless services](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cloud-services-migration-worker-role-stateless-service)
+
+    > [Learn about the differences between Cloud Services and Service Fabric before migrating applications](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cloud-services-migration-differences)
+
+* **Are you considering containerizing your application?**
+    One of the most common scenarios supported by Service Fabric is to containerize your existing applications and orchestrate the containerized applications on Service Fabric.
+
+    >[Service Fabric and containers](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-containers-overview)
+
+## Distributed architecture
+* **Are you aware of microservices architecture style and best practices?**
+
+    A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability. Consider the amount of services that are implemented; do you need 1000 services, when in reality you could deploy only 5?
+
+    > [Microservices architecture style](https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/microservices)
+
+## High availability and business continuity / disaster recovery
+* **Have you considered mitigations and actions to take if a disaster happens?**
+
+    There is guidance available for hardware and software faults and the availability of Service Fabric Clusters
+    > [Disaster recovery in Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-disaster-recovery)
+
+* **Are you thinking of the Service Fabric platform for microservices or a development platform in general?**
+
+    You can use the platform if you want to host any exe and utilize the offered High Availability aspect. Service Fabric ensures that instances of an application are running. Be aware that Geo-Replication of the Service Fabric Cluster is not yet supported. You can back up any data on the compute to a BLOB and restore that in case of such a disaster. More information on Azure Storage and BLOB storage can be found here.
     
+    > [Deploy a guest executable to Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-existing-app)
+
+
+## Monitor and diagnose
+
+* **Have you considered your monitoring and diagnostics strategy? What are you currently using for logging?**
+
+    Monitoring and diagnostics are critical to developing, testing, and deploying applications and services in any environment. Service Fabric solutions work best when you plan and implement monitoring and diagnostics that help ensure applications and services are working as expected in a local development environment or in production. If you are already using OMS and Splunk, you may keep using those. From the application level, one can leverage Application Insights. 
+
+    > [Service Fabric diagnostics overview](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-overview)
+
+* **Are you familiar with the Service Fabric Health Model?**
+
+    Azure Service Fabric introduces a health model that provides rich, flexible, and extensible health evaluation and reporting. The model allows near-real-time monitoring of the state of the cluster and the services running in it. You can easily obtain health information and correct potential issues before they cascade and cause massive outages. In the typical model, services send reports based on their local views, and that information is aggregated to provide an overall cluster-level view.
+
+    > [Service Fabric health introduction](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-health-introduction)
+    
+    > [Use system health reports to troubleshoot](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-understand-and-troubleshoot-with-system-health-reports)
+
+
+* **Are you aware of Application Insights support for Microservices and Containers?**
+
+    Azure Application Insights is an extensible platform for application monitoring and diagnostics. It includes a powerful analytics and querying tool, customizable dashboard and visualizations, and further options including automated alerting. It is the recommended platform for monitoring and diagnostics for Service Fabric applications and services. A single Application Insights resource can be used for all the components of your application. The health of the services and the relationships between them are displayed on a single Application Map. You can trace individual operations through multiple services with automatic HTTP correlation.
+
+    > [Event analysis and visualization with Application Insights](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights)
+    
+    > [Application Insights support for Microservices and Containers](https://azure.microsoft.com/en-us/blog/app-insights-microservices/)
+
+## Performance and scalability
+
+* **Are you familiar with the Service Fabric application lifecycle?**
+
+    As with other platforms, an application on Azure Service Fabric usually goes through the following phases: design, development, testing, deployment, upgrading, maintenance, and removal. Service Fabric provides first-class support for the full application lifecycle of cloud applications, from development through deployment, daily management, and maintenance to eventual decommissioning. During each lifecycle phase, the code and the config go through being compiled, published, deployed.
+
+    > [Service Fabric application lifecycle](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-lifecycle)
+
+    > [Model an application in Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model)
+
+* **Have you given thought to how you would scale stateful services and stateless services? Have you decided how you would partition data, and select partition scheme for stateful services?**
+
+    Defining partition scheme and number of partitions for stateful services upfront is very important. Number of partitions defined cannot be changed later. In general, you must have a good reason to use stateful services. You want data to be persisted to an external store (Azure SQL DB, Cosmos DB, etc.). If you do use stateful services, then do not put data in the stateful service that you cannot afford to lose.
+
+    > [Scaling in Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-concepts-scalability)
+
+    > [Partition Service Fabric reliable services](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-concepts-partitioning/)
+
+* **Are you going to manually scale the cluster or use auto-scale?**
+
+    Virtual machine scale sets are an Azure compute resource that you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is set up as a separate Virtual Machine scale set. With scaling you are trying to achieve the right balance with cost vs availability. Try to use calendar based auto scale rather than reactive. Do not turn on auto-scale unless Monitoring is on. Generally, scale up aggressively and scale down conservatively.
+
+    > [Scale a Service Fabric cluster in or out using auto-scale rules](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-cluster-scale-up-down/)
+    
+    > [Overview of autoscale with Azure virtual machine scale sets](https://azure.microsoft.com/en-us/documentation/articles/virtual-machine-scale-sets-autoscale-overview/)
+
+* **Have you created secure clusters to deploy your workloads?**
+
+    When deploying workloads, it is recommended that you deploy them on secure Service Fabric Clusters. Please put all the certificates for the cluster in KeyVault. Please do NOT lose these keys.
+
+    > [Create a Service Fabric cluster in Azure using the Azure portal](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-portal)
+
+    > [Create a secure cluster in Azure by using PowerShell](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-tutorial-create-cluster-azure-ps)
+
+    > [Connect to a secure cluster](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-connect-to-secure-cluster)
+
+* **Have you considered securing applications running under different user accounts?**
+
+    By using Azure Service Fabric, you can secure applications that are running in the cluster under different user accounts
+
+    > [Configure security policies for your application](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-runas-security)
+
+* **Have you evaluated Linux Clusters and Java Development?**
+    
+    Service Fabric is currently available as a public preview on Linux, enabling you to build, deploy, and manage highly available, highly scalable applications in that environment just as you would on Windows. In addition, the high-level Service Fabric frameworks (Reliable Services and Reliable Actors) can now be built in Java.
+
+    > [Create Service Fabric clusters on Windows Server or Linux](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-linux-overview/)
+
+* **Have you had conversations as a team around cluster capacity planning?**
+
+    Capacity planning for Clusters is important from finding the right balance needed between cluster resources needed to run your workload and the managing costs. There are tools and resources available to help you with this.
+
+    > [Capacity planning for Service Fabric applications](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-capacity-planning)
+
+* **Are you looking at the Service Fabric Platform for future implementations or are you already deployed on the platform with your applications? What programming models are you considering using to build your applications in Service Fabric?**
+
+    Service Fabric offers multiple ways to write and manage your services. It is important to decide on which programming model your teams will be using. Be aware of guidelines on when to use Actors and when to use Reliable Services.
+
     > [Service Fabric programming model overview](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-choose-framework)
-    >
+
     > [Introduction to Service Fabric Reliable Actors](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-actors-introduction)
-    >
+
     > [When to use Reliable Services APIs](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-introduction#when-to-use-reliable-services-apis)
 
-* **Have you considered Azure API Management as a front end gateway to your Service Fabric Application?**
+* **Have you considered Azure API Management as a frontend gateway to your Service Fabric Application?**
 
     Cloud applications typically need a front-end gateway to provide a single point of ingress for users, devices, or other applications. In Service Fabric, a gateway can be any stateless service such as an [ASP.NET Core application](https://docs.microsoft.com/en-us/aspnet/core/), or another service designed for traffic ingress, such as [Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-what-is-event-hubs), [IoT Hub ][6], or [Azure API Management ][7]. For Event Hubs, be aware of the limits on the number of events that can be ingested.  The key here is going to need a front door, this is one suggestion. The Key here is that you **Must have a Front Door: There are a few options here**  **Traffic Pattern**  **Technology Selection**    
     
     > [Service Fabric with Azure API Management overview](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-api-management-overview)
 
-* **Are you aware of Service Fabric Team Blog and Service Fabric Customer Profiles?**
+* **Are you aware of Service Fabric team blog and Service Fabric customer profiles?**
 
-    The Service Fabric Team Blog is a good resource to keep up with latest Service Fabric announcements.   There are also case studies published by customers on how they leveraged Azure and Service Fabric.    
+    The Service Fabric Team Blog is a good resource to keep up with latest Service Fabric announcements. There are also case studies published by customers on how they leveraged Azure and Service Fabric.
     
-    > [https://blogs.msdn.microsoft.com/azureservicefabric/](https://blogs.msdn.microsoft.com/azureservicefabric/)
-    >
-    > [https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/](https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/)
-
-## Manage Applications - Performance and Scalability    
-
-* **Are you familiar with the Service Fabric application lifecycle?**
-
-    As with other platforms, an application on Azure Service Fabric usually goes through the following phases: design, development, testing, deployment, upgrading, maintenance, and removal. Service Fabric provides first-class support for the full application lifecycle of cloud applications, from development through deployment, daily management, and maintenance to eventual decommissioning.   During each lifecycle phase, the code and the config go through being compiled, published, deployed.    
+    > [Azure Service Fabric Team Blog](https://blogs.msdn.microsoft.com/azureservicefabric/)
     
-    > [Service Fabric application lifecycle](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-lifecycle)
-    >
-    > [Model an application in Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model)
+    > [Azure Service Fabric Team Blog: Customer profile](https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/)
 
-* **Have you given thought to how you would scale Stateful Services and Stateless Services? Have you decided how you would partition data, and select partition scheme for Stateful services?**
-
-    Defining partition scheme and number of partitions for Stateful services upfront is very important. Number of partitions defined cannot be changed later.   In general, you must have a good reason to use statfeul services. You want data to be persisted to an external store (Azure SQL DB, Document DB, etc.). If you do use stateful services, then do not put data in the stateful service that you cannot afford to lose.    
-    
-    > [Scaling in Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-concepts-scalability)
-    >
-    > [Partition Service Fabric reliable services](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-concepts-partitioning/)
-
-* **Are you going to manually scale the cluster or use auto-scale?**
-
-    Virtual machine scale sets are an Azure compute resource that you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is set up as a separate Virtual Machine scale set.   With scaling you are trying to achieve the right balance with cost vs availability.   Try to use calendar based auto scale rather than reactive. Do not turn on auto-scale unless Monitoring is on. Generally, scale up aggressively and scale down conservatively.    
-    
-    > [Scale a Service Fabric cluster in or out using auto-scale rules](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-cluster-scale-up-down/)
-    >
-    > [Overview of autoscale with Azure virtual machine scale sets](https://azure.microsoft.com/en-us/documentation/articles/virtual-machine-scale-sets-autoscale-overview/)
-   
-## Create and manage Clusters    
-
-* **Have you created secure clusters to deploy your workloads?**
-
-    When deploying workloads, it is recommended that you deploy them on secure Service Fabric Clusters. Please put all the certificates for the cluster in KeyVault. Please do **NOT** lose these keys.    
-    
-    > [Create a Service Fabric cluster in Azure using the Azure portal](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-portal)
-    >
-    > [Create a secure cluster in Azure by using PowerShell](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-tutorial-create-cluster-azure-ps)
-    >
-    > [Connect to a secure cluster](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-connect-to-secure-cluster)
-
-* **Have you considered securing applications running under different user accounts?**
-
-    By using Azure Service Fabric, you can secure applications that are running in the cluster under different user accounts    
-    
-    > [Configure security policies for your application](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-runas-security)
-
-* **Have you evaluated Linux Clusters and Java Development?**
-
-    Service Fabric is currently available as a public preview on Linux, enabling you to build, deploy, and manage highly available, highly scalable applications in that environment just as you would on Windows. In addition, the high-level Service Fabric frameworks (Reliable Services and Reliable Actors) can now be built in Java.    
-    
-    > [Create Service Fabric clusters on Windows Server or Linux](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-linux-overview/)
-
-* **Have you had conversations as a team around cluster capacity planning?**
-
-    Capacity planning for Clusters is important from finding the right balance needed between cluster resources needed to run your workload and the managing costs. There are tools and resources available to help you with this.    
-    
-    > [Capacity planning for Service Fabric applications](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-capacity-planning)
-
-## Monitor and Diagnose    
-
-* **Have you considered your monitoring and diagnostics strategy? What are you currently using for logging**
-
-    Monitoring and diagnostics are critical to developing, testing, and deploying applications and services in any environment. Service Fabric solutions work best when you plan and implement monitoring and diagnostics that help ensure applications and services are working as expected in a local development environment or in production.   If you are already using OMS and Splunk, keep using those. LogAnalytics and New Relic are other options.    
-    
-    > [https://docs.microsoft.com/en-](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-overview)
-
-* **Are you familiar with the Service Fabric Health Model?**
-
-    Azure Service Fabric introduces a health model that provides rich, flexible, and extensible health evaluation and reporting. The model allows near-real-time monitoring of the state of the cluster and the services running in it. You can easily obtain health information and correct potential issues before they cascade and cause massive outages. In the typical model, services send reports based on their local views, and that information is aggregated to provide an overall cluster-level view.    
-    
-    > [https://docs.microsoft.com/en-](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-health-introduction)
-    >
-    > [Use system health reports to troubleshoot](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-understand-and-troubleshoot-with-system-health-reports)
-
-* **Are you aware of Application Insights support for Microservices and Containers?**
-
-    Azure Application Insights is an extensible platform for application monitoring and diagnostics. It includes a powerful analytics and querying tool, customizable dashboard and visualizations, and further options including automated alerting. It is the recommended platform for monitoring and diagnostics for Service Fabric applications and services.   A single Application Insights resource can be used for all the components of your application. The health of the services and the relationships between them are displayed on a single Application Map. You can trace individual operations through multiple services with automatic HTTP correlation.    
-    
-    > [https://docs.microsoft.com/en-](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights)
-    >
-    > [https://azure.microsoft.com/en-us/blog/app-insights-microservices/](https://azure.microsoft.com/en-us/blog/app-insights-microservices/)
-
-## App Migration    
-
-* **Are you looking to migrate a solution built in Cloud Services Web and Worker Roles to Service Fabric**
-
-    Application Migration from solutions built in Classic Cloud Services to Microservices based architecture.   If you are still evaluating which platform to use, consider App Services as well.    
-    
-    > [Guide to converting Web and Worker Roles to Service Fabric stateless services](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cloud-services-migration-worker-role-stateless-service)
-    >
-    > [Learn about the differences between Cloud Services and Service Fabric before migrating applications](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cloud-services-migration-differences)
-
-* **Are you considering containerizing your application?**
-
-    Now you can use Service Fabric and develop and deploy your containerized applications. Determine if the putting ASP.NET application in App Services is a valid option. You can use Web App and Web jobs as an option as well. If you have made the decision to host in Service Fabric, be aware that you can containerize their application and put it here.    
-    
-    > [Service Fabric and containers](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-containers-overview)
-
-## Distributed Architecture  
-
-* **Microservices Architecture Experience in the team, here are some best practices**
-
-    If you are considering moving to microservices architecture either for brownfield or greenfield development, one must invest in training in microservices architecture and design patterns.    
-    
-    > [Microservices architecture style](https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/microservices)
-
-* **Are you aware of microservices architecture style?**
-
-    A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability. Consider the amount of services that are implemented; do you need 1000 services, when in reality you could deploy only 5?    
-    
-    > [Microservices architecture style](https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/microservices)
-
-## High Availability and Business Continuity / Disaster Recovery    
-
-* **Have you considered mitigations and actions to take if a disaster happened?**
-
-    There is guidance available for Hardware and Software faults and availability of Service Fabric Cluster    
-    
-    > [Disaster recovery in Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-disaster-recovery)
-
-* **Are you thinking of Service Fabric platform for microservices or development platform in general?**
-
-    You can use the platform if you want to host any exe on the platform and utilize the High Availability aspect that the platform offers. Service Fabric ensures that instances of an application are running. Be aware that Geo-Distribution of the Service Fabric Cluster is not yet supported. You can back up any data on the compute to a BLOB and restore that in case of such a disaster.    
-    
-    > [Deploy a guest executable to Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-existing-app)
 
 ## Security    
 
@@ -429,11 +417,11 @@ This architecture discussion can be run by anyone who is responsible for applica
 
     The same Application Security Rules can be applied to an application developed on Service Fabric Platform. You can apply standard SDL best practices.    
     
-    > [https://www.mulesoft.com/resources/api/microservices-security](https://www.mulesoft.com/resources/api/microservices-security)
+    > [Microservices security](https://www.mulesoft.com/resources/api/microservices-security)
 
 * **Are you wondering about application security for applications running on Service Fabric?**
 
-    This is no different than implementing security using AD for example, for any other regular application. The guidance on using AD is the same.   Did you know that you can implement same infrastructure level security to Service Fabric Cluster as you would to any Server Farms.    
+    This is no different than implementing security using AD for example, for any other regular application. The guidance on using AD is the same. Did you know that you can implement the same infrastructure level security to a Service Fabric Cluster as you would to any server farm.  
     
     > [Secure a standalone cluster on Windows by using Windows security](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-windows-cluster-windows-security/)
 
@@ -442,3 +430,6 @@ This architecture discussion can be run by anyone who is responsible for applica
     By using Azure Service Fabric, you can secure applications that are running in the cluster under different user accounts    
     
     > [Configure security policies for your application](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-runas-security)
+
+## Summary 
+When customers move to Azure, generally there is a misconception that Azure will automatically take care of  highly availability, disaster recovery, etc. The intent of the Architectural discussion framework is to guide you to build highly available, resilient, scalable & secure applications.
