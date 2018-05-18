@@ -46,32 +46,42 @@
 
 * **Have you considered the load and runtime requirements of your solution?**
 
-    It is important to plan the vm size and storage appropriately, ensuring that performance is not compromised once the solution has been migrated to Azure. Plan on your storage. Will it be Standard or Premium storage? Understand the vm sizes and how they will support memory, processing, and the throttling of storage.    
+    It is important to plan the vm size and storage appropriately, ensuring that performance is not compromised once the solution has been migrated to Azure. Plan on your storage. Will it be Standard or Premium storage? Understand the vm sizes and how they will support memory, processing, and the throttling of storage.
     
     > [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes)
     > 
-    > [Capacity Planning VMware Environments](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-deployment-planner)
+    > [Azure Migrate for VMware Environments](https://docs.microsoft.com/en-us/azure/migrate/tutorial-assessment-vmware)
     >
-    > [Capacity Planning Hyper-V environments](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-capacity-planner)
+    > [Capacity Planning Hyper-V environments](https://docs.microsoft.com/en-us/azure/site-recovery/hyper-v-deployment-planner-run)
 
-* **Have you defined your networking requirements? What is needed to transfer your data from on-premises into Azure? Additionally, have you thought about how you will segregate your workloads across subnets or Virtual Networks?**
+* **Have you defined your networking requirements? What is needed to transfer your data from on-premises into Azure? Have you thought about how you will segregate your workloads across subnets or Virtual Networks?**
 
     The goal to understand the network capacity to transfer data and also to secure the application across tiers.    
     
     > [Hybrid networking Reference Architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/)
     > 
-    > [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)
-    > 
-    > [vNET Peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview)
+    > [Determine IP Addressing Requirements](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
     > 
     > [Bandwidth Planning for replicating workloads to Azure](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-deployment-planner)
     > 
     > [Whitepaper - Mesh and hub-and-spoke networks on Azure](https://azure.microsoft.com/en-us/resources/mesh-and-hub-spoke-networks-on-azure/en-us/)
-    >
-    > [Hyper-V Capacity planner tool for site recovery](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-capacity-planning-for-hyper-v-replication)
     > 
     > [Drive shipping workloads for low bandwidth](https://docs.microsoft.com/en-us/azure/storage/common/storage-import-export-service)
-
+    > 
+    > [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)
+    
+    Isolation/Segregation of Network Traffic
+    
+    > [Secure Hybrid VNet Architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid)
+    > 
+    > [Extend IaaS to PaaS resources via Service Endpoints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview)
+    > 
+    > [Control Traffic Between VMs and Subnets](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview)
+    > 
+    > [Override default traffic routing behaviors](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview)
+    > 
+    > [DDoS Protection](https://docs.microsoft.com/en-us/azure/virtual-network/ddos-protection-overview)
+    
 ## App & Data Migration 
 
 * **What are the current set of dependencies that your current and legacy applications have?  Do you plan to extend your current authorization and authentication for applications or do you plan to create a hosting domain to insulate your internal Active Directory>**
@@ -92,8 +102,11 @@
     
     > [Use the Microsoft Azure Import/Export service to transfer data to Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-import-export-service)
     > 
-    > [Using the Azure Import/Export service REST API](https://docs.microsoft.com/en-us/azure/storage/common/storage-import-export-using-the-rest-api)
-
+    > [Use Azure Data box to transfer data to Azure Storage (Preview)](https://azure.microsoft.com/en-us/services/storage/databox/)
+    >
+    > [Use AzCopy to transfer data via Internet/ExpressRoute connectivity](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy)
+    >
+    
 * **Are you aware of the options available to migrate your data to Azure?**
 
     Establish which options in moving the data to Azure will align best with your scenario and solution.    
