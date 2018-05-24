@@ -27,7 +27,7 @@ This architecture discussion can be run by anyone who is responsible for applica
 
 * **Have you investigated the full range of Azure compute (hosting) options and compared their features before making a decision?**
 
-    Azure offers several compute options: Azure App Service, Service Fabric, Azure Container Services, Azure Functions, Virtual Machines, Cloud Services (legacy). It is critical that you choose the right hosting model by comparing different options and select the right hosting model(s) based on your requirements.   
+    Azure offers several compute options: Azure App Service, Service Fabric, Azure Container Services, Azure Functions, Virtual Machines, Cloud Services (legacy). It is critical that you choose the right hosting model by comparing different options and select the right hosting model(s) based on your requirements. All of the different services have different characteristics for maintenance, operations, resiliency, scalability, cost and performance envelope.   
     
     > [Criteria for choosing an Azure compute option](https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-comparison)
     >
@@ -37,32 +37,35 @@ This architecture discussion can be run by anyone who is responsible for applica
 
 ## App and data migration    
 
-* **Are you migrating existing Web app or API Apps from Windows Server or Linux Server? Are you aware of Azure App Service Migration Assistant tool?**
+* **Are you migrating existing Web app or API Apps from Windows Server or Linux Server? Are you aware of the Azure App Service Migration Assistant tool?**
 
     The App Service Migration assistant tool creates a readiness report to identify any potential blocking issues which may prevent a successful migration from on-premises to Azure. If you do not feel comfortable using the tool to migrate (i.e. prefer a manual migration), then you can use the readiness report as a minimum to identify potential blocking issues.    
     
     > [Azure App Service Migration Assistant](http://www.migratetoazure.net)
 
-* ****Existing App Migration**: What type of authentication being used?**
+* ****Existing App Migration**: What type of authentication is being used?**
 
     Web Apps support Anonymous Authentication by default and Forms Authentication where specified by an application. Windows Authentication is not supported within App Service; however Azure Active Directory can be used (optionally with ADFS) by implementing token based Authentication (SAML / Oauth based), this approach can also provide a fully integrated Single Sign On Experience if required. All other forms of authentication - for example, Basic Authentication - are not currently supported.    
         
-* ****Existing App Migration**: Does the application references assemblies from the GAC (Global Assembly Cache)?**
+* ****Existing App Migration**: Does the application reference assemblies from the GAC (Global Assembly Cache)?**
 
     The GAC is not supported in Web Apps. If your application references assemblies which you usually deploy to the GAC, you will need to deploy to the application bin folder in Web Apps.    
     
 * ****Existing App Migration**: Does the application makes use of COM Components?**
-    Web Apps do not allow the registration of COM Components on the platform. If your websites or applications make use of any COM Components, you must rewrite them in managed code and deploy them with the website or application.
+    Web Apps do not allow the registration of COM Components on the platform. If your websites or applications make use of any COM Components, you must rewrite them and deploy them with the website or application.
     
 
 * ****Existing App Migration**: What Port Bindings are being used?**
 
-    Web Apps only support Port 80 for HTTP and Port 443 for HTTPS traffic, these ports are automatically exposed and load-balanced across multiple instances. The migration tool will ensure that any migrated applications are listening on these ports by default. 
+    Web Apps only support inbound connectivity on Port 80 for HTTP and Port 443 for HTTPS traffic, these ports are automatically exposed and load-balanced across multiple instances. The migration tool will ensure that any migrated applications are listening on these ports by default. 
 
 * ****Existing App Migration**: Does your app call any User32/GDI32 functions directly, or registry accesses?**
 
     Web Apps do not support access to shared subsystems in Windows and do not support write access to any registry keys. 
 
+* ****Session State**: Does your application store session state in process on a server? 
+ 
+    In an ideal case, you can make your application stateless in order to scale/switch at will. Where this is not feasible, use the  session state provider for Azure Redis Cache to persist your state across multiple services via a distributed cache mechanism.
 
 ## Distributed architecture    
 
@@ -90,7 +93,7 @@ This architecture discussion can be run by anyone who is responsible for applica
   * Resilient deployment
   * Monitoring and Diagnostics
 
-  When you design the application for a distributed environment like cloud, it is important that you design for resiliency using well known strategies and design patterns.    
+  When you design any application for a distributed environment such as public cloud services, it is important that you design for resiliency using well known strategies and design patterns.    
     
     > [Resiliency strategies](https://docs.microsoft.com/en-us/azure/architecture/resiliency/index#resiliency-strategies)
 
@@ -135,11 +138,18 @@ This architecture discussion can be run by anyone who is responsible for applica
     > [High Availability](https://docs.microsoft.com/en-us/azure/architecture/resiliency/high-availability-azure-applications)
 
 
-* **Have you implemented async operation whenever possible?**
+* **Have you implemented async operations whenever possible?**
 
-  Synchronous operations can monopolize resources and block other operations while the caller waits for the process to complete. Design each part of your application to allow for asynchronous operations whenever possible.   
+  Though arguably simpler to implement, synchronous operations monopolize and hold open precious resources and block other operations while the caller waits for the process to complete. Design each part of your application to allow for asynchronous operations whenever possible to get the most out of your precious compute and connection resources.
     
   > [Asynchronous programming](https://docs.microsoft.com/en-us/dotnet/articles/csharp/async)
+
+* **Use client classes and connection managers as intended**
+
+  Complex classes such as connection managers and client classes are usually designed to reuse connections and ports effectively to minimize network roundtrips and possible SNAT exhaustion issues. Even in a fully managed environment there are limits to the number of open connections you can have at once! Reuse is always better than individual, atomic TCP connections for each request. Reuse results in more performant, very efficient TCP transactions. 
+    
+  > [App Service Sandbox Limitations](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)
+
 
 ## Monitoring and Management
 
@@ -225,7 +235,7 @@ This architecture discussion can be run by anyone who is responsible for applica
     
     * Infrastructure and platform security - You trust Azure to have the services you need to run things securely in the cloud.
     
-    * Application security - You need to design the app itself securely. This includes how you integrate with Azure Active Directory, how you manage certificates, and how you make sure that you can securely talk to different services.
+    * Application security - You need to design the app itself securely. This includes how you integrate with Azure Active Directory, how you manage certificates , and how you make sure that you can securely talk to different services.
 
     
     While Azure is responsible for securing the underlying infrastructure and platform that your application runs on, it is your responsibility to secure your application itself. In other words, you need to develop, deploy, and manage your application code and content in a secure way. Without this, your application code or content can still be vulnerable to threats such as:
