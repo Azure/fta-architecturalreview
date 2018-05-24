@@ -137,7 +137,7 @@ At this point we are trying to leverage what we have learnt to accelerate the or
 * FastTrack for Azure Fundamentals training offerings
 * Partner or MS Services Engagements
 
-If the review identified a need for additional engagements or discovered additional workloads, this should be fed back to the organization participating in the review.
+If the review identified a need for additional engagements or discovered additional workloads, information on these should be fed back to the organization participating in the review.
 
 ## References
 * [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)
