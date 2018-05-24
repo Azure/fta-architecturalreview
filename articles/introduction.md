@@ -10,25 +10,23 @@
 - [References](#references)
 
 # Introduction
-This guide supports discussion during Fast Track for Azure Architectural Guidance sessions. Questions stem from recommended patterns and practices and link back to technical documentation on Azure.com.
+This guide is intended to support discussions during the Fast Track for Azure Architectural Guidance sessions. The questions being asked  stem from recommended patterns and practices and link back to technical documentation on Azure.com and docs.microsoft.com.
 
-The general structure of a formal review can be seen in ppt format in the Delivery Deck with rough timings for the sections.
-
-* NOTE: This framework can be applied in a number of ways, all that needs to happen is that you can vary the technical depth of conversation by narrowing or widening the solution scope or reducing the amount of time allocated. 
+* NOTE: This framework can be applied in a number of ways, by varying the technical depth of conversation by narrowing or widening the solution scope or reducing the amount of time allocated. 
 
 If you have a short amount of time, spend less time on the scoping and requirements, and run a very deep solution area discussion - this would be typical of the style of review at the "Architecture Bars" at Ignite / TechSummit. 
 
 If you have slightly more time, spend longer on the scoping and requirements to allow a broader, more holistic review of their architecture and patterns and practices (the higher you go the more you are likely to see), this is what we would refer to as an "Architectural Review". 
 
-If the customer wants a "Solution Review" (i.e. of their implementation of a service), then limit the scope to one service area and go deep into it, but beware of being pulled into the weeds and doing a different type of review from the one you scope in Section 1.
+If a "solution review" is required (i.e. of the implementation of a service), then limit the scope to one service area and go deep into it, but beware of going too deeply into one area and doing a different type of review from the one you scope in Section 1.
 
-Whatever type of review you execute, ensure that you know which one you are doing and why. 
+Whatever type of review you execute, It is extremely important to ensure that you know which type of review you are doing and why before you begin. 
 
 # Agenda and Stages 
 
 ## Aim and Confirm objectives of the Review
 
-FastTrack's objectives are below, be honest and transparent about them - but the customer will likely have their own idea about why this is required. You should ensure that those reasons are captured for context (if they have not already been captured during scoping)
+FastTrack's objectives are below, when reviewing the reviewer should be honest and transparent about them - but the customer or partner that is engaged for the review will likely have their own idea about why this is required and may have their own objectives and goals to strive to meet. The reviewer should ensure that those reasons are captured for context (if they have not already been captured during scoping).
 
 Examples could be: a prior outage, a migration project to onboard to Azure, a significant increase in scale planned, or maybe a production go-live.
 
@@ -84,7 +82,7 @@ These are the pillars of software quality we are looking for and areas to look o
 * Manageability and Supportability 
 * Development, Testing and Deployment (DevOps)
    
-### Discovery, if the customer has no documentation that follows the below pattern, then use a whiteboard to map out:
+### Discovery, if the reviewee has no documentation that follows the below pattern, then use a whiteboard to map out:
 
 * The major components of the solution architecture.
 * Note down dependencies for these major components (These can be subtle. For example, dependencies relating to security or identity such as Active Directory for Infrastructure as a Service (IaaS) solutions or third-party services such as a payment provider or e-mail messaging service.
@@ -104,7 +102,7 @@ These are the pillars of software quality we are looking for and areas to look o
 * How does the solution scale? How is extra capacity added, and in which situations would this be required? 
 * How do transient faults in each component affect the health of the overall solution (including internal or 3rd party dependencies)?
 * How do you determine the health of a tier / set of resources?
-* Are there any upstream/downstream dependencies of this solution to other customer or 3rd party solutions?
+* Are there any upstream/downstream dependencies of this solution to other reviewee or 3rd party solutions?
 * Additionally, are there workloads within the solution with different RPO/RTO targets?
 	* RPO (recovery point objective â€“ how much data can be lost during a failure)
 	* RTO (recovery time objective how long can the system take to recover from a failure) targets?
@@ -140,7 +138,7 @@ Consider that what you are really looking for here is a list of what has to be d
 
 If the review identified a need for additional engagements or discovered additional workloads, then this should be fed back to the Lead Engineer and PM for scheduling and pickup.
 
-At this point we are trying to leverage what we have learnt to accelerate the customer and help them to reach their objectives by using azure but if it becomes clear that the Customer or Partner needs additional resources, skills and / or experience to achieve their goals then three approaches make sense :- 
+At this point we are trying to leverage what we have learnt to accelerate the customer and help them to reach their objectives by using azure but if it becomes clear that the reviewee needs additional resources, skills and / or experience to achieve their goals then three approaches make sense :- 
 
 * Advise PaaS services over IaaS, 
 * Schedule FastTrack Fundamentals training offerings.
