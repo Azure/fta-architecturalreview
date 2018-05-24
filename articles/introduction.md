@@ -130,13 +130,14 @@ Consider that what you are really looking for here is a list of what has to be d
 
 ## Additional Assistance Required and Next Steps 	
 
-If the review identified a need for additional engagements or discovered additional workloads, then this should be fed back to the Lead Engineer and PM for scheduling and pickup.
+At this point we are trying to leverage what we have learnt to accelerate the organization's adoption of Azure safely and help them to reach their objectives by using Azure. But if it becomes clear that additional resources, skills and / or experience are needed to help the goals to be achieved, then three approaches make sense :- 
 
-At this point we are trying to leverage what we have learnt to accelerate the customer and help them to reach their objectives by using Azure but if it becomes clear that additional resources, skills and / or experience are needed to help the goals to be achieved, then three approaches make sense :- 
+* Advise PaaS services over IaaS
+* Self Guided Learning 
+* FastTrack for Azure Fundamentals training offerings
+* Partner or MS Services Engagements
 
-* Advise PaaS services over IaaS, 
-* Schedule FastTrack Fundamentals training offerings.
-* Partner Engagemetnts / Services 
+If the review identified a need for additional engagements or discovered additional workloads, this should be fed back to the organization participating in the review.
 
 ## References
 * [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)
