@@ -16,19 +16,19 @@ This guide is intended to support discussions during the Fast Track for Azure Ar
 
 If you have a short amount of time, spend less time on the scoping and requirements, and run a very deep solution area discussion - this would be typical of the style of review at the "Architecture Bars" at Ignite / TechSummit. 
 
-If you have slightly more time, spend longer on the scoping and requirements to allow a broader, more holistic review of their architecture and patterns and practices (the higher you go the more you are likely to see), this is what we would refer to as an "Architectural Review". 
+If you have slightly more time, spend longer on the scoping and requirements to allow a broader, more holistic review of the architecture and patterns and practices (the higher you go the more you are likely to see), this is what we would refer to as an "Architectural Review". 
 
 If a "solution review" is required (i.e. of the implementation of a service), then limit the scope to one service area and go deep into it, but beware of going too deeply into one area and doing a different type of review from the one you scope in Section 1.
 
-Whatever type of review you execute, It is extremely important to ensure that you know which type of review you are doing and why before you begin. 
+Whatever type of review you execute, ut is extremely important to ensure that you know which type of review you are doing and why before you begin the exercise. 
 
 # Agenda and Stages 
 
 ## Aim and Confirm objectives of the Review
 
-FastTrack's objectives are below, when reviewing the reviewer should be honest and transparent about them - but the customer or partner that is engaged for the review will likely have their own idea about why this is required and may have their own objectives and goals to strive to meet. The reviewer should ensure that those reasons are captured for context (if they have not already been captured during scoping).
+FastTrack's objectives are below, When reviewing the reviewer should be honest and transparent about them - but the organisation that is engaged for the review will likely have their own idea about why this is required and may have their own objectives and goals to strive to meet. The reviewer should ensure that those reasons are captured for context (if they have not already been captured during scoping).
 
-Examples could be: a prior outage, a migration project to onboard to Azure, a significant increase in scale planned, or maybe a production go-live.
+Examples could be: a prior outage, a migration project to onboard to Azure, a significant increase in scale planned or maybe a production go-live.
 
 ### Confidence
 Ensure that you have confidence in the Azure platform to meet the needs of your solution based upon an the advice of an Azure Engineering Expert.
@@ -41,12 +41,12 @@ Quickly identify and define the scope of the knowledge transfer and MS assistanc
 
 ## Plan and Confirm Scope and Service Levels to review against 	
 
-Once we understand why we need a review, we can set the parameters for what we are reviewing and what we are reviewing against, we need to know this so we can ensure that the subject of the review (the scope and purposes) meets the success criteria for the relevant stakeholders.
+Once there is a joint understanding of why a review is needed, parameters can be set for the review. This is needed, so that the subject of the review (the scope and purposes) meets the success criteria for the relevant stakeholders.
 
 Look for the following information at a minimum: 
 
 ### Scope
-What solution are we reviewing? What is it called?
+What solution is being reviewed? What is it called?
 
 ### Purposes
 What are the high level functional requirements, what does the solution do?
@@ -70,7 +70,7 @@ Here are some more sample questions to ask to help with item 2 in order to gain 
 
 ## Do the Architectural Review	
 
-Here we are performing the meat of the actual review, for a high level review we are simply reviewing architecture against the pillars of software quality, for a detailed solution review we would hit our detailed review guidance and use much more depth of engineer knowledge. The end game for this section is to review whether the solution would meet the requirements stated and if there are any common gotchas embedded in the architecture. 
+This is the main focus of the review. For a high level review it is a review of the architecture against the pillars of software quality. For a detailed solution review, the detailed review guidance may be needed and much more depth of an engineer's knowledge. The aim for this section is to review whether the solution would meet the requirements stated and if there are any common pitfalls embedded in the architecture. 
 
 ### Review Areas
 
@@ -86,7 +86,7 @@ These are the pillars of software quality we are looking for and areas to look o
 
 * The major components of the solution architecture.
 * Note down dependencies for these major components (These can be subtle. For example, dependencies relating to security or identity such as Active Directory for Infrastructure as a Service (IaaS) solutions or third-party services such as a payment provider or e-mail messaging service.
-* Detemrmine how dependencies across components and third party services are tied together. For example, E.g. vNet Peering, Express Route, VPN Connections, API calls over public Internet, Loose Coupling.  You don't care so much about the configuration of those resources, e.g. SKU, cost, etc.
+* Determine how dependencies across components and third party services are tied together. For example, E.g. vNet Peering, Express Route, VPN Connections, API calls over public Internet, Loose Coupling.  You don't care so much about the configuration of those resources, e.g. SKU, cost, etc.
 
 * Annotate all components with
 	* SLA requirements
@@ -96,7 +96,7 @@ These are the pillars of software quality we are looking for and areas to look o
 
 * Annotate resource and define whether there is some kind of health metric associated. Also determine how this is monitored, for example Application level monitoring, Infrastructure level Monitoring or monitoring of the business processes.
 
-### Once you have a clear view of your architecture, determine the answer to the following questions:
+### Once you have a clear view of the architecture, determine the answer to the following questions:
 
 * Is there a single point of failure in any of the components?
 * How does the solution scale? How is extra capacity added, and in which situations would this be required? 
@@ -109,12 +109,12 @@ These are the pillars of software quality we are looking for and areas to look o
 * How big are the largest databases of the solution? Have you considered the annual growth rate?
 * What is the strategy to OS level updates and application updates?
 
-### Additionally engineers would leverage their own skills for the following 2 areas if they go deep into a solution area.
+### Additionally engineers would leverage their own skills for the following two areas if they go deep into a solution area.
 
 * Service Specific Aspects
 * Other Observations
 
-### For the Solution / Service  Specific components - ensure you review the appropriate sections for your solution:
+### For the Solution / Service  Specific components - ensure you review the appropriate sections for the solution:
 
 * [Application Modernisation](application-modernisation.md)
 * [Backup, Archive & Disaster Recovery](backup-archive-disaster-recovery.md)
@@ -124,21 +124,15 @@ These are the pillars of software quality we are looking for and areas to look o
 
 ## Discuss Identified Risks and Links to Azure Docs 
 
-At this point you would read back to the customer identified risks and possible enhancements to their architecture with supporting links to patterns and practices or service documentation, these should be recorded in the Engagement system for later follow up. 
+At this point you would review the identified risks and possible enhancements to the architecture with supporting links to patterns and practices or service documentation, these should be recorded for later follow up. 
 
-Consider that what you are really looking for here is a list of what has to be done, by whom, and by when but we need to phrase that as a list of risks and recommendations, backed by docs links, and QUALIFIED with appropriate SLA's and NFRs discovered earlier, this gives context to the suggestions you have given – which might be required later. Consider, why are you recommending this - if this doesn't happen what will be failed or doubtful in the requirements that the customer has for the solution ? 
-
-* Note: Make advisory suggestions only, this is not a paid consultancy process - and where possible, have the customer take the notes, recordings and minutes – this minimizes our exposure in terms of output and insurance risk / cover.
-
-* Advise to ‘consider using or doing x’ to mitigate risks
-
-* Advise to ‘review the documentation on x’ (and feel free to point them in the direction of the appropriate links) to avoid detailed configuration discussion, or put it on the parking lot.
+Consider that what you are really looking for here is a list of what has to be done, by whom, and by when. This is to be phrase as a list of risks and recommendations, backed by links to Azure Docs and QUALIFIED with appropriate SLA's and NFRs discovered earlier. This gives context to the suggestions given – which might be required later. Consider, why the recommendations are being provided.
 
 ## Additional Assistance Required and Next Steps 	
 
 If the review identified a need for additional engagements or discovered additional workloads, then this should be fed back to the Lead Engineer and PM for scheduling and pickup.
 
-At this point we are trying to leverage what we have learnt to accelerate the customer and help them to reach their objectives by using azure but if it becomes clear that the reviewee needs additional resources, skills and / or experience to achieve their goals then three approaches make sense :- 
+At this point we are trying to leverage what we have learnt to accelerate the customer and help them to reach their objectives by using Azure but if it becomes clear that the reviewee needs additional resources, skills and / or experience to achieve their goals then three approaches make sense :- 
 
 * Advise PaaS services over IaaS, 
 * Schedule FastTrack Fundamentals training offerings.
