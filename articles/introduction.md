@@ -1,4 +1,4 @@
-i# FastTrack for Azure Architectural Review and Discussion Framework
+# FastTrack for Azure Architectural Review and Discussion Framework
 
  - [Introduction](#introduction)
  - [Agenda](#agenda-and-stages)
