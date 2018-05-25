@@ -18,7 +18,7 @@ If you have a short amount of time, spend less time on the scoping and requireme
 
 If you have slightly more time, spend longer on the scoping and requirements to allow a broader, more holistic review of the architecture and patterns and practices (the higher you go the more you are likely to see), this is what we would refer to as an "Architectural Review". 
 
-If a "solution review" is required (i.e. of the implementation of a service), then limit the scope to one service area and go deep into it, but beware of going too deeply into one area and doing a different type of review from the one you scope in Section 1.
+If a "solution review" is required (i.e. of the implementation of a service), then limit the scope to one service area and go deep into it, but beware of going too deeply into one area and doing a different type of review from the one you scope in 'Aim and Confirm objectives of the Review'.
 
 Whatever type of review you execute, it is extremely important to ensure that you know which type of review you are doing and why before you begin the exercise. 
 
