@@ -20,6 +20,8 @@ If you have slightly more time, spend longer on the scoping and requirements to 
 
 If a "solution review" is required (i.e. of the implementation of a service), then limit the scope to one service area and go deep into it, but beware of going too deeply into one area and doing a different type of review from the one you scope in 'Aim and Confirm objectives of the Review'.
 
+The difference between the two styles is that the "Architecture Review" is looking at the holistic service being deployed, whereas the "solution review" is looking at a much deeper dive into one specific aspect of the service (For example - Database Implementation, or Networking). But the same guidelines to establish the Rules of Engagement and Scoping / objectives can be applied.
+
 Whatever type of review you execute, it is extremely important to ensure that you know which type of review you are doing and why before you begin the exercise. 
 
 # Agenda and Stages 
@@ -141,6 +143,12 @@ NFR = Peak throughput of 10,000 requests at 9am and normal throughput of 100 req
 https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling
 https://docs.microsoft.com/en-us/azure/architecture/patterns/throttling
 https://docs.microsoft.com/en-us/azure/architecture/best-practices/auto-scaling
+
+Also consider indirect risks associated with testing (and or lack of it)
+Risk: High peak load can stress indirect dependencies in ways that do not show until the service is in full operation under load. Ensure you have load tested the application under the stress of at least 10,000 users using load testing tools.
+NFR = Peak throughput of 10,000 requests at 9am and normal throughput of 100 requests per hour for the rest of the day. 
+https://docs.microsoft.com/en-gb/vsts/test/load-test/index?view=vsts
+https://docs.microsoft.com/en-gb/azure/architecture/checklist/dev-ops#testing
 
 ## Additional Assistance Required and Next Steps 	
 
