@@ -68,7 +68,7 @@
     > 
     > [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)
     
-**Have you thought about how you will segregate your workloads across subnets or Virtual Networks?  How do you want to control the flow of traffic between non-prod and prod resources within Azure itself?  Are there compliance/regulatory scenarios that need to drive what the connectivity requirements are?**
+* **Have you thought about how you will segregate your workloads across subnets or Virtual Networks?  How do you want to control the flow of traffic between non-prod and prod resources within Azure itself?  Are there compliance/regulatory scenarios that need to drive what the connectivity requirements are?**
     
     > [Secure Hybrid VNet Architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid)
     > 
