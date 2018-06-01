@@ -34,7 +34,7 @@ Examples could be: a prior outage, a migration project to onboard to Azure, a si
 Ensure that you have confidence in the Azure platform to meet the needs of your solution based upon an the advice of an Azure Engineering Expert.
 
 ### Identify
-Pick up on any common errors or common improvement points that can be made to your architecture and signpost you to the relevant documentation to resolve them.
+Pick up on any common errors or common improvement points that can be made to your architecture and direct you to the relevant documentation on patterns or to resolve them.
 
 ### Onboarding
 Quickly identify and define the scope of the knowledge transfer and MS assistance that you will require to help you to either rapidly move the application yourselves or with a partner / MS Services.
@@ -46,31 +46,30 @@ Once there is a joint understanding of why a review is needed, parameters can be
 Look for the following information at a minimum: 
 
 ### Scope
-What solution is being reviewed? What is it called?
+What solution is being reviewed? What is it called? What are the high level components of the solution that are in-scope of the review?
+* What is the purpose of the solution from a business perspective? What does it do? Why is it needed?
+* What is the origin of the solution? Is it a Lift and Shift, refactored for the cloud, or born in the cloud application?
 
 ### Purposes
 What are the high level functional requirements, what does the solution do?
+* What are the availability, uptime and business continuity requirements for the solution?
+* Why is an architectural review required? Has there been a recent outage, or is this proactive architectural planning?
 
 ### Success Criteria
 What does the solution need to do to achieve the purposes and how does it need to do it, including availability and non-functional requirements.
+* How many users (total and concurrently active will use the solution? How are they geographically distributed?
+* How many operations/messages per second must the solution handle? Is there any seasonality to usage of the solution?
+* Are there any internal policies, legal, or compliance considerations to note as part of your architectural design?
 	
 ### Stakeholders
 Are there other (internal or external) customers involved with an SLA too?
-	
-Here are some more sample questions to ask to help with item 2 in order to gain an understanding into the purpose of the solution
-
-* What is the purpose of the solution from a business perspective? What does it do? Why is it needed?
-* What is the origin of the solution? Is it a Lift and Shift, refactored for the cloud, or born in the cloud application?
-* What are the availability, uptime and business continuity requirements for the solution?
-* Why is an architectural review required? Has there been a recent outage, or is this proactive architectural planning?
-* How many users (total and concurrently active will use the solution? How are they geographically distributed?
-* How many operations/messages per second must the solution handle? Is there any seasonality to usage of the solution?
 * Who designed the solution originally? In-house design, third party?
-* Are there any internal policies, legal, or compliance considerations to note as part of your architectural design?
 
 ## Do the Architectural Review	
 
-This is the main focus of the review. For a high level review it is a review of the architecture against the pillars of software quality. For a detailed solution review, the detailed review guidance may be needed and much more depth of an engineer's knowledge. The aim for this section is to review whether the solution would meet the requirements stated and if there are any common pitfalls embedded in the architecture. 
+This is the main focus of the session. For a "high level" review it is a review of the architecture against the pillars of software quality and will use more of the soft skills that an architect would have. For a "detailed solution" review, the detailed review guidance linked to below may additionally be needed and the activity will use much more of the depth of an engineer's knowledge in a specific area. 
+
+Regardless, of the type of review, the aim for this section is to consider whether the solution would meet the requirements stated and if there are any common pitfalls embedded in the architecture. 
 
 ### Review Areas
 
@@ -82,19 +81,18 @@ These are the pillars of software quality we are looking for and areas to look o
 * Manageability and Supportability 
 * Development, Testing and Deployment (DevOps)
    
-### Discovery, if the reviewee has no documentation that follows the below pattern, then use a whiteboard to map out:
+### Discovery, if the reviewee has no documentation that follows the below pattern, then ask the customer to use a whiteboard (a digital whiteboard if doing remote delivery, or a physical one if reviewing / assisting at an onsite event) to map out:
 
-* The major components of the solution architecture.
-* Note down dependencies for these major components (These can be subtle. For example, dependencies relating to security or identity such as Active Directory for Infrastructure as a Service (IaaS) solutions or third-party services such as a payment provider or e-mail messaging service.
-* Determine how dependencies across components and third party services are tied together. For example, E.g. vNet Peering, Express Route, VPN Connections, API calls over public Internet, Loose Coupling.  You don't care so much about the configuration of those resources, e.g. SKU, cost, etc.
+* The major services being used and arrangement of components in the architecture.
+* Note down what the dependencies are for these major components (These can be subtle. For example, dependencies relating to security or identity such as Active Directory for Infrastructure as a Service (IaaS) solutions or third-party services such as a payment provider or e-mail messaging service, you are looking to discover un-documented dependencies in this stage.
+* Determine how dependencies across components and third party services are tied together. For example, E.g. vNet Peering, Express Route, VPN Connections, API calls over public Internet, Loose Coupling.  You don't care so much about the configuration of those resources, e.g. SKU, cost, etc. What you do care about is how those dependencies you discovered in the last section are arranged and communicate with each other.
 
 * Annotate all components with
 	* SLA requirements
 	* Geographical locations (Single region / multi-region)
 	* Recovery Time Objective (RTO)
 	* Recovery Point Objective (RPO)
-
-* Annotate resource and define whether there is some kind of health metric associated. Also determine how this is monitored, for example Application level monitoring, Infrastructure level Monitoring or monitoring of the business processes.
+	* Health metrics associated, monitoring processes (for example Application level monitoring, Infrastructure level Monitoring or monitoring of the business processes)
 
 ### Once you have a clear view of the architecture, determine the answer to the following questions:
 
@@ -106,15 +104,15 @@ These are the pillars of software quality we are looking for and areas to look o
 * Additionally, are there workloads within the solution with different RPO/RTO targets?
 	* RPO (recovery point objective â€“ how much data can be lost during a failure)
 	* RTO (recovery time objective how long can the system take to recover from a failure) targets?
-* How big are the largest databases of the solution? Have you considered the annual growth rate?
-* What is the strategy to OS level updates and application updates?
+* How big is the data set of the solution and is the store architecturally appropriate? Have you considered the annual growth rate and archiving strategy?
+* What is the strategy to manage releases, service updates, versioning and application updates, even if PaaS is being used here so there is no patch management concern, DevOps aspects should be briefly considered here.
 
 ### Additionally engineers would leverage their own skills for the following two areas if they go deep into a solution area.
 
 * Service Specific Aspects
 * Other Observations
 
-### For the Solution / Service  Specific components - ensure you review the appropriate sections for the solution:
+### For the Solution / Service  Specific components - ensure you review the appropriate sections for the scenario or area:
 
 * [Application Modernisation](application-modernisation.md)
 * [Backup, Archive & Disaster Recovery](backup-archive-disaster-recovery.md)
@@ -126,7 +124,23 @@ These are the pillars of software quality we are looking for and areas to look o
 
 At this point you would review the identified risks and possible enhancements to the architecture with supporting links to patterns and practices or service documentation, these should be recorded for later follow up. 
 
-Consider that what you are really looking for here is a list of what has to be done, by whom, and by when. This is to be phrase as a list of risks and recommendations, backed by links to Azure Docs and QUALIFIED with appropriate SLA's and NFRs discovered earlier. This gives context to the suggestions given – which might be required later. Consider why the recommendations are being provided.
+Consider that what you are really looking for here is a list of what has to be done, by whom, and by when. This is to be phrase as a list of risks and recommendations, backed by links to Azure Docs (for an architectural review - links to patterns, practices, reference architectures, or for the more detailed solution reviews - links to technical service-specific documentation) and QUALIFIED with appropriate SLA's and NFRs discovered earlier. This gives context to the suggestions given – which might be required later. Consider why the recommendations are being provided.
+
+For Example - a solution that has been designed without autoscaling and / or Queuing that the NFR says must cope with high daily spikes in load could have the following links provided (this could be expressed in one of two ways):- 
+
+Risk: Peaks in load could cause service to become overloaded if under-specified for peak performance, consider using autoscaling and / or queue based load leveling techniques in your architecture or use a throttling pattern to keep a minimum level of service with fixed resource. 
+NFR = Peak throughput of 10,000 requests at 9am and normal throughput of 100 requests per hour for the rest of the day. 
+https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling
+https://docs.microsoft.com/en-us/azure/architecture/patterns/throttling
+https://docs.microsoft.com/en-us/azure/architecture/best-practices/auto-scaling
+
+	OR 
+	
+Risk: Over-specified service sizing could cause excessive cost,  consider using autoscaling and / or queue based load leveling techniques in your architecture or use a throttling pattern to keep a minimum level of service with fixed resource.
+NFR = Peak throughput of 10,000 requests at 9am and normal throughput of 100 requests per hour for the rest of the day. 
+https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling
+https://docs.microsoft.com/en-us/azure/architecture/patterns/throttling
+https://docs.microsoft.com/en-us/azure/architecture/best-practices/auto-scaling
 
 ## Additional Assistance Required and Next Steps 	
 
