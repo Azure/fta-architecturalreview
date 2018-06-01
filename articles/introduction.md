@@ -32,14 +32,14 @@ FastTrack for Azure's objectives are below, when reviewing the reviewer should b
 
 Examples could be: a prior outage, a migration project to onboard to Azure, a significant increase in scale planned or maybe a production go-live.
 
-### Confidence
-Ensure that you have confidence in the Azure platform to meet the needs of your solution based upon an the advice of an Azure Engineering Expert.
-
-### Identify
-Pick up on any common errors or common improvement points that can be made to your architecture and direct you to the relevant documentation on patterns or to resolve them.
-
-### Onboarding
-Quickly identify and define the scope of the knowledge transfer and MS assistance that you will require to help you to either rapidly move the application yourselves or with a partner / MS Services.
+> ### Confidence
+> Ensure that you have confidence in the Azure platform to meet the needs of your solution based upon an the advice of an Azure Engineering Expert.
+> 
+> ### Identify
+> Pick up on any common errors or common improvement points that can be made to your architecture and direct you to the relevant documentation on patterns or to resolve them.
+> 
+> ### Onboarding
+> Quickly identify and define the scope of the knowledge transfer and MS assistance that you will require to help you to either rapidly move the application yourselves or with a partner / MS Services.
 
 ## Plan and Confirm Scope and Service Levels to review against 	
 
@@ -47,25 +47,25 @@ Once there is a joint understanding of why a review is needed, parameters can be
 
 Look for the following information at a minimum: 
 
-### Scope
-What solution is being reviewed? What is it called? What are the high level components of the solution that are in-scope of the review?
-* What is the purpose of the solution from a business perspective? What does it do? Why is it needed?
-* What is the origin of the solution? Is it a Lift and Shift, refactored for the cloud, or born in the cloud application?
-
-### Purposes
-What are the high level functional requirements, what does the solution do?
-* What are the availability, uptime and business continuity requirements for the solution?
-* Why is an architectural review required? Has there been a recent outage, or is this proactive architectural planning?
-
-### Success Criteria
-What does the solution need to do to achieve the purposes and how does it need to do it, including availability and non-functional requirements.
-* How many users (total and concurrently active will use the solution? How are they geographically distributed?
-* How many operations/messages per second must the solution handle? Is there any seasonality to usage of the solution?
-* Are there any internal policies, legal, or compliance considerations to note as part of your architectural design?
-	
-### Stakeholders
-Are there other (internal or external) customers involved with an SLA too?
-* Who designed the solution originally? In-house design, third party?
+> ### Scope
+> What solution is being reviewed? What is it called? What are the high level components of the solution that are in-scope of the review?
+> * What is the purpose of the solution from a business perspective? What does it do? Why is it needed?
+> * What is the origin of the solution? Is it a Lift and Shift, refactored for the cloud, or born in the cloud application?
+>
+> ### Purposes
+> What are the high level functional requirements, what does the solution do?
+> * What are the availability, uptime and business continuity requirements for the solution?
+> * Why is an architectural review required? Has there been a recent outage, or is this proactive architectural planning?
+>
+> ### Success Criteria
+> What does the solution need to do to achieve the purposes and how does it need to do it, including availability and non-functional requirements.
+> * How many users (total and concurrently active will use the solution? How are they geographically distributed?
+> * How many operations/messages per second must the solution handle? Is there any seasonality to usage of the solution?
+> * Are there any internal policies, legal, or compliance considerations to note as part of your architectural design?
+>
+> ### Stakeholders
+> Are there other (internal or external) customers involved with an SLA too?
+> * Who designed the solution originally? In-house design, third party?
 
 ## Do the Architectural Review	
 
@@ -126,29 +126,39 @@ These are the pillars of software quality we are looking for and areas to look o
 
 At this point you would review the identified risks and possible enhancements to the architecture with supporting links to patterns and practices or service documentation, these should be recorded for later follow up. 
 
-Consider that what you are really looking for here is a list of what has to be done, by whom, and by when. This is to be phrase as a list of risks and recommendations, backed by links to Azure Docs (for an architectural review - links to patterns, practices, reference architectures, or for the more detailed solution reviews - links to technical service-specific documentation) and QUALIFIED with appropriate SLA's and NFRs discovered earlier. This gives context to the suggestions given – which might be required later. Consider why the recommendations are being provided.
+Consider that what you are really looking for here is a list of what has to be done, by whom, and by when. This is to be phrase as a list of risks and recommendations, backed by links to Azure Docs (for an architectural review - links to patterns, practices, reference architectures, or for the more detailed solution reviews - links to technical service-specific documentation) and qualified with appropriate SLA's and NFRs discovered earlier. This gives context to the suggestions given – which might be required later. Consider why the recommendations are being provided.
 
-For Example - a solution that has been designed without autoscaling and / or Queuing that the NFR says must cope with high daily spikes in load could have the following links provided (this could be expressed in one of two ways):- 
+For example: A solution that has been designed without autoscaling and / or queuing that an NFR says must cope with high daily spikes in load could have the following links provided (this could be expressed in one of two ways):- 
 
-Risk: Peaks in load could cause service to become overloaded if under-specified for peak performance, consider using autoscaling and / or queue based load leveling techniques in your architecture or use a throttling pattern to keep a minimum level of service with fixed resource. 
-NFR = Peak throughput of 10,000 requests at 9am and normal throughput of 100 requests per hour for the rest of the day. 
-https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling
-https://docs.microsoft.com/en-us/azure/architecture/patterns/throttling
-https://docs.microsoft.com/en-us/azure/architecture/best-practices/auto-scaling
+> Risk: Peaks in load could cause service to become overloaded if under-specified for peak performance, consider using autoscaling and / or queue based load leveling techniques in your architecture or use a throttling pattern to keep a minimum level of service with fixed resource. 
+    
+    NFR = Peak throughput of 10,000 requests at 9am and normal throughput of 100 requests per hour for the rest of the day. 
 
-	OR 
-	
-Risk: Over-specified service sizing could cause excessive cost,  consider using autoscaling and / or queue based load leveling techniques in your architecture or use a throttling pattern to keep a minimum level of service with fixed resource.
-NFR = Peak throughput of 10,000 requests at 9am and normal throughput of 100 requests per hour for the rest of the day. 
-https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling
-https://docs.microsoft.com/en-us/azure/architecture/patterns/throttling
-https://docs.microsoft.com/en-us/azure/architecture/best-practices/auto-scaling
+* [Queue Based Load Levelling](https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)
+
+* [Throttling](https://docs.microsoft.com/en-us/azure/architecture/patterns/throttling)
+
+* [Auto Scaling](https://docs.microsoft.com/en-us/azure/architecture/best-practices/auto-scaling)
+
+> Risk: Over-specified service sizing could cause excessive cost,  consider using autoscaling and / or queue based load leveling techniques in your architecture or use a throttling pattern to keep a minimum level of service with fixed resource.
+
+    NFR = Peak throughput of 10,000 requests at 9am and normal throughput of 100 requests per hour for the rest of the day. 
+
+* [Queue Based Load Levelling](https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)
+
+* [Throttling](https://docs.microsoft.com/en-us/azure/architecture/patterns/throttling)
+
+* [Auto Scaling](https://docs.microsoft.com/en-us/azure/architecture/best-practices/auto-scaling)
+
 
 Also consider indirect risks associated with testing (and or lack of it)
-Risk: High peak load can stress indirect dependencies in ways that do not show until the service is in full operation under load. Ensure you have load tested the application under the stress of at least 10,000 users using load testing tools.
-NFR = Peak throughput of 10,000 requests at 9am and normal throughput of 100 requests per hour for the rest of the day. 
-https://docs.microsoft.com/en-gb/vsts/test/load-test/index?view=vsts
-https://docs.microsoft.com/en-gb/azure/architecture/checklist/dev-ops#testing
+
+> Risk: High peak load can stress indirect dependencies in ways that do not show until the service is in full operation under load. Ensure you have load tested the application under the stress of at least 10,000 users using load testing tools.
+
+    NFR = Peak throughput of 10,000 requests at 9am and normal throughput of 100 requests per hour for the rest of the day. 
+
+* [VSTS Cloud Load Testing Guidance](https://docs.microsoft.com/en-gb/vsts/test/load-test/index?view=vsts)
+* [Azure Architecture - DevOps Testing](https://docs.microsoft.com/en-gb/azure/architecture/checklist/dev-ops#testing)
 
 ## Additional Assistance Required and Next Steps 	
 
