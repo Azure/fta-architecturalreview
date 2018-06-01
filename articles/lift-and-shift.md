@@ -54,9 +54,7 @@
     >
     > [Capacity Planning Hyper-V environments](https://docs.microsoft.com/en-us/azure/site-recovery/hyper-v-deployment-planner-run)
 
-* **Have you defined your networking requirements? What is needed to transfer your data from on-premises into Azure? Have you thought about how you will segregate your workloads across subnets or Virtual Networks?**
-
-    The goal to understand the network capacity to transfer data and also to secure the application across tiers.    
+* **Have you defined your networking requirements? What is needed to transfer your data from on-premises into Azure?**
     
     > [Hybrid networking Reference Architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/)
     > 
@@ -70,7 +68,7 @@
     > 
     > [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)
     
-    Isolation/Segregation of Network Traffic
+**Have you thought about how you will segregate your workloads across subnets or Virtual Networks?  How do you want to control the flow of traffic between non-prod and prod resources within Azure itself?  Are there compliance/regulatory scenarios that need to drive what the connectivity requirements are?**
     
     > [Secure Hybrid VNet Architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid)
     > 
