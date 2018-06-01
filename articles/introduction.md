@@ -116,7 +116,7 @@ These are the pillars of software quality we are looking for and areas to look o
 
 ### For the Solution / Service  Specific components - ensure you review the appropriate sections for the scenario or area:
 
-* [Application Modernisation](application-modernisation.md)
+* [Application Modernisation](application-modernization.md)
 * [Backup, Archive & Disaster Recovery](backup-archive-disaster-recovery.md)
 * [Database](database.md)
 * [DevTest](devtest.md)
