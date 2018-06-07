@@ -1,10 +1,10 @@
-# FastTrack for Azure Architectural Review and Discussion Framework
+# FastTrack for Azure Review and Architectural / Solution guidance Framework
 
  - [Introduction](#introduction)
  - [Agenda](#agenda-and-stages)
  	 * [Confirm the Objectives of the Review](#aim-and-confirm-objectives-of-the-review)
   	 * [Confirm Scope and Service Levels to review against](#plan-and-confirm-scope-and-service-levels-to-review-against)
-  	 * [Do the Architectural Review](#do-the-architectural-review)
+  	 * [Do the Review](#do-the-review)
   	 * [Discuss Identified Risks and Links to Azure Docs](#discuss-identified-risks-and-links-to-azure-docs)
   	 * [Additional Assistance Required and Next Steps](#additional-assistance-required-and-next-steps)
 - [References](#references)
@@ -12,17 +12,17 @@
 # Introduction
 This guide is intended to support discussions during the Fast Track for Azure Architectural Guidance sessions. The questions being asked  stem from recommended patterns and practices and link back to technical documentation on Azure.com and docs.microsoft.com.
 
-* NOTE: This framework can be applied in a number of ways, by varying the technical depth of conversation by narrowing or widening the solution scope or reducing the amount of time allocated. 
+* NOTE: This framework can be applied in a number of ways, by varying the technical depth of conversation, by varying the balance of business discussion to technical discussion, by narrowing or widening the review scope or increasing / reducing the amount of time allocated. 
 
-If you have a short amount of time, spend less time on the scoping and requirements, and run a very deep solution area discussion - this would be typical of the style of review at the "Architecture Bars" at Ignite / TechSummit. 
+If you have a shorter amount of time, spend minimal time on the scoping and requirements but do not omit them completely - this would be typical of the style of review at the "Architecture Bars" at Ignite / TechSummit. 
 
-If you have slightly more time, spend longer on the scoping and requirements to allow a broader, more holistic review of the architecture and patterns and practices (the higher you go the more you are likely to see), this is what we would refer to as an "Architectural Review". 
+For an higher level review we need to spend more time on the scoping and requirements to allow a broader, more holistically business focused review of the architecture and patterns and practices in use (the higher you go the more broadly you are likely to see), this is what we would refer to as an "Architectural Review" - we need to talk patterns and practices and the approach should be strategic and business outcome focused, not only technically focused.
 
-If a "solution review" is required (i.e. of the implementation of a service), then limit the scope to one service area and go deep into it, but beware of going too deeply into one area and doing a different type of review from the one you scope in 'Aim and Confirm objectives of the Review'.
+If a "solution review" is required (i.e. detail on the implementation of a solution), then limit the scope to one or more service areas and go deep into them, but beware of going too deeply into one area and doing a different type of review from the one you scope in 'Aim and Confirm objectives of the Review'.
 
-The difference between the two styles is that the "Architecture Review" is looking at the holistic service being deployed, whereas the "solution review" is looking at a much deeper dive into one specific aspect of the service (For example - Database Implementation, or Networking). But the same guidelines to establish the Rules of Engagement and Scoping / objectives can be applied.
+The difference between the two styles is that the "Architecture Review" is looking holistically at the customer architecture being deployed, as to will it meet the customer requirements and this requires the mindset of an architect, as these architectures will normally cross multiple azure service boundaries, whereas, the "solution review" is looking at a much deeper dive into the designed customer solution in detail (maybe into deployment and configuration details) which requires the mindset, service skills and level of detail of an engineer.
 
-Whatever type of review you execute, it is extremely important to ensure that you know which type of review you are doing and why before you begin the exercise. 
+Whatever type of review you execute, it is extremely important to ensure that you know which type of review you are doing and why before you begin the exercise. But similar guidelines to establish scoping and objectives can be applied.
 
 # Agenda and Stages 
 
@@ -41,33 +41,40 @@ Examples could be: a prior outage, a migration project to onboard to Azure, a si
 > ### Onboarding
 > Quickly identify and define the scope of the knowledge transfer and MS assistance that you will require to help you to either rapidly move the application yourselves or with a partner / MS Services.
 
-## Plan and Confirm Scope and Service Levels to review against 	
+## Plan and Confirm Scope and Service Levels to review against 
 
 Once there is a joint understanding of why a review is needed, parameters can be set for the review. This is needed, so that the subject of the review (the scope and purposes) meets the success criteria for the relevant stakeholders.
 
 Look for the following information at a minimum: 
 
 > ### Scope
-> What solution is being reviewed? What is it called? What are the high level components of the solution that are in-scope of the review?
+> Determine what is being reviewed in the session
+> * Is this an architectural review, or is it a more detailed solution review?
+> * What solution is being reviewed? What is it called? What are the high level components of the solution that are in-scope of the review?
 > * What is the purpose of the solution from a business perspective? What does it do? Why is it needed?
 > * What is the origin of the solution? Is it a Lift and Shift, refactored for the cloud, or born in the cloud application?
 >
 > ### Purposes
 > What are the high level functional requirements, what does the solution do?
-> * What are the availability, uptime and business continuity requirements for the solution?
 > * Why is an architectural review required? Has there been a recent outage, or is this proactive architectural planning?
+> * What are the business requirements driving the proposed architecture?
+> * What business goals/objectives is the customer trying to achieve, in other words WHY does the customer want to use Azure?
+> * What are the customer’s growth plans for their business and over what timescale? 
 >
 > ### Success Criteria
 > What does the solution need to do to achieve the purposes and how does it need to do it, including availability and non-functional requirements.
 > * How many users (total and concurrently active will use the solution? How are they geographically distributed?
 > * How many operations/messages per second must the solution handle? Is there any seasonality to usage of the solution?
 > * Are there any internal policies, legal, or compliance considerations to note as part of your architectural design?
->
-> ### Stakeholders
-> Are there other (internal or external) customers involved with an SLA too?
-> * Who designed the solution originally? In-house design, third party?
+> * What are the availability, uptime and business continuity requirements for the solution and why?
 
-## Do the Architectural Review	
+> ### Stakeholders
+> Who else is involved, what are their needs? 
+> * Are there other (internal or external) customers involved with an SLA too?
+> * Who designed the solution originally? In-house design, third party?
+> * What is your team’s level of experience with the solutions in the proposed / running architecture?
+
+## Do the Review	
 
 This is the main focus of the session. For a "high level" review it is a review of the architecture against the pillars of software quality and will use more of the soft skills that an architect would have. For a "detailed solution" review, the detailed review guidance linked to below may additionally be needed and the activity will use much more of the depth of an engineer's knowledge in a specific area. 
 
@@ -85,6 +92,8 @@ These are the pillars of software quality we are looking for and areas to look o
    
 ### Discovery, if the reviewee has no documentation that follows the below pattern, then ask the customer to use a whiteboard (a digital whiteboard if doing remote delivery, or a physical one if reviewing / assisting at an onsite event) to map out:
 
+* What is the customer’s vision for the end state ?
+* Where does the solution run now, and what does that architecture look like? 
 * The major services being used and arrangement of components in the architecture.
 * Note down what the dependencies are for these major components (These can be subtle. For example, dependencies relating to security or identity such as Active Directory for Infrastructure as a Service (IaaS) solutions or third-party services such as a payment provider or e-mail messaging service, you are looking to discover un-documented dependencies in this stage.
 * Determine how dependencies across components and third party services are tied together. For example, E.g. vNet Peering, Express Route, VPN Connections, API calls over public Internet, Loose Coupling.  You don't care so much about the configuration of those resources, e.g. SKU, cost, etc. What you do care about is how those dependencies you discovered in the last section are arranged and communicate with each other.
@@ -114,7 +123,7 @@ These are the pillars of software quality we are looking for and areas to look o
 * Service Specific Aspects
 * Other Observations
 
-### For the Solution / Service  Specific components - ensure you review the appropriate sections for the scenario or area:
+### For the Solution / Service specific components - ensure you review the appropriate sections for the scenario or area:
 
 * [Application Modernisation](application-modernization.md)
 * [Backup, Archive & Disaster Recovery](backup-archive-disaster-recovery.md)
