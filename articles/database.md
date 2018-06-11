@@ -17,7 +17,7 @@
     
     > [SQL Server database migration to SQL Database in the cloud](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-cloud-migrate)
 
-* **Are you hosting your SQL databases on Azure using an Infrastructure as a Service approach? Are you planning to modernize onto Azure SQL Database?**
+* **Are you hosting your SQL databases on Azure using an Infrastructure as a Service approach? Are you planning to modernize onto Azure SQL Database or SQL Managed Instances?**
 
     Determine if there are plans to re-platform the solution to use the Platform as a Service (PaaS) alternative, reducing the overall management overhead of the solution. If so, it is important to consider potential compatibility issues of the PaaS approach. It is also worth understanding that there is tooling available to assess the feasibility of migrating databases onto Azure    
     
@@ -26,6 +26,8 @@
     > [Migrate your SQL Server database to Azure SQL Database using DMS](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-migrate-your-sql-server-database)
     > 
     > [Database Migration Guide](https://datamigration.microsoft.com/)
+    >
+    > [SQL DB Managed Instance Overview](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance)
 
 * **What size is your database and how many databases are you planning to migrate?**
 
@@ -102,7 +104,7 @@
     >
     > [Recover an Azure SQL database using automated database backups](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-recovery-using-backups)
 
-* **Have you considered Active Geo-Replication in Azure SQL Database for High Availability?**
+* **Have you considered Automatic Fail-over Groups in Azure SQL Database for High Availability?**
 
     Is High availability being assumed as a part of the solution because it is a Platform as a Service (PaaS) solution? Has there been any consideration to the steps needed to be taken during region failure or RPO?    
     
@@ -121,6 +123,7 @@
     Determine whether there is any enterprise monitoring of the data layer. How is it determined that the solution is working appropriately? If this is not being used, consider the associated documentation.    
     
     > [Monitoring database performance in Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-single-database-monitor)
+    > [Azure SQL DB with Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql)
 
 * **How would you know if you had an outage or failure?**
 
@@ -190,6 +193,8 @@
     > [Azure SQL Database security best practices](https://docs.microsoft.com/en-us/azure/security/azure-database-security-best-practices)
     > 
     > [Azure database security checklist](https://docs.microsoft.com/en-us/azure/security/azure-database-security-checklist)
+    >
+    > [Azure SQL Database Vulnrability Assessment](https://docs.microsoft.com/en-us/azure/sql-database/sql-vulnerability-assessment)
 
 * **Is the data stored in your database sensitive? Do you require special data handling?**
 
