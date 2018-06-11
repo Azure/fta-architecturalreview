@@ -17,7 +17,7 @@
     
     > [SQL Server database migration to SQL Database in the cloud](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-cloud-migrate)
 
-* **e you hosting your SQL databases on Azure using an Infrastructure as a Service approach? Are you planning to modernize onto Azure SQL Database?**
+* **Are you hosting your SQL databases on Azure using an Infrastructure as a Service approach? Are you planning to modernize onto Azure SQL Database?**
 
     Determine if there are plans to re-platform the solution to use the Platform as a Service (PaaS) alternative, reducing the overall management overhead of the solution. If so, it is important to consider potential compatibility issues of the PaaS approach. It is also worth understanding that there is tooling available to assess the feasibility of migrating databases onto Azure    
     
