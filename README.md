@@ -7,6 +7,7 @@ See our [FastTrack for Azure landing page](https://github.com/Azure/FastTrackFor
 * [Application Modernization](articles/application-modernization.md)
 * [Backup, Archive & Disaster Recovery](articles/backup-archive-disaster-recovery.md)
 * [Database](articles/database.md)
+* [Data Warehouse](articles/data-warehouse.md)
 * [DevTest](articles/devtest.md)
 * [Lift and Shift](articles/lift-and-shift.md)
 
