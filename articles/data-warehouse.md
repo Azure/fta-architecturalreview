@@ -12,16 +12,28 @@
 
 ## Data Volumes & Ingestion
 
-* **What size data are your ingesting and is your data already hosting in Azure - such as Blob Storage, Azure Datalake Store or coming from an Azure resource?**
+* **What size of data are you ingesting and is your data already hosted in Azure, for example, Blob Storage, Azure Data lake Store or coming from an Azure resource?**
 
-    Determine the amount of data that is expected to be stored in the DW and is Azure SQL DW the best resource to use.
+    How much data we're talking about drives the technology to a degree. IF someone says they have less than 2 TB worth of data, Azure SQL Database would be a valid option (why? - Data in SQL DW ColumnStore indexes, drives efficiencies, SQL DB supports column level indexes of 4TB - Cost of DB becomes prohibitive). If they have more than this, and have querieis which are complex, then SQL Data Warehouse would become the preferable option. (SQL IaaS?)
 
+    * [Azure SQL DB Pricing Page with storage limits](https://azure.microsoft.com/en-us/pricing/details/sql-database/single/)
+    * [Columnstore support in Standard tier Azure SQL Databases](https://azure.microsoft.com/en-us/blog/columnstore-support-in-standard-tier-azure-sql-databases/)
 
-## Data Architecutre
+    Talking about ingesting of data is critical to understand the technology choice. If we're talking data lake, could the amount of data exceed Azure Storage (what is this?) What approach do we need to take to ingestion if we're moving 10TB a day. Can't look at overnight due to time taken for processing.
+    
+        Determine the amount of data that is expected to be stored in the Data Warehouse and whether Azure SQL Data Warehouse the best resource to use.
 
-* **Is your database structured as a star schema or well definded Dimensions & Facts?**
+## Data Architecture
+
+* **Is your database structured as a star schema or well defined Dimensions & Facts?**
 
     Determine the amount of effort required to design for a MPP warehouse solution and suitability of the Database to move to SQL DW
+
+    Is this a traditional data warehouse, or a modern data warehouse? Has someone actually designed a DW, and is created for a business need and for a specified business output, and have thought about those kind of bits, or are htey doing mdodern data warehouse - store all data - stick tin in front of it and compute when someone asks us.
+
+    Are we batch processing overnight, or are we streaming?
+
+    Question drives technology - You have to structure the data if you rae using SQL DW, whereas HD insight / data lake - schema on read.
 
 
 ## Data Cleanliness
