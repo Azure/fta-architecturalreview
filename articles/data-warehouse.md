@@ -21,7 +21,8 @@
 
     Talking about ingesting of data is critical to understand the technology choice. If we're talking data lake, could the amount of data exceed Azure Storage (what is this?) What approach do we need to take to ingestion if we're moving 10TB a day. Can't look at overnight due to time taken for processing.
     
-        Determine the amount of data that is expected to be stored in the Data Warehouse and whether Azure SQL Data Warehouse the best resource to use.
+    * [Migrating data to Azure SQL Data Warehouse in practice](https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/)
+    * [Polybase Guige](https://docs.microsoft.com/en-us/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017)
 
 ## Data Architecture
 
@@ -33,8 +34,11 @@
 
     Are we batch processing overnight, or are we streaming?
 
-    Question drives technology - You have to structure the data if you rae using SQL DW, whereas HD insight / data lake - schema on read.
+    Question drives technology - You have to structure the data if you are using SQL DW, whereas HD insight / data lake - schema on read.
 
+    * [Guidance for designing distributed tables in Azure SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute)
+    * [Design guidance for using replicated tables in Azure SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-guidance-for-replicated-tables)
+    * [Stream big data into a data warehouse](https://docs.microsoft.com/en-us/azure/event-grid/event-grid-event-hubs-integration)
 
 ## Data Cleanliness
 
@@ -44,9 +48,12 @@
 
 ## Query Patterns
 
-* **How many concunnret users do you exct to be querying the data from the data warehouse?**
+* **How many concurrent users do you expect to be querying the data from the data warehouse?**
 
-    Determine access patterns and define is a Mart or BSymantic Layer is required to facilite querying.  Limitations in concurrent access within SQL DW
+    Determine access patterns and define is a Mart or Symantic Layer is required to facilite querying.  Limitations in concurrent access within SQL DW
+
+    * [Hub and spoke series integration with SQL Database](https://azure.microsoft.com/en-gb/blog/azuresqldw-hub-and-spoke-series-integration-with-sql-database/)
+    * [SQL Data Warehouse capacity limits](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits)
 
 ## Performance & Scalability
 
@@ -54,16 +61,20 @@
 
     Determine sizing of the DW, influencing MPP schema and supporting infrastructure
 
+    * [SQL Data Warehouse capacity limits](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits)
+
 ## Security
 
 * **What level of sensitivity is the data you are storing?**
 
     Determine what security requirments are required to handle the data
 
+    * [Authenticate to Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-authentication)
+    * [Service to Service Authenticate within Azure](https://docs.microsoft.com/en-gb/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory)
+
 * **Is the data subject to GDPR compliance?**
 
     Do GDPR rules apply and do the relevent processes need to be in place to handle this
 
-* **Do you need to implement persona based access controls, row level secuirty or cell level security**
+    * [Azure Security and Compliance Blueprint: Data Warehouse for GDPR](https://docs.microsoft.com/en-us/azure/security/blueprints/gdpr-datawarehouse-overview)
 
-    Determine the required implementaion technology to facilitate enhanced securty when accessig the data
