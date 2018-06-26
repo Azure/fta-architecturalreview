@@ -39,6 +39,7 @@
     * [Guidance for designing distributed tables in Azure SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute)
     * [Design guidance for using replicated tables in Azure SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-guidance-for-replicated-tables)
     * [Stream big data into a data warehouse](https://docs.microsoft.com/en-us/azure/event-grid/event-grid-event-hubs-integration)
+    * [Designing Extract, Load, and Transform (ELT) for Azure SQL Data Warehouse](https://docs.microsoft.com/en-gb/azure/sql-data-warehouse/design-elt-data-loading)
 
 ## Data Cleanliness
 
