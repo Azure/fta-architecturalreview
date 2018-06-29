@@ -3,12 +3,13 @@
 ## This Page is currently under construction
 
 - [FastTrack for Azure Architectural Discussion Framework - Data Warehouse Solution](#fasttrack-for-azure-architectural-discussion-framework---data-warehouse-solution)
-  - [Data Volumes & Ingestion](#data-volumes--amp--ingestion)
-  - [Data Architecture](#data-architecture)
-  - [Data Cleanliness](#data-cleanliness)
-  - [Query Patterns](#query-patterns)
-  - [Performance & Scalability](#performance---scalability)
-  - [Security](#security)
+    - [This Page is currently under construction](#this-page-is-currently-under-construction)
+    - [Data Volumes & Ingestion](#data-volumes--ingestion)
+    - [Data Architecture](#data-architecture)
+    - [Data Cleanliness](#data-cleanliness)
+    - [Query Patterns](#query-patterns)
+    - [Performance & Scalability](#performance--scalability)
+    - [Security](#security)
 
 ## Data Volumes & Ingestion
 
@@ -24,7 +25,7 @@
     What approach do we need to take to ingestion if we're moving 10TB a day. For instance, overnight jobs may not be considered due to time taken for processing.
 
   - [Migrating data to Azure SQL Data Warehouse in practice](https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/)
-  - [Polybase Guige](https://docs.microsoft.com/en-us/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017)
+  - [Polybase Guide](https://docs.microsoft.com/en-us/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017)
 
 ## Data Architecture
 
