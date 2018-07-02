@@ -3,13 +3,13 @@
 ## This Page is currently under construction
 
 - [FastTrack for Azure Architectural Discussion Framework - Data Warehouse Solution](#fasttrack-for-azure-architectural-discussion-framework---data-warehouse-solution)
-    - [This Page is currently under construction](#this-page-is-currently-under-construction)
-    - [Data Volumes & Ingestion](#data-volumes--ingestion)
-    - [Data Architecture](#data-architecture)
-    - [Data Cleanliness](#data-cleanliness)
-    - [Query Patterns](#query-patterns)
-    - [Performance & Scalability](#performance--scalability)
-    - [Security](#security)
+  - [This Page is currently under construction](#this-page-is-currently-under-construction)
+  - [Data Volumes & Ingestion](#data-volumes--ingestion)
+  - [Data Architecture](#data-architecture)
+  - [Data Cleanliness](#data-cleanliness)
+  - [Query Patterns](#query-patterns)
+  - [Performance & Scalability](#performance--scalability)
+  - [Security](#security)
 
 ## Data Volumes & Ingestion
 
@@ -29,7 +29,7 @@
 
 ## Data Architecture
 
-- **Is your database structured as a star schema or well defined Dimensions & Facts?**
+- **Is your database structured as a star schema, Data Vault or well defined Dimensions & Facts?**
 
     Determine the amount of effort required to design for a MPP warehouse solution and suitability of the Database to move to SQL Data Warehouse.
 
