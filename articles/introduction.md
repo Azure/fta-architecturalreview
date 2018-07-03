@@ -129,6 +129,7 @@ If the reviewee has no documentation that follows the below pattern, then ask th
 * [Application Modernisation](application-modernization.md)
 * [Backup, Archive & Disaster Recovery](backup-archive-disaster-recovery.md)
 * [Database](database.md)
+* [Data Warehouse](data-warehouse.md)
 * [DevTest](devtest.md)
 * [Lift and Shift](lift-and-shift.md)
 
