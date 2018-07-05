@@ -15,9 +15,9 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 ## App & Data Migration    
 
-* **Are you using tooling to streamline and build repeatable builds/deployments to Azure? &nbsp; Or are you building your code manually, and manually pushing this to Azure?**
+* **Are you using tooling to streamline and build repeatable builds/deployments to Azure? Or are you building your code manually, and manually pushing this to Azure?**
 
-    Determine whether the solution is being manually deployed to Azure (which is error-prone, and time consuming). Or, whether some form of tooling (e.g. Jenkins, VSTS) is being used to deploy either in a Continous Integration (CI), daily build or gated check-in approach. &nbsp; Automate deploying the application to test, staging, and production environments. Automation enables faster and more reliable deployments, and ensures consistent deployments to any supported environment. It removes the risk of human error caused by manual deployments. It also makes it easy to schedule releases for convenient times, to minimize any effects of potential downtime.    
+    Determine whether the solution is being manually deployed to Azure (which is error-prone, and time consuming). Or, whether some form of tooling (e.g. Jenkins, VSTS) is being used to deploy either in a Continous Integration (CI), daily build or gated check-in approach.  Automate deploying the application to test, staging, and production environments. Automation enables faster and more reliable deployments, and ensures consistent deployments to any supported environment. It removes the risk of human error caused by manual deployments. It also makes it easy to schedule releases for convenient times, to minimize any effects of potential downtime.    
     
     > [DevOps Checklist: Release](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops#release)
 
@@ -57,6 +57,12 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 * **In addition to defining the Azure resources required for your solution (e.g. Azure Resource Manager template), how are you configuring the system / components on the box? (e.g. Manual, DSC, Chef, Puppet)**
 
     Determine whether the configuration of the machines themselves have been considered. Is this type of configuration being completed manually, or is it scripted in some way? Effectively, you are looking to understand whether the environment can be provisioned end-to-end without any manual intervention.    
+
+    > [Overview of Desired State Configuration](https://docs.microsoft.com/en-us/powershell/dsc/overview)
+    >
+    > [Chef on Azure](https://docs.microsoft.com/en-us/azure/chef/)
+    >
+    > [Puppet and Windows Automation](https://puppet.com/products/managed-technology/microsoft-windows-azure)
 
 ## Distributed Architecture
 
@@ -112,7 +118,16 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
   * If you are opting for a Disaster Recovery scenario - What is your process? Have you been able to test it in dev
   * If you are opting for High Availability (e.g. Geographic redundancy), are you reproducing this in DevTest i.e. that this is working appropriately
 
-  Determine whether a pre-production environment that is fully representative of production. &nbsp; There should be a representative environment to run comparable tests ahead of a release, allowing a decision to be made on whether the quality of the build is good and meets requirements (For example, can serve the required volume of users)  
+  Determine whether a pre-production environment that is fully representative of production.  There should be a representative environment to run comparable tests ahead of a release, allowing a decision to be made on whether the quality of the build is good and meets requirements (For example, can serve the required volume of users)
+
+* **Does your solution support zero-downtime deployments?**
+
+    Determine whether an environment can support a small downtime maintenance window to roll out a new version or if it is required that applications must be deployed seamlessly to a new version. One approach to accomplish this is blue-green deployments where a new version is deployed, traffic is drained off of the existing version, and then the old instance is deprovisioned. The new environment gives a fully configured environment that can be used for validation tests before users are directed to it.
+
+    > [Blue-Green deployments using Azure Traffic Manager](https://azure.microsoft.com/en-us/blog/blue-green-deployments-using-azure-traffic-manager/)
+    >
+    > [Blue/Green Deployments in Service Fabric](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/10/17/bluegreen-deployments-in-service-fabric/)
+
 
 ## Monitoring & Management    
 
@@ -142,7 +157,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 * **Do you have a single pane of glass view of the health of your application?**
 
-    Understand whether there is a clear view into the application. &nbsp; How soon would there be awareness of an issue after it occurs? Is infrastructure monitoring only being performed, meaning that application level events may not be discovered? Or, is there a single monitoring dashboard which covers both application and infrastructure monitoring?    
+    Understand whether there is a clear view into the application.  How soon would there be awareness of an issue after it occurs? Is infrastructure monitoring only being performed, meaning that application level events may not be discovered? Or, is there a single monitoring dashboard which covers both application and infrastructure monitoring?    
     
     > [What is Monitoring?](https://www.visualstudio.com/learn/what-is-monitoring/)
 
@@ -155,7 +170,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
     * Standardise logs and metrics
     * Automate management tasks
 
-    Understand whether there is a clear view into the application. &nbsp; Can the lines of offending code be identified when an issue occurs, and can this be remediated quickly? Or would a search through logs need to take place, potentially joining a number of pieces of application telemetry to understand the problem?    
+    Understand whether there is a clear view into the application.  Can the lines of offending code be identified when an issue occurs, and can this be remediated quickly? Or would a search through logs need to take place, potentially joining a number of pieces of application telemetry to understand the problem?    
     
     > [What is Application Insights?](https://docs.microsoft.com/en-gb/azure/application-insights/app-insights-overview)
     > 
@@ -178,15 +193,21 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
     > * *Fault Injection*
     > * *Usage Monitoring/User Telemetry*
 
+* **Consider A/B deployment scenarios**
+
+    As you experiment with new features and roll out new features, test your application in multiple configurations with different user groups to see how they are received. One set of users may see a feature lit up a certain way on one page, and a different group would see the feature in a different way on maybe another page. Testing both simultaneously allows you to measure which has the greater impact on your users.
+
+    > [Case Study: Implementing A/B testing for Catraca Livre using open-source technologies on Azure](https://microsoft.github.io/techcasestudies/devops/2017/02/20/catraca-livre.html)
+
 ## Performance & Scalability    
 
-* **Are you testing the functionality of your software? &nbsp; Are these tests manual, or automated?**
+* **Are you testing the functionality of your software?  Are these tests manual, or automated?**
 
     Manually testing software is tedious and susceptible to error. Automate common testing tasks and integrate the tests into your build processes. Automated testing ensures consistent test coverage and reproducibility. Integrated UI tests should also be performed by an automated tool.    
     
     > [DevOps checklist](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops)
 
-* **Which types of tests are you running?Unit? Integration? Do you know how much code coverage you have from your tests? How do you ensure that your level of coverage is appropriate?**
+* **Which types of tests are you running? Unit? Integration? Do you know how much code coverage you have from your tests? How do you ensure that your level of coverage is appropriate?**
 
     Software testing is like insurance. Creating tests is buying coverage against risks. Redundant tests, flaky tests or running tests unnecessarily is paying too much in premiums for the coverage you get. But it is hard to keep track of what you spend on a large software project. Using historical data about executing tests, we can derive expected cost and benefit of each test execution and make decisions for whether the price is worth it. Even a simple cost model can be very effective and save us money and time in testing.    
     
@@ -200,7 +221,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 * **How often are you load/performance testing your application? Are you at least performance testing before a major production release? Are these tests being ran at a level of scale that is on part with expected load in production, AND future growth?**
 
-    The impact of a serious performance issue can be just as severe as a bug in the code. While automated functional tests can prevent application bugs, they might not detect performance problems. Define acceptable performance goals for metrics like latency, load times, and resource usage. Include automated performance tests in your release pipeline, to make sure the application meets those goals. &nbsp; An application might work fine under test conditions, and then have problems in production due to scale or resource limitations. Always define the maximum expected capacity and usage limits. Test to make sure the application can handle those limits, but also test what happens when those limits are exceeded. Capacity testing should be performed at regular intervals. &nbsp; After the initial release, you should run performance and capacity tests whenever updates are made to production code. Use historical data to fine tune tests and to determine what types of tests need to be performed.    
+    The impact of a serious performance issue can be just as severe as a bug in the code. While automated functional tests can prevent application bugs, they might not detect performance problems. Define acceptable performance goals for metrics like latency, load times, and resource usage. Include automated performance tests in your release pipeline, to make sure the application meets those goals. An application might work fine under test conditions, and then have problems in production due to scale or resource limitations. Always define the maximum expected capacity and usage limits. Test to make sure the application can handle those limits, but also test what happens when those limits are exceeded. Capacity testing should be performed at regular intervals. After the initial release, you should run performance and capacity tests whenever updates are made to production code. Use historical data to fine tune tests and to determine what types of tests need to be performed.    
     
     > [DevOps checklist](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops)
     > 
@@ -212,7 +233,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 * **Have you tested for the scenario where components in your solution may fail, and other components attempt to send requests? How have you mitigated this scenario? For example, the circuit breaker pattern.**
 
-    In a distributed environment, calls to remote resources and services can fail due to transient faults, such as slow network connections, timeouts, or the resources being overcommitted or temporarily unavailable. &nbsp; These faults can range in severity from a partial loss of connectivity to the complete failure of a service. In these situations it might be pointless for an application to continually retry an operation that is unlikely to succeed, and instead the application should quickly accept that the operation has failed and handle this failure accordingly.    
+    In a distributed environment, calls to remote resources and services can fail due to transient faults, such as slow network connections, timeouts, or the resources being overcommitted or temporarily unavailable.  These faults can range in severity from a partial loss of connectivity to the complete failure of a service. In these situations it might be pointless for an application to continually retry an operation that is unlikely to succeed, and instead the application should quickly accept that the operation has failed and handle this failure accordingly.    
     
     > [Availability checklist: Errors and failures](https://docs.microsoft.com/en-us/azure/architecture/checklist/availability#errors-and-failures)
     > 
@@ -246,7 +267,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
     * Identified bottlenecks (as you scale one tier, does another become a bottleneck)
     * Design for scale in (i.e. gracefully handling removal of instances)
 
-    There are two main ways that an application can scale:  &nbsp; Vertical scaling, also called scaling up and down, means changing the capacity of a resource. For example, you could move an application to a larger VM size. Vertical scaling often requires making the system temporarily unavailable while it is being redeployed. Therefore, it is less common to automate vertical scaling. Horizontal scaling, also called scaling out and in, means means adding or removing instances of a resource. The application continues running without interruption as new resources are provisioned. When the provisioning process is complete, the solution is deployed on these additional resources. If demand drops, the additional resources can be shut down cleanly and deallocated.  &nbsp; Many cloud-based systems, including Microsoft Azure, support automatic horizontal scaling. The rest of this article focuses on horizontal scaling.    
+    There are two main ways that an application can scale:   Vertical scaling, also called scaling up and down, means changing the capacity of a resource. For example, you could move an application to a larger VM size. Vertical scaling often requires making the system temporarily unavailable while it is being redeployed. Therefore, it is less common to automate vertical scaling. Horizontal scaling, also called scaling out and in, means means adding or removing instances of a resource. The application continues running without interruption as new resources are provisioned. When the provisioning process is complete, the solution is deployed on these additional resources. If demand drops, the additional resources can be shut down cleanly and deallocated.   Many cloud-based systems, including Microsoft Azure, support automatic horizontal scaling. The rest of this article focuses on horizontal scaling.    
     
     > [Design to scale out](https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/scale-out)
     > 
@@ -261,7 +282,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 ## Security    
 
-* **Are you using a dataset in DevTest that is representative of production, but does not contain customer-sensitive data? &nbsp; Or is your dataset not representative of production data?**
+* **Are you using a dataset in DevTest that is representative of production, but does not contain customer-sensitive data?  Or is your dataset not representative of production data?**
 
     Is testing taking place in the production environment with real production data? If this is the case, be aware of the risk that developers or testers may have access to sensitive data, which could leak.
     
@@ -273,13 +294,17 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
     
     Has the code been reviewed prior to it being released onto production servers? Could there be any malicious content, e.g. capturing user data.
     
-    While this question focuses on third parties, this could also be the case if there was a rogue developer inside the organisation.  
+    While this question focuses on third parties, this could also be the case if there was a rogue developer inside the organisation.
+
+    Also scan not just code being written by the developers, but run binary scans on any packages being used. These scanners will look to see if there is a known vulnerability in a particular library being referenced and can call that out during the deployment pipeline to avoid code with a known vulnerability for being pushed to end users.
 
 * **Consider the development pipline - What steps are being taken to ensure that secrets are not being stored in source control?**
 
     Determine whether any passwords, connection strings or additional secrets are being stored in source control.
     
-    If there are, developers or testers may have access to production values. If a developer goes rogue, or you get a disgruntled employee leaving the organisation, this could pose a risk. This would also be a risk if you open sourced code, or code leaked.    
+    If there are, developers or testers may have access to production values. If a developer goes rogue, or you get a disgruntled employee leaving the organisation, this could pose a risk. This would also be a risk if you open sourced code, or code leaked.
+
+    Place restrictions on the code repository to ensure that passwords are not getting checked in to source code.
 
 * **How are you securing your source control? Are there third party users or vendors who may have access to the underlying code, and could potentially exploit this?**
 
@@ -312,6 +337,9 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 * **Are you sure that your dev and production environments are segregated?**
 
     Determine whether there are any resources that may be shared across environments. For example, if there is a Load Balancer configured in a production environment that routes to resources in both development and production. This could potentially lead to undesirable scenarios, such as production data being stored in a development environment.    
+* **Is there separation of concerns in your deployment solution?**
+
+    Especially in industries that are heavily regulated, there is a requirement to keep developers and deployment teams fundamentally separated. Running different release pipelines can help with that separation where developers have read / write access to pipelines running in lower environments and read-only access to environments that hit production. This will help limit the exposure of sensitive accounts and passwords to a minimum.
   
 ## Customer Examples
 * Visual Studio Team Services
