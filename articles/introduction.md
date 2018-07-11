@@ -72,7 +72,7 @@ Look for the following information at a minimum:
 > ### Stakeholders
 > Who else is involved, what are their needs? 
 > * Are there other (internal or external) customers involved with an SLA too?
-> * Who designed the solution originally? In-house design, third party?
+> * Who designed the solution originally? In-house design, third party (partner / consulting organisation, or off the shelf product)?
 > * What is your team’s level of experience with the solutions in the proposed / running architecture?
 
 ## Do the Review
@@ -135,7 +135,7 @@ If the reviewee has no documentation that follows the below pattern, then ask th
 
 ## Discuss Identified Risks and Links to Azure Docs 
 
-At this point you would review the identified risks and possible enhancements to the architecture with supporting links to patterns and practices or service documentation. These should be recorded for later follow up. 
+At this point you would review the identified risks and possible enhancements to the architecture with supporting links to patterns and practices or service documentation. If there are areas of the solution that do not align to recommended practices or design principles, then these should be highlighted as soon as possible. All risks and recommendations should be recorded for later follow up. 
 
 Consider that what you are really looking for here is a list of what has to be done, by whom, and by when. This is to be phrased as a list of risks and recommendations, backed by links to Azure Docs (for an architectural review - links to patterns, practices, reference architectures, or for the more detailed solution reviews - links to technical service-specific documentation) and qualified with appropriate SLA's and NFRs discovered earlier. This gives context to the suggestions given – which might be required later. Consider why the recommendations are being provided.
 
