@@ -1,9 +1,6 @@
 # FastTrack for Azure Architectural Discussion Framework - Data Warehouse Solution
 
-## This Page is currently under construction
-
 - [FastTrack for Azure Architectural Discussion Framework - Data Warehouse Solution](#fasttrack-for-azure-architectural-discussion-framework---data-warehouse-solution)
-  - [This Page is currently under construction](#this-page-is-currently-under-construction)
   - [Data Volumes & Ingestion](#data-volumes--ingestion)
   - [Data Architecture](#data-architecture)
   - [Data Cleanliness](#data-cleanliness)
