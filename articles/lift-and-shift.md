@@ -1,8 +1,8 @@
 # FastTrack for Azure Architectural Discussion Framework - Lift and Shift
 
 - [FastTrack for Azure Architectural Discussion Framework - Lift and Shift Solution](#fasttrack-for-azure-architectural-discussion-framework---lift-and-shift-solution)
-  * [App &amp; Data Migration](#app--data-migration)
   * [Azure Design Principles with Lift and Shift](#azure-design-principles-with-lift-and-shift)
+  * [App &amp; Data Migration](#app--data-migration)
   * [Linux Lift and Shift into Azure](#linux-lift-and-shift-into-azure)
   * [Distributed Architecture](#distributed-architecture)
   * [High Availability and Business Continuity / Disaster Recovery](#high-availability-and-business-continuity--disaster-recovery)
@@ -10,13 +10,6 @@
   * [Performance &amp; Scalability](#performance--scalability)
   * [Security](#security)
 
-## App & Data Migration  
-
-* **Are you aware of the Microsoft Azure Virtual Machine Readiness Assessment tool?**
-
-    This assessment will automatically inspect your on-premises environment, whether it is bare metal or already virtualized. After that, the tool will provide you with tailored guidance and recommendations for migrating your environment to Microsoft Azure. If you’re running Active Directory, SQL, or SharePoint this tool will make it easy for you to get started.    
-    
-    > [Azure Virtual Machine Readiness Assessment](https://azure.microsoft.com/en-us/downloads/vm-readiness-assessment/)
 
 ## Azure Design Principles with Lift and Shift   
 * **Have you considered your approach to governance and taxonomy in an Azure environment?**
@@ -81,6 +74,12 @@
     > [DDoS Protection](https://docs.microsoft.com/en-us/azure/virtual-network/ddos-protection-overview)
     
 ## App & Data Migration 
+
+* **Are you aware of the Microsoft Azure Virtual Machine Readiness Assessment tool?**
+
+    This assessment will automatically inspect your on-premises environment, whether it is bare metal or already virtualized. After that, the tool will provide you with tailored guidance and recommendations for migrating your environment to Microsoft Azure. If you’re running Active Directory, SQL, or SharePoint this tool will make it easy for you to get started.    
+    
+    > [Azure Virtual Machine Readiness Assessment](https://azure.microsoft.com/en-us/downloads/vm-readiness-assessment/)
 
 * **What are the current set of dependencies that your current and legacy applications have?  Do you plan to extend your current authorization and authentication for applications or do you plan to create a hosting domain to insulate your internal Active Directory>**
 
