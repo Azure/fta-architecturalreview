@@ -74,6 +74,7 @@ Look for the following information at a minimum:
 > * Are there other (internal or external) customers involved with an SLA too?
 > * Who designed the solution originally? In-house design, third party (partner / consulting organisation, or off the shelf product)?
 > * What is your team’s level of experience with the solutions in the proposed / running architecture?
+> * Is a partner involved with the design work or were MSFT involved (Any of the One Commercial Partner, Commercial Software Engineering, Cloud Solution Architecture, Microsoft Consulting Services, Azure CAT, Azure Engineering or the Microsoft Unified Support team) involved with facets of the design / architecture.
 
 ## Do the Review
 This is the main focus of the session. For a "high-level" review, assess the architecture against the pillars of software quality. You will use more of the soft skills that an architect would have. For a "detailed solution" review, the guidance linked to below may be needed and the activity will use much more of the depth of an engineer's knowledge in a specific area. 
@@ -121,6 +122,7 @@ If the reviewee has no documentation that follows the below pattern, then ask th
 
 ### Additionally engineers would leverage their own skills for the following two areas if they go deep into a solution area.
 
+
 * Service Specific Aspects
 * Other Observations
 
@@ -136,6 +138,8 @@ If the reviewee has no documentation that follows the below pattern, then ask th
 ## Discuss Identified Risks and Links to Azure Docs 
 
 At this point you would review the identified risks and possible enhancements to the architecture with supporting links to patterns and practices or service documentation. If there are areas of the solution that do not align to recommended practices or design principles, then these should be highlighted as soon as possible. All risks and recommendations should be recorded for later follow up. 
+
+* Note: If you see or hear something that is clearly just plain wrong and is a major risk factor, write it up and gain further insight from the customer as to *Why* it has been architected that way. But please investigate and challenge items that are clear red flags. And ensure the customer is clearly aware of the risk, and why it is a risk to their environment.
 
 Consider that what you are really looking for here is a list of what has to be done, by whom, and by when. This is to be phrased as a list of risks and recommendations, backed by links to Azure Docs (for an architectural review - links to patterns, practices, reference architectures, or for the more detailed solution reviews - links to technical service-specific documentation) and qualified with appropriate SLA's and NFRs discovered earlier. This gives context to the suggestions given – which might be required later. Consider why the recommendations are being provided.
 
