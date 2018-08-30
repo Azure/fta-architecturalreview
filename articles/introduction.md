@@ -134,6 +134,7 @@ If the reviewee has no documentation that follows the below pattern, then ask th
 * [Data Warehouse](data-warehouse.md)
 * [DevTest](devtest.md)
 * [Lift and Shift](lift-and-shift.md)
+* [Intelligent Agents - Bots and Cognitive Services](intelligent-agents.md)
 
 ## Discuss Identified Risks and Links to Azure Docs 
 
