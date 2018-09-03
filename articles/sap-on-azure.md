@@ -4,12 +4,12 @@
   - [SAP Landscape Design](#data-volumes--ingestion)
   - [SAP Landscape Sizing](#data-architecture)
   - [High Availability and Business Continuity / Disaster Recovery](#data-cleanliness)
-  - [Performance & Scalability](#query-patterns)
-  - [Backup and Archival](#performance--scalability)
+  - [Performance & Scalability](#Performance & Scalability)
+  - [Backup and Archival](#Backup & Archival)
   - [Migration Methodologies](#security)
-  - [Security Design](#security)
-  - [Monitoring & Management](#security)
-  - [Stories](#security)
+  - [Security Design](#security design)
+  - [Monitoring & Management](#Monitoring and System Management)
+  - [Stories](#Stories)
 
 ## SAP Landscape Design
 
@@ -39,43 +39,50 @@
 
 ## Performance & Scalability
 
-- **How many concurrent users do you expect to be querying the data from the data warehouse?**
+- **What are the performance related SLAs and response time in current production environment?**
 
-    Determine access patterns and define if a Mart or Symantic Layer is required to facilitate querying. Limitations in concurrent access within SQL DW.
+    SAP application servers carry on constant communications with the database servers. For performance-critical applications running on any database platforms, including SAP HANA, consider enabling Write Accelerator to improve log write latency. To optimize inter-server communications, use the Accelerated Network. Note that these accelerators are available only for certain VM series.
+  
+  - [Guidelines for Accelarated Network](https://azure.microsoft.com/blog/linux-and-windows-networking-performance-enhancements-accelerated-networking/)
+  - [Write Accelarator for M Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/how-to-enable-write-accelerator)
+  - [Best Practices for Storage performance optimization](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance)
 
-  - [Hub and spoke series integration with SQL Database](https://azure.microsoft.com/en-gb/blog/azuresqldw-hub-and-spoke-series-integration-with-sql-database/)
-  - [SQL Data Warehouse capacity limits](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits)
 
 ## Backup & Archival
 
-- **Do you have any requirements, Service Level Agreements (SLAs) or boundaries that required queries to return within a specific period of time?**
+- **What is the Current Backup Strategy?**
 
-    This information will influence the sizing of the Data Warehouse, in addition to an MPP schema and appropriate supporting infrastructure.
+    Determine the type and frequency of backup in current SAP environment. It is strongly recommended to schedule regular data backups from the data area of your SAP HANA database to a secure location. SAP system on Azure Backup guide provides detailed information. 
 
-  - [SQL Data Warehouse capacity limits](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits)
+  - [Backup guide for SAP workload on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 
+- **What are the Data Archiving Strategy?**
+    Determine if data archiving in done on a regular basis and how archived data is selected and stored. What is tool used for data archiving. 
 ## Migration Methodologies
 
-- **What level of sensitivity is the data you are storing?**
+- **Are you planning to change operating system and database of SAP Landscape during migration to Azure?**
 
-    This helps determine whether there is any Personally Identifiable Information in the data being held, or whether there are specific security requirements for the data being stored. These may drive technology decisions, and configuration decisions of those technologies.
+    Homogeneous migration can be performed if database and operating systems remains same in new platform.
+    Heterogenous migration needs to be performed if there are changes in operating systems OR database. 
 
-  - [Authenticate to Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-authentication)
-  - [Service to Service Authenticate within Azure](https://docs.microsoft.com/en-gb/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory)
-
-- **Is the data subject to GDPR compliance?**
-
-  Do GDPR rules apply and do the relevant processes need to be in place to handle this
-
-  - [Azure Security and Compliance Blueprint: Data Warehouse for GDPR](https://docs.microsoft.com/en-us/azure/security/blueprints/gdpr-datawarehouse-overview)
+- **Determine the high level plan for migration is available and if there are any specific requirement for migration?**
 
 ## Security Design
-
+ - **How to control access the different infrastructure resources and segregation of duties?**
+ Azure policy and RBAC provides granular level access control for resources.
+ - [Best practices for Azure Policy.](https://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction)
+ - [Role Based Access control in Azure.](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview)
 
 ## Monitoring and System Management
+
 - **How do you monitor SAP, database & Infrastructure layers?**
 - **How do you determine if there is an outage and what are the alerts which have been setup?**
 - **What is the level of automation in system management and operations?**
+  Azure provides several functions for monitoring and diagnostics of the overall infrastructure. Also, enhanced monitoring of Azure virtual machines (Linux or Windows) is handled by Azure Operations Management Suite (OMS).
+  - [Best practices for Monitoring and Diagnostics in Azure.](https://docs.microsoft.com/en-us/azure/architecture/best-practices/monitoring)
+
+  To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, the Azure SAP Enhanced Monitoring extension is used. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is a mandatory prerequisite to run SAP on Azure. 
+  - [Azure SAP Enhanced Monitoring extension.](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca)
 
 ## Stories
  - [Top 10 considerations for deploying SAP workloads on SQL server in Azure.](https://blogs.msdn.microsoft.com/saponsqlserver/2015/05/25/top-10-key-considerations-for-deploying-sap-applications-on-azure/)
