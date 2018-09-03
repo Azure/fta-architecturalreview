@@ -36,6 +36,8 @@
     - [High Availability Architecture for SAP on Azure ](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-certifications)
     - [Reference architecture design for SAP Netweaver for AnyDB on Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-netweaver)
 - **What is the plans for disaster recovery setup. What will be recovery time objective (RTO) and Recovery Point Objective (RPO)?**
+    Azure Site recovery will be recommended approach to setup DR for SAP application layer. For Database layer, DB specific setup will be required (like HSR for SAP HANA DB and SQL AlwaysOn for SQL server DB)
+    - [Reference design for Azure Site Recovery(ASR) for SAP Netweaver on Azure](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-sap)
 
 ## Performance & Scalability
 
@@ -46,6 +48,12 @@
   - [Guidelines for Accelarated Network](https://azure.microsoft.com/blog/linux-and-windows-networking-performance-enhancements-accelerated-networking/)
   - [Write Accelarator for M Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/how-to-enable-write-accelerator)
   - [Best Practices for Storage performance optimization](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance)
+
+  - **What are the Scalability requirements for SAP workloads?**
+    SAP application servers and the Central Services clusters can scale up/down or scale out by adding more instances.
+    The database VMs can scale up/down with limitations on maximum size(4TB) of the VM. If your workload exceeds the maximum VM size, Microsoft also offers Azure Large Instances for SAP HANA. 
+     
+     - [Details about Azure Large Instances](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 
 
 ## Backup & Archival
@@ -73,12 +81,9 @@
  - [Best practices for Azure Policy.](https://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction)
  - [Role Based Access control in Azure.](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview)
 
- - **What are the Scalability requirements for SAP workloads?**
-    SAP application servers and the Central Services clusters can scale up/down or scale out by adding more instances.
-    The database VMs can scale up/down with limitations on maximum size(4TB) of the VM. If your workload exceeds the maximum VM size, Microsoft also offers Azure Large Instances for SAP HANA. 
-     
-     - [Details about Azure Large Instances](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture)
-
+ - **Determine the proactive steps being taken in maintaining the security of the SAP Landscape?**
+    For infrastructure security, data is encrypted in transit and at rest. The "Security considerations” section of the SAP NetWeaver on Azure Virtual Machines (VMs) – Planning and Implementation Guide begins to address network security. The guide also specifies the network ports you must open on the firewalls to allow application communication.
+- [Security considerations of the SAP NetWeaver on Azure Virtual Machines (VMs)](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/planning-guide)
 
 ## Monitoring and System Management
 
