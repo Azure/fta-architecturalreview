@@ -90,8 +90,8 @@
  - **How to control access the different infrastructure resources and segregation of duties?**
 
     Azure policy and RBAC provides granular level access control for resources.
- - [Best practices for Azure Policy.](https://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction)
- - [Role Based Access control in Azure.](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview)
+  - [Best practices for Azure Policy.](https://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction)
+  - [Role Based Access control in Azure.](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview)
 
  - **Determine the proactive steps being taken in maintaining the security of the SAP Landscape?**
 
