@@ -3,7 +3,7 @@
 
 - [FastTrack for Azure Architectural Discussion Framework - Sap on Azure Solution](#fasttrack-for-azure-architectural-discussion-framework---sap-on-azure-solution)
   - [SAP Landscape Design](#sap-landscape-design)
-  - [SAP Landscape Sizing](#sap-landscape-sizing)
+  - [SAP Systems Sizing](#sap-systems-sizing)
   - [High Availability and Business Continuity / Disaster Recovery](#high-availability-and-business-continuity--disaster-recovery)
   - [Performance and Scalability](#performance--scalability)
   - [Backup and Archival](#backup--archival)
@@ -31,7 +31,7 @@
 
     - [Worldwide Azure regions](https://azure.microsoft.com/en-us/global-infrastructure/regions/)
 
-## SAP Landscape Sizing
+## SAP Systems Sizing
 
 - **Could you provide SAP sizing and exiting hardware specifications?**
 
