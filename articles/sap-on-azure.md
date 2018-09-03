@@ -5,11 +5,11 @@
   - [SAP Landscape Design](#sap-landscape-design)
   - [SAP Landscape Sizing](#sap-landscape-sizing)
   - [High Availability and Business Continuity / Disaster Recovery](#high-availability-and-business-continuity--disaster-recovery)
-  - [Performance & Scalability](#performance--scalability)
+  - [Performance and Scalability](#performance--scalability)
   - [Backup and Archival](#backup--archival)
   - [Migration Methodologies](#migration-methodologies)
   - [Security Design](#security-design)
-  - [Monitoring & System Management](#monitoring--management)
+  - [Monitoring and System Management](#monitoring-and-system-management)
   - [Stories](#stories)
 
 ## SAP Landscape Design
