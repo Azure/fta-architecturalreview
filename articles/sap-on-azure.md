@@ -20,8 +20,9 @@
     - [SAP systems which are certified to run on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-certifications)
 
 - **What are the driving factors for moving to Azure?**
+
    Determine the customer experience in current envionment and expectations in Azure.
-   
+
 - **What are your future roadmap to SAP environment and are there any plans to move to S/4 Hana?**
 Projects which are planned in future along with moving to Azure. We can look at overall trransformation strategy for SAP Landscape.
 
