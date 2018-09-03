@@ -8,7 +8,7 @@
   - [Backup and Archival](#Backup--Archival)
   - [Migration Methodologies](#security)
   - [Security Design](#security--design)
-  - [Monitoring & Management](#Monitoring-and-System Management)
+  - [Monitoring & Management](#MonitoringandSystem Management)
   - [Stories](#Stories)
 
 ## SAP Landscape Design
@@ -69,9 +69,16 @@
 
 ## Security Design
  - **How to control access the different infrastructure resources and segregation of duties?**
- Azure policy and RBAC provides granular level access control for resources.
+    Azure policy and RBAC provides granular level access control for resources.
  - [Best practices for Azure Policy.](https://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction)
  - [Role Based Access control in Azure.](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview)
+
+ - **What are the Scalability requirements for SAP workloads?**
+    SAP application servers and the Central Services clusters can scale up/down or scale out by adding more instances.
+    The database VMs can scale up/down with limitations on maximum size(4TB) of the VM. If your workload exceeds the maximum VM size, Microsoft also offers Azure Large Instances for SAP HANA. 
+     
+     - [Details about Azure Large Instances](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+
 
 ## Monitoring and System Management
 
