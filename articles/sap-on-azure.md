@@ -1,6 +1,6 @@
 # FastTrack for Azure Architectural Discussion Framework - SAP on Azure Solution
 
-- [FastTrack for Azure Architectural Discussion Framework - Sap on Azure Solution](#fasttrack-for-azure-architectural-discussion-framework---data-warehouse-solution)
+- [FastTrack for Azure Architectural Discussion Framework - Sap on Azure Solution](#fasttrack-for-azure-architectural-discussion-framework---sap-on-azure-solution)
   - [SAP Landscape Design](#data-volumes--ingestion)
   - [SAP Landscape Sizing](#data-architecture)
   - [High Availability and Business Continuity / Disaster Recovery](#data-cleanliness)
@@ -19,32 +19,25 @@
     - [SAP systems which are certified to run on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-certifications)
 - **What are your future roadmap to SAP environment and are there any plans to move to S/4 Hana?**
 - **Are you hosting it on-premises or partner data centre.  In which region you are planning to host in Azure?**
- 
+    - [Worldwide Azure regions](https://azure.microsoft.com/en-us/global-infrastructure/regions/)
 
 ## SAP Landscape Sizing
 
-- **Is your database structured as a star schema, Data Vault or well defined Dimensions & Facts?**
+- **Could you provide SAP sizing and exiting hardware specifications?**
+- **Could you provide SAP Early Watch Report for production systems in the landscape?**
+- **What is the current database size of each of the SAP systems and average monthly DB growth?**
+- **When was current hardware was last procured/refreshed?**
 
-    Determine the amount of effort required to design for a MPP warehouse solution and suitability of the Database to move to SQL Data Warehouse.
+## High Availability and Business Continuity / Disaster Recovery
 
-    Is this a traditional data warehouse, or a modern data warehouse? Has someone designed a Data Warehouse, and is created for a business need, and to solve a specified business output? Or are they taking a modern data warehouse approach - storing all data - using compute to solve a problem as it is defined / when someone asks.
+- **What is the availability SLA for SAP production environment. Do you have clustered environment for SAP application & database layer for production systems?**
 
-    Are we batch processing overnight, or are we streaming? This will help in determining the amount of time available for the processing of this data.
+    Refer to the High Availability & disaster recovery concepts for SAP on Azure.
+    - [High Availability Architecture for SAP on Azure ](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-certifications)
+    - [Reference architecture design for SAP Netweaver for AnyDB on Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-netweaver)
+- **What is the plans for disaster recovery setup. What will be recovery time objective (RTO) and Recovery Point Objective (RPO)?**
 
-    These questions drives technology choices - You have to structure the data if you are using SQL Data Warehouse, whereas HD insight and Azure Data Lake take a schema on read approach.
-
-  - [Guidance for designing distributed tables in Azure SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute)
-  - [Design guidance for using replicated tables in Azure SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-guidance-for-replicated-tables)
-  - [Stream big data into a data warehouse](https://docs.microsoft.com/en-us/azure/event-grid/event-grid-event-hubs-integration)
-  - [Designing Extract, Load, and Transform (ELT) for Azure SQL Data Warehouse](https://docs.microsoft.com/en-gb/azure/sql-data-warehouse/design-elt-data-loading)
-
-## Data Cleanliness
-
-- **Do you master your data and do you pre-process your data to ensure conformity and accuracy of the data?**
-
-    Determine if a process needs to be defined to clean the and process the data. Is there data governance in place in the existing solution?
-
-## Query Patterns
+## Performance & Scalability
 
 - **How many concurrent users do you expect to be querying the data from the data warehouse?**
 
@@ -53,7 +46,7 @@
   - [Hub and spoke series integration with SQL Database](https://azure.microsoft.com/en-gb/blog/azuresqldw-hub-and-spoke-series-integration-with-sql-database/)
   - [SQL Data Warehouse capacity limits](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits)
 
-## Performance & Scalability
+## Backup & Archival
 
 - **Do you have any requirements, Service Level Agreements (SLAs) or boundaries that required queries to return within a specific period of time?**
 
@@ -61,7 +54,7 @@
 
   - [SQL Data Warehouse capacity limits](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits)
 
-## Security
+## Migration Methodologies
 
 - **What level of sensitivity is the data you are storing?**
 
@@ -75,3 +68,14 @@
   Do GDPR rules apply and do the relevant processes need to be in place to handle this
 
   - [Azure Security and Compliance Blueprint: Data Warehouse for GDPR](https://docs.microsoft.com/en-us/azure/security/blueprints/gdpr-datawarehouse-overview)
+
+## Security Design
+
+
+## Monitoring and System Management
+- **How do you monitor SAP, database & Infrastructure layers?**
+- **How do you determine if there is an outage and what are the alerts which have been setup?**
+- **What is the level of automation in system management and operations?**
+
+## Stories
+ - [Top 10 considerations for deploying SAP workloads on SQL server in Azure.](https://blogs.msdn.microsoft.com/saponsqlserver/2015/05/25/top-10-key-considerations-for-deploying-sap-applications-on-azure/)
