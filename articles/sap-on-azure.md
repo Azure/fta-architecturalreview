@@ -57,8 +57,8 @@
   - [Write Accelarator for M Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/how-to-enable-write-accelerator)
   - [Best Practices for Storage performance optimization](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance)
 
-  - **What are the Scalability requirements for SAP workloads?**
-  
+ - **What are the Scalability requirements for SAP workloads?**
+
     SAP application servers and the Central Services clusters can scale up/down or scale out by adding more instances.
     The database VMs can scale up/down with limitations on maximum size(4TB) of the VM. If your workload exceeds the maximum VM size, Microsoft also offers Azure Large Instances for SAP HANA. 
      
@@ -74,7 +74,9 @@
   - [Backup guide for SAP workload on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 
 - **What are the Data Archiving Strategy?**
+
     Determine if data archiving in done on a regular basis and how archived data is selected and stored. What is tool used for data archiving. 
+
 ## Migration Methodologies
 
 - **Are you planning to change operating system and database of SAP Landscape during migration to Azure?**
