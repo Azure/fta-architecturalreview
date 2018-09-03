@@ -19,7 +19,11 @@
     Please provide landscape diagram, Operating system, database details of the SAP environment.
     - [SAP systems which are certified to run on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-certifications)
 
+- **What are the driving factors for moving to Azure?**
+   Determine the customer experience in current envionment and expectations in Azure.
+   
 - **What are your future roadmap to SAP environment and are there any plans to move to S/4 Hana?**
+Projects which are planned in future along with moving to Azure. We can look at overall trransformation strategy for SAP Landscape.
 
 - **Are you hosting it on-premises or partner data centre.  In which region you are planning to host in Azure?**
 
@@ -29,11 +33,16 @@
 
 - **Could you provide SAP sizing and exiting hardware specifications?**
 
+SAPS value for the current hardware and SAP quicksizer report will be helpful to determine the target system configuration.  
+
 - **Could you provide SAP Early Watch Report for production systems in the landscape?**
+
+SAP solution manager Early Watch Report provides system usage and performace statistics to eastimate the SAP system design on Azure.
 
 - **What is the current database size of each of the SAP systems and average monthly DB growth?**
 
-- **When was current hardware was last procured/refreshed?**
+Database size will be helpful in determining infrastructure requirement like Storage and VMs for the target design.
+
 
 ## High Availability and Business Continuity / Disaster Recovery
 
