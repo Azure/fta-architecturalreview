@@ -4,7 +4,7 @@
 - [FastTrack for Azure Architectural Discussion Framework - Sap on Azure Solution](#fasttrack-for-azure-architectural-discussion-framework---sap-on-azure-solution)
   - [SAP Landscape Design](#sap-landscape-design)
   - [SAP Landscape Sizing](#sap-landscape-sizing)
-  - [High Availability and Business Continuity / Disaster Recovery](#high-availability)
+  - [High Availability and Business Continuity / Disaster Recovery](#high-availability-and-business-continuity--disaster-recovery)
   - [Performance & Scalability](#performance--scalability)
   - [Backup and Archival](#backup--archival)
   - [Migration Methodologies](#migration-methodologies)
