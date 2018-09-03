@@ -111,7 +111,7 @@
   To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, the Azure SAP Enhanced Monitoring extension is used. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is a mandatory prerequisite to run SAP on Azure. 
   - [Azure SAP Enhanced Monitoring extension.](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca)
 
-  - **What is the level of automation in system management and operations?**
+- **What is the level of automation in system management and operations?**
   - [Introduction to Azure Automation for system management.](https://docs.microsoft.com/en-us/azure/automation/automation-intro)
 
 ## Stories
