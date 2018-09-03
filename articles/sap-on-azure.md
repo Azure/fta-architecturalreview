@@ -24,7 +24,8 @@
    Determine the customer experience in current envionment and expectations in Azure.
 
 - **What are your future roadmap to SAP environment and are there any plans to move to S/4 Hana?**
-Projects which are planned in future along with moving to Azure. We can look at overall trransformation strategy for SAP Landscape.
+
+    Projects which are planned in future along with moving to Azure. We can look at overall trransformation strategy for SAP Landscape.
 
 - **Are you hosting it on-premises or partner data centre.  In which region you are planning to host in Azure?**
 
@@ -34,15 +35,15 @@ Projects which are planned in future along with moving to Azure. We can look at 
 
 - **Could you provide SAP sizing and exiting hardware specifications?**
 
-SAPS value for the current hardware and SAP quicksizer report will be helpful to determine the target system configuration.  
+    SAPS value for the current hardware and SAP quicksizer report will be helpful to determine the target system configuration.  
 
 - **Could you provide SAP Early Watch Report for production systems in the landscape?**
 
-SAP solution manager Early Watch Report provides system usage and performace statistics to eastimate the SAP system design on Azure.
+    SAP solution manager Early Watch Report provides system usage and performace statistics to eastimate the SAP system design on Azure.
 
 - **What is the current database size of each of the SAP systems and average monthly DB growth?**
 
-Database size will be helpful in determining infrastructure requirement like Storage and VMs for the target design.
+    Database size will be helpful in determining infrastructure requirement like Storage and VMs for the target design.
 
 
 ## High Availability and Business Continuity / Disaster Recovery
@@ -64,8 +65,8 @@ Database size will be helpful in determining infrastructure requirement like Sto
 
     SAP application servers carry on constant communications with the database servers. For performance-critical applications running on any database platforms, including SAP HANA, consider enabling Write Accelerator to improve log write latency. To optimize inter-server communications, use the Accelerated Network. Note that these accelerators are available only for certain VM series.
   
-  - [Guidelines for Accelarated Network](https://azure.microsoft.com/blog/linux-and-windows-networking-performance-enhancements-accelerated-networking/)
-  - [Write Accelarator for M Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/how-to-enable-write-accelerator)
+    - [Guidelines for Accelarated Network](https://azure.microsoft.com/blog/linux-and-windows-networking-performance-enhancements-accelerated-networking/)
+    - [Write Accelarator for M Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/how-to-enable-write-accelerator)
   - [Best Practices for Storage performance optimization](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance)
 
  - **What are the Scalability requirements for SAP workloads?**
@@ -73,7 +74,7 @@ Database size will be helpful in determining infrastructure requirement like Sto
     SAP application servers and the Central Services clusters can scale up/down or scale out by adding more instances.
     The database VMs can scale up/down with limitations on maximum size(4TB) of the VM. If your workload exceeds the maximum VM size, Microsoft also offers Azure Large Instances for SAP HANA. 
      
-     - [Details about Azure Large Instances](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+    - [Details about Azure Large Instances](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 
 
 ## Backup & Archival
@@ -82,7 +83,7 @@ Database size will be helpful in determining infrastructure requirement like Sto
 
     Determine the type and frequency of backup in current SAP environment. It is strongly recommended to schedule regular data backups from the data area of your SAP HANA database to a secure location. SAP system on Azure Backup guide provides detailed information. 
 
-  - [Backup guide for SAP workload on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+    - [Backup guide for SAP workload on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 
 - **What are the Data Archiving Strategy?**
 
@@ -115,14 +116,14 @@ Database size will be helpful in determining infrastructure requirement like Sto
 - **How do you determine if there is an outage and what are the alerts which have been setup?**
 
 
-  Azure provides several functions for monitoring and diagnostics of the overall infrastructure. Also, enhanced monitoring of Azure virtual machines (Linux or Windows) is handled by Azure Operations Management Suite (OMS).
-  - [Best practices for Monitoring and Diagnostics in Azure.](https://docs.microsoft.com/en-us/azure/architecture/best-practices/monitoring)
+    Azure provides several functions for monitoring and diagnostics of the overall infrastructure. Also, enhanced monitoring of Azure virtual machines (Linux or Windows) is handled by Azure Operations Management Suite (OMS).
+    - [Best practices for Monitoring and Diagnostics in Azure.](https://docs.microsoft.com/en-us/azure/architecture/best-practices/monitoring)
 
-  To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, the Azure SAP Enhanced Monitoring extension is used. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is a mandatory prerequisite to run SAP on Azure. 
-  - [Azure SAP Enhanced Monitoring extension.](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca)
+    To provide SAP-based monitoring of resources and service performance of the SAP infrastructure, the Azure SAP Enhanced Monitoring extension is used. This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is a mandatory prerequisite to run SAP on Azure. 
+    - [Azure SAP Enhanced Monitoring extension.](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca)
 
 - **What is the level of automation in system management and operations?**
-  - [Introduction to Azure Automation for system management.](https://docs.microsoft.com/en-us/azure/automation/automation-intro)
+    - [Introduction to Azure Automation for system management.](https://docs.microsoft.com/en-us/azure/automation/automation-intro)
 
 ## Stories
  - [Top 10 considerations for deploying SAP workloads on SQL server in Azure.](https://blogs.msdn.microsoft.com/saponsqlserver/2015/05/25/top-10-key-considerations-for-deploying-sap-applications-on-azure/)
