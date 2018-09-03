@@ -1,8 +1,9 @@
 # FastTrack for Azure Architectural Discussion Framework - SAP on Azure Solution
 
+
 - [FastTrack for Azure Architectural Discussion Framework - Sap on Azure Solution](#fasttrack-for-azure-architectural-discussion-framework---sap-on-azure-solution)
-  - [SAP Landscape Design](#data-volumes--ingestion)
-  - [SAP Landscape Sizing](#data-architecture)
+  - [SAP Landscape Design](#sap-landscape-design)
+  - [SAP Landscape Sizing](#sap-landscape-sizing)
   - [High Availability and Business Continuity / Disaster Recovery](#data-cleanliness)
   - [Performance & Scalability](#Performance--Scalability)
   - [Backup and Archival](#Backup--Archival)
