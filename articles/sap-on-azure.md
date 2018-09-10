@@ -14,7 +14,7 @@
 
 ## SAP Landscape Design
 
-- **How is your current SAP Landscape and which systems are you planning to move to Azure?**
+- **What is your current SAP Landscape and systems in scope for the move to Azure?**
 
     Please provide landscape diagram, Operating system, database details of the SAP environment.
     - [SAP systems which are certified to run on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-certifications)
