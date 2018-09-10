@@ -98,7 +98,7 @@
     Homogeneous migration can be performed if database and operating systems remains same in new platform.
     Heterogenous migration needs to be performed if there are changes in operating systems OR database. 
 
-    Please refer to SAP Note 1928533 (link) for the VM/OS/DB compatibility information. 
+    - [Please refer to SAP Note 1928533(SAP login required) for the VM/OS/DB compatibility information.](https://launchpad.support.sap.com/#/notes/1928533)
 
 - **Do you have the high level plan for migration and is the partner for the project delivery identified?**
 
