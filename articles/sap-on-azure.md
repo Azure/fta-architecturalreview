@@ -23,11 +23,11 @@
 
    Determine the customer experience in current envionment and expectations in Azure.
 
-- **What are your future roadmap to SAP environment and are there any plans to move to S/4 Hana?**
+- **What is your future environment roadmap and plans for move to S/4 Hana?**
 
     Projects which are planned in future along with moving to Azure. We can look at overall trransformation strategy for SAP Landscape.
 
-- **Are you hosting it on-premises or partner data centre.  In which region you are planning to host in Azure?**
+- **Where are you hosting your systems?  In which region you are planning to host in Azure?**
 
     - [Worldwide Azure regions](https://azure.microsoft.com/en-us/global-infrastructure/regions/)
 
