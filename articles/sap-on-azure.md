@@ -37,7 +37,7 @@
 
     SAPS value for the current hardware and SAP quicksizer report will be helpful to determine the target system configuration.  
 
-- **Can you provide the SAP Early Watch Reports and any other performance data (Hardware, Network & Application) ?**
+- **Can you provide the SAP Early Watch Reports and any other performance data (Compute, Storage, Network & Application) ?**
 
     SAP Early Watch Report provides system usage and performace statistics to eastimate the SAP system design on Azure.
 
