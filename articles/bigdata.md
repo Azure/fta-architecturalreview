@@ -5,17 +5,30 @@
     - [Data Usage](#data-usage)
     - [Security & Compliance](#security--compliance)
 
+## Migration
+
+- **Are you already using Big Data technologies on-premises?**
+
+    Determining what technologies are in play is an important step. While Azure offers many technologies in this space, it makes no sense to take on a new technology and retrain the staff, when an existing technology and serve both the business need and minimize cost.
 
 ## Data Volumes & Ingestion
+
+- **Where is the data sourced from?**
+    
+    Where the data is coming from and how it flows can change the tools that you use for collecting and even processing data. The architecture can change based on the format of the data and velocity.
+
+    - [Real-time Messaging Ingestion](https://docs.microsoft.com/en-us/azure/architecture/data-guide/technology-choices/real-time-ingestion)
+    - [Pipeline Orchestration](https://docs.microsoft.com/en-us/azure/architecture/data-guide/technology-choices/real-time-ingestion)
+    - [Real-Time Processing](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/real-time-processing)
 
 - **What size of data are you storing, how often will the data be arriving and is your data coming from within Azure, for example, Azure storage, Event Hubs?**
 
     Understanding the data volumes, speed of arrival and rate of change is important in deciding how to handle and store the data for processing.  Understanding if this is streaming data or batch ingest will determine of it has already been processed or might require transformation - which could also be achieved at runtime.
 
     - [Big Data Architecture Styles](https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/big-data)
+    - [Big Data Architectures](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/)
     - [Azure Storage Scalability & Performance Targets](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets)
     - [Introduction to Azure Data Lake Storage Gen 2](https://docs.microsoft.com/en-us/azure/storage/data-lake-storage/introduction)
-
     
 - **How will the data be formatted when it leaves the source system and how do you plan on consuming that data once it is in Azure?**
 
@@ -26,7 +39,7 @@
     - [Polybase Guide](https://docs.microsoft.com/en-us/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017)
 
 
-## Data Usage
+## Data Structure and Usage
 
 - **How will the data be consumed ?  Is the expectation that there will be some type of interactive query capability or will this be batch processed ?**
 
@@ -37,6 +50,19 @@
     - [Azure HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/)
     - [Azure SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
 
+- **What is the eventual use for the data being collected?**
+    - [Batch Processing](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/batch-processing)
+    - [Real Time Processing](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/real-time-processing)
+    - [Machine Learning at Scale](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/machine-learning-at-scale)
+    - [Advanced Analytics](https://docs.microsoft.com/en-us/azure/architecture/data-guide/scenarios/advanced-analytics)
+    - [Time Series Solutions](https://docs.microsoft.com/en-us/azure/architecture/data-guide/scenarios/time-series)
+
+- **Is your team familiar with Python, Scala, R, Java, or another programming language in the analytics space?**
+    
+    When determining a BigData technology, it's almost as important to know the existing skillset in this space as it is to understand the business problem itself. There are so many tooling choices for each type of solution, that it's important to not only match solutions to business problems, but also the skillset of the team that is adopting the technology. 
+    
+    - [Azure HDInsight with Spark](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-overview)
+    - [Azure HDInsight with ML Services](https://docs.microsoft.com/en-us/azure/hdinsight/r-server/r-server-overview)
 
 ## Security & Compliance
 
@@ -48,3 +74,4 @@
     - [General Data Protection Rules (GDPR) Explained](https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/)
     - [Access Control for SQL Database and SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-control-access)
 
+## Management and Monitoring
