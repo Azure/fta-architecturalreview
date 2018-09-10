@@ -61,6 +61,8 @@
 
 - **Can you explain the process for the Failover in case of a Disaster and what is the frequency of disaster recovery testing?**
 
+   Process to test the disaster recovery, test plans and team involved to perform the activities. 
+
 ## Performance & Scalability
 
 - **What are the performance related SLAs?**
