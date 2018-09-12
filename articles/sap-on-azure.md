@@ -6,7 +6,7 @@
   - [SAP Systems Sizing](#sap-systems-sizing)
   - [High Availability and Business Continuity / Disaster Recovery](#high-availability-and-business-continuity--disaster-recovery)
   - [Performance and Scalability](#performance--scalability)
-  - [Backup and Archival](#backup--archival)
+  - [Backup and Archiving](#backup--archiving)
   - [Migration Methodologies](#migration-methodologies)
   - [Security Design](#security-design)
   - [Monitoring and System Management](#monitoring-and-system-management)
