@@ -75,3 +75,15 @@
     - [Access Control for SQL Database and SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-control-access)
 
 ## Management and Monitoring
+
+- **How do you plan on monitoring your architecture for issues?**
+
+    For alerting, scaling, and management, a set of reporting and monitoring needs to be setup so that we can understand how our architecture is doing and the quality of the performance of the application. 
+
+    - [Using Azure Log Analytics to monitor HDInsight clusters](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial)
+    - [Monitor Cluster Performance(HDInsight)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-key-scenarios-to-monitor?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fdomain-joined%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+    - [Manage HDInsight Clusters by using the Ambari web UI](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-manage-ambari)
+    - [Monitoring Databricks Jobs with Application Insights](https://msdn.microsoft.com/en-us/magazine/mt846727.aspx)
+    - [Monitoring Azure applications and resources](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview)
+    - [HDInsight Orchestration using Azure App Services](https://www.microsoft.com/developerblog/2016/08/28/hdinsight-orchestration-using-azure-app-services/)
+    - [Cluster Size and Autoscaling](https://docs.azuredatabricks.net/user-guide/clusters/sizing.html)
