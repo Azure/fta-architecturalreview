@@ -133,3 +133,5 @@
 
 ## Stories
  - [Top 10 considerations for deploying SAP workloads on SQL server in Azure.](https://blogs.msdn.microsoft.com/saponsqlserver/2015/05/25/top-10-key-considerations-for-deploying-sap-applications-on-azure/)
+
+ - [Architecture design for SAP Dev/Test environment with high level pricing estimates.](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/apps/sap-dev-test)
