@@ -1,6 +1,5 @@
 # FastTrack for Azure Architectural Discussion Framework - SAP on Azure Solution
 
-
 - [FastTrack for Azure Architectural Discussion Framework - Sap on Azure Solution](#fasttrack-for-azure-architectural-discussion-framework---sap-on-azure-solution)
   - [SAP Landscape Design](#sap-landscape-design)
   - [SAP Systems Sizing](#sap-systems-sizing)
@@ -16,7 +15,7 @@
 
 - **What is your current SAP Landscape and systems in scope for the move to Azure?**
 
-    Please provide landscape diagram, Operating system, database details of the SAP environment.
+    Please provide a landscape diagram, Operating system details and database details of the SAP environment.
     - [SAP systems which are certified to run on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-certifications)
 
 - **What are the driving factors for moving to Azure?**
@@ -45,7 +44,6 @@
 
     Database size will be helpful in determining infrastructure requirement like Storage and VMs for the target design.
 
-
 ## High Availability and Business Continuity / Disaster Recovery
 
 - **What are the availability SLAs. Can you explain the current High Availability design?**
@@ -56,7 +54,7 @@
 
 - **Can you expalin the present disaster recovery setup. What will be recovery time objective (RTO) and Recovery Point Objective (RPO)?**
 
-    Azure Site recovery will be recommended approach to setup DR for SAP application layer. For Database layer, DB specific setup will be required (like HSR for SAP HANA DB and SQL AlwaysOn for SQL server DB)
+    Azure Site recovery will be recommended approach to setup DR for SAP application layer. For the Database layer, DB specific setup will be required (like HSR for SAP HANA DB and SQL AlwaysOn for SQL server DB)
     - [Reference design for Azure Site Recovery(ASR) for SAP Netweaver on Azure](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-sap)
 
 - **Can you explain the process for the Failover in case of a Disaster and what is the frequency of disaster recovery testing?**
@@ -67,7 +65,7 @@
 
 - **What are the performance related SLAs?**
 
-    SAP application servers carry on constant communications with the database servers. For performance-critical applications running on any database platforms, including SAP HANA, consider enabling Write Accelerator to improve log write latency. To optimize inter-server communications, use the Accelerated Network. Note that these accelerators are available only for certain VM series.
+    SAP application servers carry on constant communications with the database servers. For performance-critical applications running on any database platforms, including SAP HANA, consider enabling Write Accelerator to improve log write latency. To optimize inter-server communications, use Accelerated Networking. Note that these accelerators are available only for certain VM series.
   
     - [Guidelines for Accelarated Network](https://azure.microsoft.com/blog/linux-and-windows-networking-performance-enhancements-accelerated-networking/)
     - [Write Accelarator for M Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/how-to-enable-write-accelerator)
@@ -91,14 +89,13 @@
 
 - **What is the Data Archiving Strategy?**
 
-    Determine if data archiving in done on a regular basis and how archived data is selected and stored. What is tool used for data archiving. 
+    Determine if data archiving is done on a regular basis and how archived data is selected and stored. What is the tool used for data archiving. 
 
 ## Migration Methodologies
 
 - **Are you planning to change the operating system and database of the systems during migration to Azure?**
 
-    Homogeneous migration can be performed if database and operating systems remains same in new platform.
-    Heterogenous migration needs to be performed if there are changes in operating systems OR database. 
+    Homogeneous migration can be performed if database and operating systems remains same in new platform, alternatively heterogenous migration needs to be performed if there are changes in the operating systems OR database. 
 
     - [Please refer to SAP Note 1928533(SAP login required) for the VM/OS/DB compatibility information.](https://launchpad.support.sap.com/#/notes/1928533)
 
