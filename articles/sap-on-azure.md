@@ -12,6 +12,7 @@
   - [Stories](#stories)
 
 ## SAP Landscape Design
+
    In the most general form, an SAP system landscape consists of SAP instances (installations of the SAP database and application software) and SAP servers. Various design and planning approaches tend to come into play in one manner or another across all SAP implementations. The desire to simplify and standardize emerges as important drive. Consolidation of instances is also becoming quite common in SAP customer environments today.
 
 - **What is your current SAP Landscape and systems in scope for the move to Azure?**
