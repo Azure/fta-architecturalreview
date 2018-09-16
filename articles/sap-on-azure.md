@@ -48,6 +48,8 @@
 
 ## High Availability and Business Continuity / Disaster Recovery
 
+   SAP systems runs mission critical business application and any outage causes disruption in business flow and processes which in turn is loss in business value and its capabilities. Successful HA prevents downtime and data loss to eliminate single point of failure.
+
 - **What are the availability SLAs. Can you explain the current High Availability design?**
 
     Refer to the High Availability & disaster recovery concepts for SAP on Azure.
