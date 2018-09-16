@@ -12,7 +12,7 @@
   - [Stories](#stories)
 
 ## SAP Landscape Design
-   In this step, we need understand the current landscape design and then we need to optimize it in Azure to meet the future roadmap of the organization.
+   In the most general form, an SAP system landscape consists of SAP instances (installations of the SAP database and application software) and SAP servers. Various design and planning approaches tend to come into play in one manner or another across all SAP implementations. The desire to simplify and standardize emerges as important drive. Consolidation of instances is also becoming quite common in SAP customer environments today.
 
 - **What is your current SAP Landscape and systems in scope for the move to Azure?**
 
@@ -122,6 +122,8 @@ Sizing means determining the infrastructure requirements of an SAP application, 
    Organizations need a consistent and reliable methodology that enables them to plan,design, migrate and validate the migration. Solid migration planning can help identify potential problems and how to avoid them or, if problems are unavoidable, help IT define mitigation strategies.  While the amount of planning depends on the size and scope of the migration, the planning process generally should involve determining the requirements of the migration, identifying the current and future environment, and creating and documenting the migration plan. The importance of clear and complete documentation coupled with ongoing communications to the technical team as well as the business team can not be over emphasized.
 
 ## Security Design
+   Effective Security design is achieved by the convergence of SAP security organizational structure & governance, Security processes, Ongoing management and monitoring of the Security Environment.
+
  - **What is the current Governance model? How do you control access to the different infrastructure resources? What is the process for segregation of duties?**
 
     Azure policy and RBAC provides granular level access control for resources.
