@@ -32,6 +32,7 @@
     - [Worldwide Azure regions](https://azure.microsoft.com/en-us/global-infrastructure/regions/)
 
 ## SAP Systems Sizing
+Sizing means determining the infrastructure requirements of an SAP application, such as the network bandwidth, memory, CPU processing power, and I/O capacity. The size of the servers and database is influenced by both business aspects and technological aspects. This means that the number of users using the various application components and the data load they put on the server must be taken into account. 
 
 - **Can you provide the current sizing and exiting hardware specifications?**
 
@@ -125,6 +126,8 @@
 
     For infrastructure security, data is encrypted in transit and at rest. The "Security considerations” section of the SAP NetWeaver on Azure Virtual Machines (VMs) – Planning and Implementation Guide begins to address network security. The guide also specifies the network ports you must open on the firewalls to allow application communication.
     - [Security considerations of the SAP NetWeaver on Azure Virtual Machines (VMs)](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/planning-guide)
+
+    - [FAQ : SAP HANA Security (SAP Note 2159014)](https://launchpad.support.sap.com/#/notes/2159014)
 
 ## Monitoring and System Management
 
