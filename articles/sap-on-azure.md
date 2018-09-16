@@ -117,7 +117,8 @@ Sizing means determining the infrastructure requirements of an SAP application, 
 
     - [SAP System Heterogenous Migration (SAP Note 82478)](https://launchpad.support.sap.com/#/notes/82478)
 
-- **Do you have the high level plan for migration and is the partner for the project delivery identified?**
+- **Have you started planning for system migration and is the partner for the project delivery identified?**
+   Organizations need a consistent and reliable methodology that enables them to plan,design, migrate and validate the migration. Solid migration planning can help identify potential problems and how to avoid them or, if problems are unavoidable, help IT define mitigation strategies.  While the amount of planning depends on the size and scope of the migration, the planning process generally should involve determining the requirements of the migration, identifying the current and future environment, and creating and documenting the migration plan. The importance of clear and complete documentation coupled with ongoing communications to the technical team as well as the business team can not be over emphasized.
 
 ## Security Design
  - **What is the current Governance model? How do you control access to the different infrastructure resources? What is the process for segregation of duties?**
@@ -134,10 +135,14 @@ Sizing means determining the infrastructure requirements of an SAP application, 
     - [FAQ : SAP HANA Security (SAP Note 2159014)](https://launchpad.support.sap.com/#/notes/2159014)
 
 ## Monitoring and System Management
+   Monitoring SAP is a daily routine activity in which your IT SAP team is checking all processes, databases, servers, instance performance, system-wide performance, logs, users, batch jobs, dumps and many other elements, to see what is running, waiting, stopped working or just behaving weird.
+   The smallest of things, say a long-running system backup, can cause performance issues, leading to delayed run times and eventually a system overload or failure. Early detection of a failure can prevent major incidents in the systems.
 
 - **How do you monitor different layers of the systems?**
-- **How do you determine if there is an outage and the alerts that have been setup?**
+    System monitoring processes at application, database and infrastructure layers.
+    - [SAP Solution Manager Monitoring guide](https://wiki.scn.sap.com/wiki/display/TechOps)
 
+- **How do you determine if there is an outage and the alerts that have been setup?**
 
     Azure provides several functions for monitoring and diagnostics of the overall infrastructure. Also, enhanced monitoring of Azure virtual machines (Linux or Windows) is handled by Azure Operations Management Suite (OMS).
     - [Best practices for Monitoring and Diagnostics in Azure.](https://docs.microsoft.com/en-us/azure/architecture/best-practices/monitoring)
