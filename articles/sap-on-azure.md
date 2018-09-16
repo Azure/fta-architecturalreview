@@ -12,6 +12,7 @@
   - [Stories](#stories)
 
 ## SAP Landscape Design
+   In this step, we need understand the current landscape design and then we need to optimize it in Azure to meet the future roadmap of the organization.
 
 - **What is your current SAP Landscape and systems in scope for the move to Azure?**
 
@@ -34,7 +35,9 @@
 
 - **Can you provide the current sizing and exiting hardware specifications?**
 
-    SAPS value for the current hardware and SAP quicksizer report will be helpful to determine the target system configuration.  
+    SAPS value for the current hardware and SAP quicksizer report will be helpful to determine the target system configuration.
+
+    - [Learn about SAP Sizing and FAQ](https://www.sap.com/about/benchmark/sizing/decision-tree.html)  
 
 - **Can you provide the SAP Early Watch Reports and any other performance data (Compute, Storage, Network & Application) ?**
 
