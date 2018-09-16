@@ -90,6 +90,8 @@ Sizing means determining the infrastructure requirements of an SAP application, 
 
 
 ## Backup & Archiving
+   As part of data management and availiability, we need to regularly back up our operating system and database to restore the SAP system, if required. To use an appropriate back up and restore method is one of the most important tasks of the system and database administrator.
+   Data archiving is used by companies with two main goals in mind: reducing data volumes in the system and complying with legal data retention requirements. Both goals are obtained using the same processes, which together make up this variant: Monitoring, Analyzing and Categorizing, Archiving and Post Processing.
 
 - **What is the Current Backup Strategy?**
 
@@ -112,6 +114,8 @@ Sizing means determining the infrastructure requirements of an SAP application, 
     Homogeneous migration can be performed if database and operating systems remains same in new platform, alternatively heterogenous migration needs to be performed if there are changes in the operating systems OR database. 
 
     - [Please refer to SAP Note 1928533(SAP login required) for the VM/OS/DB compatibility information.](https://launchpad.support.sap.com/#/notes/1928533)
+
+    - [SAP System Heterogenous Migration (SAP Note 82478)](https://launchpad.support.sap.com/#/notes/82478)
 
 - **Do you have the high level plan for migration and is the partner for the project delivery identified?**
 
