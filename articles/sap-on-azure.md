@@ -47,6 +47,8 @@
 ## High Availability and Business Continuity / Disaster Recovery
 
    SAP systems runs mission critical business application and any outage causes disruption in business flow and processes which in turn is loss in business value and its capabilities. Successful HA prevents downtime and data loss to eliminate single point of failure.
+   Disaster Recovery is not just IT requirement, but it is also Business requirement. Production environment msut be available in case of any disaster  with minimum data loss and completely recoverable at different location. Failover should be completed as soon as possible with minimum impact to end users and sub systems. 
+
 
 - **What are the availability SLAs. Can you explain the current High Availability design?**
 
@@ -80,6 +82,8 @@
      
     - [Details about Azure Large Instances](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 
+    - [Configuring Azure Infrastructure for SAP HANA Scale-out](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations#configuring-azure-infrastructure-for-sap-hana-scale-out)
+
 
 ## Backup & Archiving
 
@@ -92,6 +96,10 @@
 - **What is the Data Archiving Strategy?**
 
     Determine if data archiving is done on a regular basis and how archived data is selected and stored. What is the tool used for data archiving. 
+    
+    - [Data Archiving concepts and architectire](https://help.sap.com/SAPhelp_nw70/helpdata/en/8d/3e4c11462a11d189000000e8323d3a/frameset.htm)
+
+    - [Benifits of Data Archiving](https://help.sap.com/saphelp_nw70/helpdata/EN/8f/f3b142304cc511e10000000a1550b0/frameset.htm)
 
 ## Migration Methodologies
 
