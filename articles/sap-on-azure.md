@@ -118,6 +118,7 @@ Sizing means determining the infrastructure requirements of an SAP application, 
     - [SAP System Heterogenous Migration (SAP Note 82478)](https://launchpad.support.sap.com/#/notes/82478)
 
 - **Have you started planning for system migration and is the partner for the project delivery identified?**
+   
    Organizations need a consistent and reliable methodology that enables them to plan,design, migrate and validate the migration. Solid migration planning can help identify potential problems and how to avoid them or, if problems are unavoidable, help IT define mitigation strategies.  While the amount of planning depends on the size and scope of the migration, the planning process generally should involve determining the requirements of the migration, identifying the current and future environment, and creating and documenting the migration plan. The importance of clear and complete documentation coupled with ongoing communications to the technical team as well as the business team can not be over emphasized.
 
 ## Security Design
