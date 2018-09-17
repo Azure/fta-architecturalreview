@@ -10,7 +10,7 @@ Machine Learning is usually a service of an architecture. For instance, when loo
     - [Resiliency](#resiliency)
     - [Management & DevOps](#management--devops)
     - [Security](#security)
-    - [Technology Choices](#technology-choices)
+    - [Available Technologies](#available-technologies)
 
 ## Architecture Patterns
 
@@ -63,7 +63,7 @@ This section will consist of security design patterns that can directly relate t
        - [Gatekeeper](https://docs.microsoft.com/en-us/azure/architecture/patterns/gatekeeper)
        - [Valet Key](https://docs.microsoft.com/en-us/azure/architecture/patterns/valet-key)
 
-## Technology Choices
+## Available Technologies
 
 These are the technologies that you would use to deploy machine learning within your architecture. There are PaaS services and IaaS deployments as well. Azure Machine Learning Studio should be highly considered for those  that do not have a data science team. It gives customers pre-built algorithms to use with their data. Most data scientists will not appreciate this type of tool as they aren't using their own algorithms and have to relinquish some control. Please keep that in mind when considering the different tools. All links go to the Azure Docs for that service.
 
