@@ -43,7 +43,7 @@ Sizing means determining the infrastructure requirements of an SAP application, 
 
 - **Can you provide the SAP Early Watch Reports and any other performance data (Compute, Storage, Network & Application) ?**
 
-    SAP Early Watch Report provides system usage and performace statistics to eastimate the SAP system design on Azure.
+    SAP Early Watch Report provides system usage and performnace statistics to estimate the SAP system design on Azure.
 
 - **What is the current database size of each of the systems and average monthly growth?**
 
@@ -52,7 +52,7 @@ Sizing means determining the infrastructure requirements of an SAP application, 
 ## High Availability and Business Continuity / Disaster Recovery
 
    SAP systems runs mission critical business application and any outage causes disruption in business flow and processes which in turn is loss in business value and its capabilities. Successful HA prevents downtime and data loss to eliminate single point of failure.
-   Disaster Recovery is not just IT requirement, but it is also Business requirement. Production environment msut be available in case of any disaster  with minimum data loss and completely recoverable at different location. Failover should be completed as soon as possible with minimum impact to end users and sub systems. 
+   Disaster Recovery is not just IT requirement, but it is also Business requirement. Production environment must be available in case of any disaster  with minimum data loss and completely recoverable at different location. Failover should be completed as soon as possible with minimum impact to end users and sub systems. 
 
 
 - **What are the availability SLAs. Can you explain the current High Availability design?**
