@@ -14,6 +14,8 @@ Machine Learning is usually a service of an architecture. For instance, when loo
 
 ## Architecture Patterns
 
+Machine Learning architectures can be self-serve or developer based. Self Serve solutions utilize technologies where the algorithms are already coded. Services in the Azure stack like Cognitive Services and Machine Learning Studio. These solutions can also be used in developer based solutions as needed, but are designed for those who don't necessarily have a deep understanding of data science processes and procedures, in an effort to help them get in to the space easily. When embarking on a data science process, the data science team in the Azure Product Group has developed a process and lifecycle for data science projects called the [Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview). Customers should review this, especially if they have not architected a Machine Learning or AI project before.
+
 The following architecture patterns either have a direct reference to Machine Learning or utilize Machine Learning in them. There is a good chance that the ultimate goal for a specific architecture, may align with one of these architectures.
 
 Other architecture patterns can utilize the Cognitive Services within them that are not listed below. If the customer is looking to utilize pre-built algorithms for text, video, or image recognition or understanding, the cognitive services should be considered. Other machine learning services.
