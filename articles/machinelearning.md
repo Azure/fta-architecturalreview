@@ -1,6 +1,6 @@
 # FastTrack for Azure Architectural Discussion Framework - Machine Learning Solutions
 
-Machine Learning archtitectures are designed to process data and output data to give additional insights to a user or entire organization. While the mathematics to create such a solution can be complicated, the architecture itself should adhere to the same architectural principles as other types of cloud architectures.
+Machine Learning archtitectures are designed to process data and output data to give additional insights to a user or entire organization. These insights can be stored, reported immediately, or used within an application to enhance the user experience. While the mathematics to create such a solution can be complicated, the architecture itself should adhere to the same ar cloud architectures.
 
 Machine Learning is usually a service of an architecture. For instance, when looking at building an architecture for preventitive maintenance of machinery, machine learning is a processing service in a [Lambda Architecture](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/#lambda-architecture) or [Batch Processing Architecture](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/batch-processing).
 
@@ -15,6 +15,8 @@ Machine Learning is usually a service of an architecture. For instance, when loo
 ## Architecture Patterns
 
 The following architecture patterns either have a direct reference to Machine Learning or utilize Machine Learning in them. There is a good chance that the ultimate goal for a specific architecture, may align with one of these architectures.
+
+Other architecture patterns can utilize the Cognitive Services within them that are not listed below. If the customer is looking to utilize pre-built algorithms for text, video, or image recognition or understanding, the cognitive services should be considered. Other machine learning services.
 
    - [Machine Learning at Scale](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/machine-learning-at-scale)
    - [Real Time Processing](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/real-time-processing)
