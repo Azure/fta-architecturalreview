@@ -22,11 +22,11 @@
 
 - **What are the driving factors for moving to Azure?**
 
-   Determine the customer experience in current envionment and expectations in Azure.
+   Determine the customer experience in current environment and expectations in Azure.
 
 - **What is your future environment roadmap and plans for move to S/4 Hana?**
 
-    Projects which are planned in future along with moving to Azure. We can look at overall trransformation strategy for SAP Landscape.
+    Projects which are planned in future along with moving to Azure. We can look at overall transformation strategy for SAP Landscape.
 
 - **Where are you hosting your systems?  In which region you are planning to host in Azure?**
 
@@ -59,12 +59,12 @@ Sizing means determining the infrastructure requirements of an SAP application, 
 
     Refer to the High Availability & disaster recovery concepts for SAP on Azure.
     - [High Availability Architecture for SAP on Azure ](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-certifications)
-    - [Reference architecture design for SAP Netweaver for AnyDB on Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-netweaver)
+    - [Reference architecture design for SAP NetWeaver for AnyDB on Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-netweaver)
 
-- **Can you expalin the present disaster recovery setup. What will be recovery time objective (RTO) and Recovery Point Objective (RPO)?**
+- **Can you explain the present disaster recovery setup. What will be recovery time objective (RTO) and Recovery Point Objective (RPO)?**
 
     Azure Site recovery will be recommended approach to setup DR for SAP application layer. For the Database layer, DB specific setup will be required (like HSR for SAP HANA DB and SQL AlwaysOn for SQL server DB)
-    - [Reference design for Azure Site Recovery(ASR) for SAP Netweaver on Azure](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-sap)
+    - [Reference design for Azure Site Recovery(ASR) for SAP NetWeaver on Azure](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-sap)
 
 - **Can you explain the process for the Failover in case of a Disaster and what is the frequency of disaster recovery testing?**
 
@@ -76,8 +76,8 @@ Sizing means determining the infrastructure requirements of an SAP application, 
 
     SAP application servers carry on constant communications with the database servers. For performance-critical applications running on any database platforms, including SAP HANA, consider enabling Write Accelerator to improve log write latency. To optimize inter-server communications, use Accelerated Networking. Note that these accelerators are available only for certain VM series.
   
-    - [Guidelines for Accelarated Network](https://azure.microsoft.com/blog/linux-and-windows-networking-performance-enhancements-accelerated-networking/)
-    - [Write Accelarator for M Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/how-to-enable-write-accelerator)
+    - [Guidelines for Accelerated Network](https://azure.microsoft.com/blog/linux-and-windows-networking-performance-enhancements-accelerated-networking/)
+    - [Write Accelerator for M Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/how-to-enable-write-accelerator)
   - [Best Practices for Storage performance optimization](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage-performance)
 
  - **Are there Scalability requirements?**
@@ -91,7 +91,7 @@ Sizing means determining the infrastructure requirements of an SAP application, 
 
 
 ## Backup & Archiving
-   As part of data management and availiability, we need to regularly back up our operating system and database to restore the SAP system, if required. To use an appropriate back up and restore method is one of the most important tasks of the system and database administrator.
+   As part of data management and availability, we need to regularly back up our operating system and database to restore the SAP system, if required. To use an appropriate back up and restore method is one of the most important tasks of the system and database administrator.
    Data archiving is used by companies with two main goals in mind: reducing data volumes in the system and complying with legal data retention requirements. Both goals are obtained using the same processes, which together make up this variant: Monitoring, Analyzing and Categorizing, Archiving and Post Processing.
 
 - **What is the Current Backup Strategy?**
@@ -104,9 +104,9 @@ Sizing means determining the infrastructure requirements of an SAP application, 
 
     Determine if data archiving is done on a regular basis and how archived data is selected and stored. What is the tool used for data archiving. 
     
-    - [Data Archiving concepts and architectire](https://help.sap.com/SAPhelp_nw70/helpdata/en/8d/3e4c11462a11d189000000e8323d3a/frameset.htm)
+    - [Data Archiving concepts and architecture](https://help.sap.com/SAPhelp_nw70/helpdata/en/8d/3e4c11462a11d189000000e8323d3a/frameset.htm)
 
-    - [Benifits of Data Archiving](https://help.sap.com/saphelp_nw70/helpdata/EN/8f/f3b142304cc511e10000000a1550b0/frameset.htm)
+    - [Benefits of Data Archiving](https://help.sap.com/saphelp_nw70/helpdata/EN/8f/f3b142304cc511e10000000a1550b0/frameset.htm)
 
 ## Migration Methodologies
 
@@ -120,7 +120,7 @@ Sizing means determining the infrastructure requirements of an SAP application, 
 
 - **Have you started planning for system migration and is the partner for the project delivery identified?**
    
-   Organizations need a consistent and reliable methodology that enables them to plan,design, migrate and validate the migration. Solid migration planning can help identify potential problems and how to avoid them or, if problems are unavoidable, help IT define mitigation strategies.  While the amount of planning depends on the size and scope of the migration, the planning process generally should involve determining the requirements of the migration, identifying the current and future environment, and creating and documenting the migration plan. The importance of clear and complete documentation coupled with ongoing communications to the technical team as well as the business team can not be over emphasized.
+   Organizations need a consistent and reliable methodology that enables them to plan, design, migrate and validate the migration. Solid migration planning can help identify potential problems and how to avoid them or, if problems are unavoidable, help IT define mitigation strategies.  While the amount of planning depends on the size and scope of the migration, the planning process generally should involve determining the requirements of the migration, identifying the current and future environment, and creating and documenting the migration plan. The importance of clear and complete documentation coupled with ongoing communications to the technical team as well as the business team can not be over emphasized.
 
 ## Security Design
    Effective Security design is achieved by the convergence of SAP security organizational structure & governance, Security processes, Ongoing management and monitoring of the Security Environment.
