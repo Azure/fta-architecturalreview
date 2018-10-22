@@ -128,12 +128,14 @@ If the reviewee has no documentation that follows the below pattern, then ask th
 
 ### For the Solution / Service specific components - ensure you review the appropriate sections for the scenario or area:
 
-* [Application Modernisation](application-modernization.md)
+* [Application Modernization](application-modernization.md)
 * [Backup, Archive & Disaster Recovery](backup-archive-disaster-recovery.md)
+* [BigData Solutions](bigdata.md)
 * [Database](database.md)
 * [Data Warehouse](data-warehouse.md)
 * [DevTest](devtest.md)
 * [Lift and Shift](lift-and-shift.md)
+* [SAP on Azure](sap-on-azure.md)
 
 ## Discuss Identified Risks and Links to Azure Docs 
 
