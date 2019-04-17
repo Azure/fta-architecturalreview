@@ -10,6 +10,7 @@ See our [FastTrack for Azure landing page](https://github.com/Azure/FastTrackFor
 * [Database](articles/database.md)
 * [Data Warehouse](articles/data-warehouse.md)
 * [DevTest](articles/devtest.md)
+* [High Performance Compute](articles/hpc.md)
 * [Lift and Shift](articles/lift-and-shift.md)
 * [SAP on Azure](articles/sap-on-azure.md)
 
