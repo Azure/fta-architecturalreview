@@ -81,52 +81,69 @@
 
 ## Distributed Architecture/Resiliency of Database/High Availability across regions
 
-- **How sensitive is the data being stored, what retention policies are you using, what access restrictions are needed with the data?**
-
-    Understanding the security and compliance is critical when storing potentially sensitive customer data.  Does the company have permission to hold the data, is the data sensitive and therefore required audit or restricted access ?  Will the resulting output from the data process be accessible to everyone or not ?
-
-    - [Enterprise Security Package for HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
-    - [General Data Protection Rules (GDPR) Explained](https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/)
-    - [Access Control for SQL Database and SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-control-access)
+ * Do we have a need for a global big data pipeline (supporting multiple regions)?
+ * What happens when ingestion layer stops ingesting, because the primary layer, where ingestion component is deployed, goes down? How resilient is the ingestion layer deployment? For HDInsight, consider HA and DR 
+ * What happens when the processing layer component is down, because the primary layer, where the big data processing component is deployed, is unavailable? How resilient is the processing layer deployment? 
+ * If the serving layer is the source for batch processing, what happens when the serving layer component is down, because the primary region, where the serving layer component is deployed, is unavailable? How resilient is the serving layer deployment? 
+    Please review [Availability and reliability of Apache Hadoop clusters in HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-high-availability-linux) for further information. 
+    Another resource for HA consider is [Big data streaming - Microsoft Azure](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=2ahUKEwjYnMjixoziAhXWrZ4KHbRIA3kQFjABegQIAxAC&url=https%3A%2F%2Fazure.microsoft.com%2Fmediahandler%2Ffiles%2Fresourcefiles%2Fbig-data-streaming-choices-for-high-availability-and-disaster-recovery-on-microsoft-azure%2FBig_Data_streaming-Choices_for_HA_and_DR.pdf&usg=AOvVaw07rRAqZWLX_C5ExXZ8LT8w) 
+    [￼High Availability and Disaster Recovery for HDInsight Kafka - Considerations](https://github.com/anagha-microsoft/hdi-kafka-dr) also goes over multiple aspects of HDInsight Cluster High Availability. 
 
 
 ## Performance & Scalability
 
-- **How sensitive is the data being stored, what retention policies are you using, what access restrictions are needed with the data?**
-
-    Understanding the security and compliance is critical when storing potentially sensitive customer data.  Does the company have permission to hold the data, is the data sensitive and therefore required audit or restricted access ?  Will the resulting output from the data process be accessible to everyone or not ?
-
-    - [Enterprise Security Package for HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
-    - [General Data Protection Rules (GDPR) Explained](https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/)
-    - [Access Control for SQL Database and SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-control-access)
+ * For batch processing, how long does the processing job takes from the moment it takes the data from the store, processes the data and send stores it to serving layer? 
+ * For real time analytics, what is the end to end latency to process data? (from the moment data is reached to the ingestion layer until the data is stored in the serving layer) 
+    * Realtime processing
+        * How many messages processed per sec?
+            * Example: 500 messages per sec?
+        * What is the end to end latency as messages are being stored into the serving layer store?
+            * Example: 2 minutes 
+    * Batch processing
+        * Do we have a representative query that needs to be executed in x amount of time?
+        * How much data are we talking about processing per x amount of time? 
+ * What is the scalability need?
+    * Realtime
+        * How many messages are processing now?
+            * Example: 200k message per day now
+        * How many messages will be processed in the pick time (may on the full load) 
+        * I millions message per day during full load
+    * Batch
+        * How many queries we need to process now?
+        * How many queries we need to serve in the full load?
 
 ## Disaster Recovery
 
-- **How sensitive is the data being stored, what retention policies are you using, what access restrictions are needed with the data?**
-
-    Understanding the security and compliance is critical when storing potentially sensitive customer data.  Does the company have permission to hold the data, is the data sensitive and therefore required audit or restricted access ?  Will the resulting output from the data process be accessible to everyone or not ?
-
-    - [Enterprise Security Package for HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
-    - [General Data Protection Rules (GDPR) Explained](https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/)
-    - [Access Control for SQL Database and SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-control-access)
+ * Even for a single region deployment, depending on the cluster configuration, when happens when worker nodes are going down? In HDInsight, for example, headnodes are HA. What happens if both head nodes are down (unlikely scenario, however we do need to consider) 
+    * More worker nodes are consider for performance reason, for Hadoop/Spark jobs, but nodes being down, affects the resiliency of the cluster.
+ * How much data can you afford to lose in your solution if you have to recover a database? 
+    Determine whether any loss of data is allowed. If this is not allowed, approaches to High Availability will need to be considered.  
+    This may apply to storage for ingestion layer or Server Layer storage or even in-flight messages, for real time analytics. For example, when a message is sent to Kafka, before Kafka can acknowledge the message (the elect leader got the message, but dies before the message is sent to other nodes in the quorum, so message is not really committed and added to the queue), the message is lost. What is the plan to handle this situation? Replay the message in the up stream? 
+ * How much downtime can you afford, before the data/message, reaches to ingestion layer, processing layer or serving layer (message is durably stored in ingestion layer, so this is crucial)?
+    Ingestion layer can hold messages for some time (default is 7 days for Kafka) 
+    Messages/data can be reprocessed from raw data, if the serving layer doesn’t have the data. How much we can lose? How long can we wait for the fresh data? 
+    RTO/RPO Considerations. 
+    Determine the allowed recovery time. 
+    Please review [Availability and reliability of Apache Hadoop clusters in HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-high-availability-linux) for further information. 
+    Another resource for HA consider is [Big data streaming - Microsoft Azure](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=2ahUKEwjYnMjixoziAhXWrZ4KHbRIA3kQFjABegQIAxAC&url=https%3A%2F%2Fazure.microsoft.com%2Fmediahandler%2Ffiles%2Fresourcefiles%2Fbig-data-streaming-choices-for-high-availability-and-disaster-recovery-on-microsoft-azure%2FBig_Data_streaming-Choices_for_HA_and_DR.pdf&usg=AOvVaw07rRAqZWLX_C5ExXZ8LT8w) 
+    [￼High Availability and Disaster Recovery for HDInsight Kafka - Considerations](https://github.com/anagha-microsoft/hdi-kafka-dr) also goes over multiple aspects of HDInsight Cluster High Availability.
 
 
 ## Monitoring & Management
 
-- **How sensitive is the data being stored, what retention policies are you using, what access restrictions are needed with the data?**
-
-    Understanding the security and compliance is critical when storing potentially sensitive customer data.  Does the company have permission to hold the data, is the data sensitive and therefore required audit or restricted access ?  Will the resulting output from the data process be accessible to everyone or not ?
-
-    - [Enterprise Security Package for HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
-    - [General Data Protection Rules (GDPR) Explained](https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/)
-    - [Access Control for SQL Database and SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-control-access)
+ * How do you monitor ingestion layer, processing layer or serving layer? 
+    If the data is coming from app, we need to consider app (i.e. Azure App Services) monitoring. 
+    If Kafka is used for ingestion, for real time analytics scenario, then how you monitor HDInsight Kafka? What are the metrices to consider? 
+ * How would you know if you had an outage or failure?
+ * What alerts have been set-up? 
+    Does the monitoring system require an individual to take the initiative and review the details, or will it send proactive notifications such as e-mails? 
+    [Use Azure Monitor logs to monitor HDInsight clusters](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial) can help understanding how we can monitor big data clusters in Azure. 
+    The blog post, [Monitoring on Azure HDInsight Part 1: An Overview](https://azure.microsoft.com/en-us/blog/monitoring-on-hdinsight-part-1-an-overview/) also provides guidance on monitoring HDInsight Cluster, if used in the solution. 
 
 ## Security & Compliance
 
-- **How sensitive is the data being stored, what retention policies are you using, what access restrictions are needed with the data?**
-
-    Understanding the security and compliance is critical when storing potentially sensitive customer data.  Does the company have permission to hold the data, is the data sensitive and therefore required audit or restricted access ?  Will the resulting output from the data process be accessible to everyone or not ?
-
-    - [Enterprise Security Package for HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
-    - [General Data Protection Rules (GDPR) Explained](https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/)
-    - [Access Control for SQL Database and SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-control-access)
+ * Are you aware of the Apache Hadoop security with Enterprise Security Package? 
+    [An introduction to Apache Hadoop security with Enterprise Security Package](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
+    If Azure Databricks is in the consideration, we can use the following link for guidance. 
+    [Get enterprise security for big data apps with Azure Databricks](https://databricks.com/get-enterprise-security-for-big-data-apps-with-azure-databricks)
+ * Azure Blob Storage or Azure Data Lake store is the HDFS implementation for Azure HDInsight. The [Secure transfer required](https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) feature enhances the security of your Azure Storage account by enforcing all requests to your account through a secure connection 
