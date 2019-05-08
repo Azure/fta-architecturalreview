@@ -33,6 +33,15 @@
     * If NoSQL, is it Key-Value, Columnar, Graph or Document Data Model?
  * What size is your database and how many databases are you planning to migrate?
 
+  Applications that are new (greenfield), or migrating from existing relational models, should always pick the SQL API on Cosmos DB. If the customer has an existing MongoDB application and want to move to Cosmos DB, they can choose one of the two options below:
+	* Cosmos DB’s API for MongoDB – In this case, it should be a smooth migration for the most part, depending on what kind of MongoDB features/functions they’re using. Could you please get us more information on their current context?
+	* Cosmos DB (SQL API) – However, I want to point out that if they choose to go from MongoDB to Cosmos DB’s SQL API, their application query logic which is currently written with Mongo syntax/Mongo libraries would likely have to be re-written according to our SQL API. The degree to which their MongoDB dependent queries would have to be changed depends on their workload details. Can you provide the details pertaining to the below? This would help us evaluate the situation better:
+	* Some questions we can ask:
+		* What are the data volumes?
+		* What is their concurrency and global distribution story?
+		* What is the workload like from a read:write ratio standpoint?
+        * What kind of queries/operations is the customer running?
+
 ## Distributed Architecture/Resiliency of Database/High Availability across regions
 
 * Is the need to have a global application (supporting multiple regions apps)?
