@@ -12,13 +12,10 @@
 
 ## Is it a Big Data Processing Solution?
 
-- **What size of data are you storing, how often will the data be arriving and is your data coming from within Azure, for example, Azure storage, Event Hubs?**
-
-    Understanding the data volumes, speed of arrival and rate of change is important in deciding how to handle and store the data for processing.  Understanding if this is streaming data or batch ingest will determine of it has already been processed or might require transformation - which could also be achieved at runtime.
-
-    - [Big Data Architecture Styles](https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/big-data)
-    - [Azure Storage Scalability & Performance Targets](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets)
-    - [Introduction to Azure Data Lake Storage Gen 2](https://docs.microsoft.com/en-us/azure/storage/data-lake-storage/introduction)
+ - How do we know that the solution is a Big Data Processing pipeline? 
+  --Volume – How much data are we ingesting? High throughput processing is a requirement? 
+  --Velocity – How fast the data will be flowing into the pipeline? Do we need low latency processing? 
+  --Variety – What type of data is flowing into the pipeline? Structured? Unstructured? Semi-structured? What is the data model? 
 
     
 - **How will the data be formatted when it leaves the source system and how do you plan on consuming that data once it is in Azure?**
