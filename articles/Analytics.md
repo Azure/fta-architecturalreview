@@ -12,19 +12,10 @@
 
 ## Is it a Big Data Processing Solution?
 
- - How do we know that the solution is a Big Data Processing pipeline? 
-  --Volume – How much data are we ingesting? High throughput processing is a requirement? 
-  --Velocity – How fast the data will be flowing into the pipeline? Do we need low latency processing? 
-  --Variety – What type of data is flowing into the pipeline? Structured? Unstructured? Semi-structured? What is the data model? 
-
-    
-- **How will the data be formatted when it leaves the source system and how do you plan on consuming that data once it is in Azure?**
-
-    Understanding how the data will be used and what format it will arrive in is critical to defining what processing needs to take place, or what schema on read resources might need to be used to facilitate data access.
-
-    - [Use HDInsight Spark cluster to read and write data to Azure SQL database](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-connect-to-sql-database)
-    - [Serialize data in Hadoop with the Microsoft Avro Library](https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-dotnet-avro-serialization)
-    - [Polybase Guide](https://docs.microsoft.com/en-us/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017)
+ * How do we know that the solution is a Big Data Processing pipeline? 
+    * Volume – How much data are we ingesting? High throughput processing is a requirement? 
+    * Velocity – How fast the data will be flowing into the pipeline? Do we need low latency processing? 
+    * Variety – What type of data is flowing into the pipeline? Structured? Unstructured? Semi-structured? What is the data model? 
 
 
 ## Big Data cluster & processing information
