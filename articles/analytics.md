@@ -10,7 +10,7 @@
     - [Security & Compliance](#Security--Compliance)
 
 
-## Is it a Big Data Processing Solution?
+## Is it a Big Data processing solution?
 
  * How do we know that the solution is a Big Data Processing pipeline? 
     * Volume – How much data are we ingesting? High throughput processing is a requirement? 
