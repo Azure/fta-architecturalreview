@@ -20,14 +20,63 @@
 
 ## Big Data cluster & processing information
 
-- **How will the data be consumed ?  Is the expectation that there will be some type of interactive query capability or will this be batch processed ?**
-
-    Understanding how the data will be accessed is critical in the choice of BigData technology.  Interactive query leads to technologies such as HDInsight LLAP (Interactive Hive), Azure SQL Data Warehouse or even Spark/DataBricks.  Those can also work for batch but there are also Hive, MapReduce and similar technologies that can help with batch scenarios.
-
-    - [Use Interactive Query with HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
-    - [Azure DataBricks](https://azure.microsoft.com/en-us/services/databricks/)
-    - [Azure HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/)
-    - [Azure SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
+ * What type of workload (s), project (s), services are they targeting? 
+    * Scenarios
+        * Real time big data workload processing.
+        * Big data batch processing
+        * Both (Lambda Architecture) 
+    * Use cases
+        * Real time analytics 
+        * Real time order processing etc. 
+        * Batch analytics on large amount of data  
+        * Data Integration Hub 
+    * Example: Real time data ingestion, store (IoT), and analytical processing pipeline to gather insights from the device data and provide services based on the analysis (i.e. vehicle maintenance notification)  
+ * How is the data being ingested? Where the data is being ingested to? 
+    * Is the data coming from applications? 
+        * Example: API App (through API management) or web app? 
+        * If this is coming through an app, please refer to [Application Modernization](https://github.com/Azure/fta-architecturalreview/blob/master/articles/application-modernization.md) for further considerations. 
+    * Is it streaming data?
+        * Event Hub
+        * IoT Hub
+        * Kafka
+        * On demand ADF job 
+    * Is it a batch data (coming from stored data sources – csv, tsv, relational in a batch)
+        * Azure SQL DB
+        * Blob
+        * ADLS 
+        * ADF Flow 
+ * How the data is being processed?
+    * For batch processing, [Choosing a batch processing technology in Azure](https://github.com/Azure/fta-architecturalreview/blob/master/articles/application-modernization.md), will help getting further guidance.
+    * [Data warehousing and analytics](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/data/data-warehouse) is an architecture pattern for batch analytics 
+    * For real time analytics and processing, the following articles may help
+        * [IoT for construction](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/data/big-data-with-iot)
+        * [Automotive IoT data](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot) 
+        * [Real-time fraud detection](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot)
+ * Do we have a serving layer consideration?
+    * Store processed data for downstream modelling and reporting purposes
+    * Modelling data (for Azure Analysis Service)
+    * Reporting data (Power BI)
+    * Serving data to other applications (store it in CosmosDB, Azure Blob Storage or Redis Cache etc.!!!) 
+ * Are we planning to migrate and existing big data workload?
+    * From on prem Or from other cloud deployment? 
+    * For a migration scenario we try to collect the following scenario (considering)
+        * Hadoop Distribution (Cloudera/Hortonworks)
+        * Cluster workload type (Spark/Hadoop/MapReduce)
+        * How many worker nodes or head nodes for the cluster?
+            * How many CPU/Cores are in the Head Nodes (Name Nodes) and  Worker Nodes?
+        * How much memory is in each of the Name Nodes or Data Node?
+        * Do we have any specific component of Hadoop requiring specific memory confirmation?
+            * HiveSever2 have allocated memory of 32 GB of RAM per node.
+        * What is the size of HDFS, Hive (internal tables)?  
+        * Where is HDFS mounted?
+        * Hive tables are built on HDFS (typical)?
+        * How much time does it take to get data uploaded to HDFS (data ingestion into Hadoop)?
+        * How are we ingesting the data?
+    * How much time does it take end to end (ingestion/processing)? What is the goal when we go to Azure.
+    * Which component are used to ingest Data (i.e Sqoop)?
+    * Which component are providing/sending data to serving layer (i.e. Data Warehouse)
+    * How often we ingest/process the data (daily, hourly)?
+    * Additional data sources for Hadoop?
 
 
 ## Distributed Architecture/Resiliency of Database/High Availability across regions
