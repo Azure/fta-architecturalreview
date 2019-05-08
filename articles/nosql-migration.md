@@ -1,4 +1,4 @@
-# FastTrack for Azure Architectural Discussion Framework - Analytics Solutions
+# FastTrack for Azure Architectural Discussion Framework - NoSQL Solutions
 
 - [FastTrack for Azure Architectural Discussion Framework - NoSQL Solutions](#fasttrack-for-azure-architectural-discussion-framework---NoSQL-solutions)
     - [Is it App or Data Modernization?](#Is-it-App-or-Data-Modernization?)
