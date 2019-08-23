@@ -11,7 +11,7 @@
 
 ## Business Objectives
 
-* **What are your defined Recovery Point Objectives (RPOs), Recovery Time Objectives (RTOs) and Service Level Agreement (SLAs)?**
+* **What are your defined Recovery Point Objectives (RPOs), Recovery Time Objectives (RTOs) and Service Level Agreements (SLAs)?**
 
     Varying RPOs, RTOs and SLAs will have an impact upon your choice of Azure services, 3rd party services and software design choices. For example, a lower RTO will influence bandwidth requirements and technology choice. From a Disaster Recovery perspective, your RPO and RTO will determine whether you are aiming for a hot or warm Disaster Recovery solution. A strict availability SLA will determine your high availability requirements, and decision to deploy across data centers or Azure regions. 
 
@@ -142,7 +142,7 @@
     
     You should determine at an overall solution level whether the extra management overhead and complexity is required for bringing your own keys, or whether Microsoft-managed keys would be suitable.     
     
-    > [Back up and restore encrypted virtual machines with Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption)
+    > [Backup and restore encrypted virtual machines with Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption)
     > 
     > [Restore Key Vault key and secret for encrypted VMs using Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-restore-key-secret)
     > 

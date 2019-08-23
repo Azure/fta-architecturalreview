@@ -17,7 +17,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 * **Are you using tooling to streamline and build repeatable builds/deployments to Azure? Or are you building your code manually, and manually pushing this to Azure?**
 
-    Determine whether the solution is being manually deployed to Azure (which is error-prone, and time consuming). Or, whether some form of tooling (e.g. Jenkins, VSTS) is being used to deploy either in a Continous Integration (CI), daily build or gated check-in approach.  Automate deploying the application to test, staging, and production environments. Automation enables faster and more reliable deployments, and ensures consistent deployments to any supported environment. It removes the risk of human error caused by manual deployments. It also makes it easy to schedule releases for convenient times, to minimize any effects of potential downtime.    
+    Determine whether the solution is being manually deployed to Azure (which is error-prone, and time consuming). Or, whether some form of tooling (e.g. Jenkins, VSTS) is being used to deploy either in a Continuous Integration (CI), daily build or gated check-in approach.  Automate deploying the application to test, staging, and production environments. Automation enables faster and more reliable deployments and ensures consistent deployments to any supported environment. It removes the risk of human error caused by manual deployments. It also makes it easy to schedule releases for convenient times, to minimize any effects of potential downtime.    
     
     > [DevOps Checklist: Release](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops#release)
 
@@ -30,7 +30,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
     
     If this is performed on a trigger event, what is the trigger? (e.g. which particular branch)
 
-    If a pipeline has been established, could this be triggering too many builds or triggering off a build of a branch that does not represent a &#39;shippable version of the solution? For CI - Consider adopting a trunk based development model. In this model, developers commit to a single branch (the trunk). There is a requirement that commits never break the build. This model facilitates CI, because all feature work is done in the trunk, and any merge conflicts are resolved when the commit happens.    
+    If a pipeline has been established, could this be triggering too many builds or triggering off a build of a branch that does not represent a &#39;shippable version of the solution? For CI - Consider adopting a trunk-based development model. In this model, developers commit to a single branch (the trunk). There is a requirement that commits never break the build. This model facilitates CI, because all feature work is done in the trunk, and any merge conflicts are resolved when the commit happens.    
     
     > [DevOps Checklist](https://docs.microsoft.com/en-us/azure/architecture/checklist/dev-ops)
 
@@ -46,9 +46,9 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 * **Are you aware of the Azure Resource Manager template best practices? Have you designed your Azure Resource Manager templates with these in mind?**
 
-    Determine whether the template has been parameterised, so that it can be easily deployed across multiple environments, or whether parameters have been limited and a t-shirt sizing approach has been used.
+    Determine whether the template has been parameterized, so that it can be easily deployed across multiple environments, or whether parameters have been limited and a t-shirt sizing approach has been used.
     
-    There are a number of other practices that are recommended. These can be reviewed in those articls linked in the associated documentation.    
+    There are a number of other practices that are recommended. These can be reviewed in those articles linked in the associated documentation.    
     
     > [Understand the structure and syntax of Resource Manager templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-template-best-practices)
     >
@@ -82,7 +82,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 * **Have you deployed any resources where there is only one instance of a particular resource?**
 
-    Determine whether there are Single Points of failure in the solution. If there are, what is the potential risk for this component? How could this impact the wider solution? What steps can be taken to mitigate this risk?    
+    Determine whether there are single points of failure in the solution. If there are, what is the potential risk for this component? How could this impact the wider solution? What steps can be taken to mitigate this risk?    
 
 * **Have you thought about redundancy across your solution?**
 
@@ -97,7 +97,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
     
     > [Design principal: Make all things redundant](https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/redundancy)
 
-* **Do you have any dependencies on resources that are external to your solution? (e.g. third party, such as payment providers or e-mail messaging). How are you protected against that third party service from failing?**
+* **Do you have any dependencies on resources that are external to your solution? (e.g. third-party, such as payment providers or e-mail messaging). How are you protected against that third-party service from failing?**
 
     Determine if there are dependencies on third parties that could cause a failure of the solution itself. (Be careful, as these could be upstream or downstream dependencies). If so, how can this be mitigated? Are there agreements or SLAs in place? What are the escalation paths?    
 
@@ -115,8 +115,8 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 * **Have you deployed your environment in a way that is fully representative of production?**
 
-  * If you are opting for a Disaster Recovery scenario - What is your process? Have you been able to test it in dev
-  * If you are opting for High Availability (e.g. Geographic redundancy), are you reproducing this in DevTest i.e. that this is working appropriately
+  * If you are opting for a Disaster Recovery scenario - What is your process? Have you been able to test it in dev?
+  * If you are opting for high availability (e.g. Geographic redundancy), are you reproducing this in DevTest i.e. that this is working appropriately
 
   Determine whether a pre-production environment that is fully representative of production.  There should be a representative environment to run comparable tests ahead of a release, allowing a decision to be made on whether the quality of the build is good and meets requirements (For example, can serve the required volume of users)
 
@@ -147,7 +147,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 * **Have you implemented a mechanism/policy to control cost, and turn off resources when they are not required?**
 
-    Determine if auto-start up / auto-shutdown hsa been implemented to ensure resources are used only when required.
+    Determine if auto-startup / auto-shutdown has been implemented to ensure resources are used only when required.
     
     DevTest labs provides native functionality to control this for Virtual Machines. If there is a need to manage  costs for PaaS resources, Azure Automation and Run books may need to be considered. (For example, changing the SKU of resource type to a lower level, when not required)    
     
@@ -167,7 +167,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
     * Instrument for monitoring
     * Instrument for root cause analysis
     * Use distributed tracing
-    * Standardise logs and metrics
+    * Standardizelogs and metrics
     * Automate management tasks
 
     Understand whether there is a clear view into the application.  Can the lines of offending code be identified when an issue occurs, and can this be remediated quickly? Or would a search through logs need to take place, potentially joining a number of pieces of application telemetry to understand the problem?    
@@ -178,14 +178,14 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 * **Are you aware of the Health Endpoint Monitoring pattern? Have you implemented this in your solution?**
 
-    Implement health monitoring by sending requests to an endpoint on the application. The application should perform the necessary checks, and return an indication of its status. A health monitoring check typically combines two factors: 
+    Implement health monitoring by sending requests to an endpoint on the application. The application should perform the necessary checks and return an indication of its status. A health monitoring check typically combines two factors: 
     
     * The checks (if any) performed by the application or service in response to the request to the health verification endpoint.     
     * Analysis of the results by the tool or framework that performs the health verification check. 
     
     > [Health Endpoint Monitoring Pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/health-endpoint-monitoring)
 
-* **Facilitate hypothesis based development**
+* **Facilitate hypothesis-based development**
 
     Be confident in your deployment and rollback mechanisms, get meaningful data and telemetry that allows to track feature adoption, usage as you experiment and test assumptions    
     
@@ -233,7 +233,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 * **Have you tested for the scenario where components in your solution may fail, and other components attempt to send requests? How have you mitigated this scenario? For example, the circuit breaker pattern.**
 
-    In a distributed environment, calls to remote resources and services can fail due to transient faults, such as slow network connections, timeouts, or the resources being overcommitted or temporarily unavailable.  These faults can range in severity from a partial loss of connectivity to the complete failure of a service. In these situations it might be pointless for an application to continually retry an operation that is unlikely to succeed, and instead the application should quickly accept that the operation has failed and handle this failure accordingly.    
+    In a distributed environment, calls to remote resources and services can fail due to transient faults, such as slow network connections, timeouts, or the resources being overcommitted or temporarily unavailable.  These faults can range in severity from a partial loss of connectivity to the complete failure of a service. In these situations, it might be pointless for an application to continually retry an operation that is unlikely to succeed, and instead the application should quickly accept that the operation has failed and handle this failure accordingly.    
     
     > [Availability checklist: Errors and failures](https://docs.microsoft.com/en-us/azure/architecture/checklist/availability#errors-and-failures)
     > 
@@ -248,7 +248,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 * **Are you aware of the scalability checklist? Some thoughts include**
 
     * Have you considered a share-nothing architecture?
-    * Have you evaluated the chatiness vs size of requests in your solution?
+    * Have you evaluated the chattiness vs size of requests in your solution?
     * Have you offloaded CPU/IO tasks?
     * Are you using Async calls?
 
@@ -267,7 +267,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
     * Identified bottlenecks (as you scale one tier, does another become a bottleneck)
     * Design for scale in (i.e. gracefully handling removal of instances)
 
-    There are two main ways that an application can scale:   Vertical scaling, also called scaling up and down, means changing the capacity of a resource. For example, you could move an application to a larger VM size. Vertical scaling often requires making the system temporarily unavailable while it is being redeployed. Therefore, it is less common to automate vertical scaling. Horizontal scaling, also called scaling out and in, means means adding or removing instances of a resource. The application continues running without interruption as new resources are provisioned. When the provisioning process is complete, the solution is deployed on these additional resources. If demand drops, the additional resources can be shut down cleanly and deallocated.   Many cloud-based systems, including Microsoft Azure, support automatic horizontal scaling. The rest of this article focuses on horizontal scaling.    
+    There are two main ways that an application can scale:   Vertical scaling, also called scaling up and down, means changing the capacity of a resource. For example, you could move an application to a larger VM size. Vertical scaling often requires making the system temporarily unavailable while it is being redeployed. Therefore, it is less common to automate vertical scaling. Horizontal scaling, also called scaling out and in, means adding or removing instances of a resource. The application continues running without interruption as new resources are provisioned. When the provisioning process is complete, the solution is deployed on these additional resources. If demand drops, the additional resources can be shut down cleanly and deallocated.   Many cloud-based systems, including Microsoft Azure, support automatic horizontal scaling. The rest of this article focuses on horizontal scaling.    
     
     > [Design to scale out](https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/scale-out)
     > 
@@ -276,7 +276,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
 * **Is there a large amount of static content on your website (e.g. images, videos)? Are you aware of the Static Content Hosting pattern, and have you implemented it in your solution?**
 
-    In most cloud hosting environments it&#39;s possible to minimize the need for compute instances (for example, use a smaller instance or fewer instances), by locating some of an application’s resources and static pages in a storage service. The cost for cloud-hosted storage is typically much less than for compute instances.    
+    In most cloud hosting environments, it&#39;s possible to minimize the need for compute instances (for example, use a smaller instance or fewer instances), by locating some of an application’s resources and static pages in a storage service. The cost for cloud-hosted storage is typically much less than for compute instances.    
     
     > [Static Content Hosting Pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/static-content-hosting)
 
@@ -286,19 +286,19 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
     Is testing taking place in the production environment with real production data? If this is the case, be aware of the risk that developers or testers may have access to sensitive data, which could leak.
     
-    Also determine whether tests are being performed against non-repreentative data. If this is the case, are there scenarios that could arise in production that had not been thoroughly tested due to the dummy data?   
+    Also determine whether tests are being performed against non-representative data. If this is the case, are there scenarios that could arise in production that had not been thoroughly tested due to the dummy data?   
 
-* **Consider the development pipeline - Is code being reviewed to to ensure that there is no malicious code?**
+* **Consider the development pipeline - Is code being reviewed to ensure that there is no malicious code?**
 
-    Determine whether code is being used from a third party, e.g. a vendor or third party package.
+    Determine whether code is being used from a third-party, e.g. a vendor or third-party package.
     
     Has the code been reviewed prior to it being released onto production servers? Could there be any malicious content, e.g. capturing user data.
     
     While this question focuses on third parties, this could also be the case if there was a rogue developer inside the organisation.
 
-    Also scan not just code being written by the developers, but run binary scans on any packages being used. These scanners will look to see if there is a known vulnerability in a particular library being referenced and can call that out during the deployment pipeline to avoid code with a known vulnerability for being pushed to end users.
+    Also scan not just code being written by the developers but run binary scans on any packages being used. These scanners will look to see if there is a known vulnerability in a particular library being referenced and can call that out during the deployment pipeline to avoid code with a known vulnerability for being pushed to end users.
 
-* **Consider the development pipline - What steps are being taken to ensure that secrets are not being stored in source control?**
+* **Consider the development pipeline - What steps are being taken to ensure that secrets are not being stored in source control?**
 
     Determine whether any passwords, connection strings or additional secrets are being stored in source control.
     
@@ -306,17 +306,17 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 
     Place restrictions on the code repository to ensure that passwords are not getting checked in to source code.
 
-* **How are you securing your source control? Are there third party users or vendors who may have access to the underlying code, and could potentially exploit this?**
+* **How are you securing your source control? Are there third-party users or vendors who may have access to the underlying code, and could potentially exploit this?**
 
     Determine whether access to source control is secure, as well as the overall delivery pipeline the leads to production. 
     
-    If not, could a third party, or even internal audience, be injecting some kind of malicious tasks into the delivery pipeline to production and could cause a compromise?   
+    If not, could a third-party, or even internal audience, be injecting some kind of malicious tasks into the delivery pipeline to production and could cause a compromise?   
 
 * **Have you considered security when you were building your DevOps pipeline? What have you specifically built in to achieve a Secure DevOps workflow?**
 
     Determine whether access to source control is secure, as well as the overall delivery pipeline the leads to production. 
     
-    If not, could a third party, or even internal audience, be injecting some kind of malicious tasks into the delivery pipeline to production and could cause a compromise?    
+    If not, could a third-party, or even internal audience, be injecting some kind of malicious tasks into the delivery pipeline to production and could cause a compromise?    
     
     > [Building cloud apps using the Secure DevOps Kit for Azure](https://www.microsoft.com/itshowcase/Article/Content/919/Building-cloud-apps-using-the-Secure-DevOps-Kit-for-Azure)
     > 
@@ -352,4 +352,3 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 * Customer Case Studies
   * [Microsoft Azure DevOps Solution](https://azure.microsoft.com/en-au/solutions/devops/)
   * [Visual Studio Team Services Customer Stories](https://www.visualstudio.com/team-services/case-studies/)
- 
