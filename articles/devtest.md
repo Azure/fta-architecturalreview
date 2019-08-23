@@ -352,3 +352,4 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
 * Customer Case Studies
   * [Microsoft Azure DevOps Solution](https://azure.microsoft.com/en-au/solutions/devops/)
   * [Visual Studio Team Services Customer Stories](https://www.visualstudio.com/team-services/case-studies/)
+ 
