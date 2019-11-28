@@ -167,7 +167,7 @@ Are you aware of the DevOps Self-Assessment tool? If not, this may be a great pl
     * Instrument for monitoring
     * Instrument for root cause analysis
     * Use distributed tracing
-    * Standardizelogs and metrics
+    * Standardize logs and metrics
     * Automate management tasks
 
     Understand whether there is a clear view into the application.  Can the lines of offending code be identified when an issue occurs, and can this be remediated quickly? Or would a search through logs need to take place, potentially joining a number of pieces of application telemetry to understand the problem?    
