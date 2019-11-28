@@ -34,7 +34,7 @@ FastTrack for Azure's objectives are below. When reviewing, the reviewer should 
 Examples could be: a prior outage, a migration project to onboard to Azure, a significant increase in scale planned or maybe a production go-live.
 
 > ### Confidence
-> Ensure that you have confidence in the Azure platform to meet the needs of your solution based upon an the advice of an Azure Engineering Expert.
+> Ensure that you have confidence in the Azure platform to meet the needs of your solution based upon the advice of an Azure Engineering Expert.
 > 
 > ### Identify
 > Pick up on any common errors or common improvement points that can be made to your architecture and direct you to the relevant documentation on patterns or to resolve them.
@@ -72,7 +72,7 @@ Look for the following information at a minimum:
 > ### Stakeholders
 > Who else is involved, what are their needs? 
 > * Are there other (internal or external) customers involved with an SLA too?
-> * Who designed the solution originally? In-house design, third party (partner / consulting organisation, or off the shelf product)?
+> * Who designed the solution originally? In-house design, third-party (partner / consulting organisation, or off the shelf product)?
 > * What is your team’s level of experience with the solutions in the proposed / running architecture?
 > * Is a partner involved with the design work or were MSFT involved (Any of the One Commercial Partner, Commercial Software Engineering, Cloud Solution Architecture, Microsoft Consulting Services, Azure CAT, Azure Engineering or the Microsoft Unified Support team) involved with facets of the design / architecture.
 
@@ -98,7 +98,7 @@ If the reviewee has no documentation that follows the below pattern, then ask th
 * Where does the solution run now, and what does that architecture look like? 
 * The major services being used and arrangement of components in the architecture.
 * Note what the dependencies are for these major components. For example, dependencies relating to security or identity such as Active Directory for Infrastructure as a Service (IaaS) solutions or third-party services such as a payment provider or e-mail messaging service. You are looking to discover un-documented dependencies in this stage.
-* Determine how dependencies across components and third party services are tied together. For example, vNet Peering, Express Route, VPN Connections, API calls over public Internet, Loose Coupling. You don't care so much about the configuration of those resources, e.g. SKU, cost, etc. What you do care about is how those dependencies you discovered in the last section are arranged and communicate with each other.
+* Determine how dependencies across components and third-party services are tied together. For example, vNet Peering, Express Route, VPN Connections, API calls over public Internet, Loose Coupling. You don't care so much about the configuration of those resources, e.g. SKU, cost, etc. What you do care about is how those dependencies you discovered in the last section are arranged and communicate with each other.
 
 * Annotate all components with
 	* SLA requirements
@@ -120,7 +120,7 @@ If the reviewee has no documentation that follows the below pattern, then ask th
 * How big is the data set of the solution and is the store architecturally appropriate? Have you considered the annual growth rate and archiving strategy?
 * What is the strategy to manage releases, service updates, versioning and application updates, even if PaaS is being used here so there is no patch management concern, DevOps aspects should be briefly considered here.
 
-### Additionally engineers would leverage their own skills for the following two areas if they go deep into a solution area.
+### Additionally, engineers would leverage their own skills for the following two areas if they go deep into a solution area.
 
 
 * Service Specific Aspects
@@ -151,17 +151,17 @@ For example: A solution that has been designed without autoscaling and / or queu
     
     NFR = Peak throughput of 10,000 requests at 9am and normal throughput of 100 requests per hour for the rest of the day. 
 
-* [Queue Based Load Levelling](https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)
+* [Queue-Based Load Levelling](https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)
 
 * [Throttling](https://docs.microsoft.com/en-us/azure/architecture/patterns/throttling)
 
 * [Auto Scaling](https://docs.microsoft.com/en-us/azure/architecture/best-practices/auto-scaling)
 
-> Risk: Over-specified service sizing could cause excessive cost, consider using autoscaling and / or queue based load leveling techniques in your architecture or use a throttling pattern to keep a minimum level of service with fixed resources.
+> Risk: Over-specified service sizing could cause excessive cost, consider using autoscaling and / or queue-based load leveling techniques in your architecture or use a throttling pattern to keep a minimum level of service with fixed resources.
 
     NFR = Peak throughput of 10,000 requests at 9am and normal throughput of 100 requests per hour for the rest of the day. 
 
-* [Queue Based Load Levelling](https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)
+* [Queue-Based Load Levelling](https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling)
 
 * [Throttling](https://docs.microsoft.com/en-us/azure/architecture/patterns/throttling)
 
@@ -182,7 +182,7 @@ Also consider indirect risks associated with testing (and or lack of it)
 At this point we are trying to leverage what we have learned to accelerate the organization's adoption of Azure safely and help them to reach their objectives by using Azure. But if it becomes clear that additional resources, skills and / or experience are needed to help the goals to be achieved, then three approaches make sense: 
 
 * Advise PaaS services over IaaS
-* Self Guided Learning 
+* Self-guided Learning 
 * FastTrack for Azure Foundations training offerings
 * Partner or MS Services Engagements
 

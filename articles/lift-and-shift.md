@@ -39,7 +39,7 @@
 
 * **Have you considered the load and runtime requirements of your solution?**
 
-    It is important to plan the vm size and storage appropriately, ensuring that performance is not compromised once the solution has been migrated to Azure. Plan on your storage. Will it be Standard or Premium storage? Understand the vm sizes and how they will support memory, processing, and the throttling of storage.
+    It is important to plan the VM size and storage appropriately, ensuring that performance is not compromised once the solution has been migrated to Azure. Plan on your storage. Will it be Standard or Premium storage? Understand the VM sizes and how they will support memory, processing, and the throttling of storage.
     
     > [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes)
     > 
@@ -81,9 +81,9 @@
     
     > [Azure Virtual Machine Readiness Assessment](https://azure.microsoft.com/en-us/downloads/vm-readiness-assessment/)
 
-* **What are the current set of dependencies that your current and legacy applications have?  Do you plan to extend your current authorization and authentication for applications or do you plan to create a hosting domain to insulate your internal Active Directory>**
+* **What are the current set of dependencies that your current and legacy applications have?  Do you plan to extend your current authorization and authentication for applications or do you plan to create a hosting domain to insulate your internal Active Directory?**
 
-    The goal is to understand whether there is an on-premises environment and considerations made for the moving of the application to a new environment.  Which Azure services are used within the solution?  Are there any third party services used within the solution?  Does the solution talk to any on-premises components? Are the applications currently virtualized in VMWare and moving to Azure? Understanding of the planning that must occur if Azure Site Recovery will be used.    
+    The goal is to understand whether there is an on-premises environment and considerations made for the moving of the application to a new environment.  Which Azure services are used within the solution?  Are there any third-party services used within the solution?  Does the solution talk to any on-premises components? Are the applications currently virtualized in VMWare and moving to Azure? Understanding of the planning that must occur if Azure Site Recovery will be used.    
     
     > [Minimize and understand service dependencies](https://docs.microsoft.com/en-us/azure/architecture/checklist/availability#application-design)
     > [Azure Site Recovery support matrix for replicating from Azure to Azure](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-azure-to-azure-prereq)
@@ -118,7 +118,7 @@
 
 ## Linux Lift and Shift into Azure   
 
-* **Do you have any Open Source workloads deployed on Linux that you plan to migrate to Azure and which distributions do you currently run in production**
+* **Do you have any Open Source workloads deployed on Linux that you plan to migrate to Azure and which distributions do you currently run in production?**
 
     Understand what OSS workloads that are currently running and the file systems that are currently running.    
     
@@ -128,7 +128,7 @@
 
 * **Is your application located in one central datacenter or is it spread across a multisite topology? Does this include multiple cloud providers? &nbsp;**
 
-    Is part of the application on-premises, or an alternate cloud provider, or third party? Ensure that you are aware of the risk of upstream or downstream dependency failures.    
+    Is part of the application on-premises, or an alternate cloud provider, or third-party? Ensure that you are aware of the risk of upstream or downstream dependency failures.    
     
     > [Migrate Amazon Web Services (AWS) VMs to Azure](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-migrate-aws-to-azure)
     > 
@@ -142,15 +142,15 @@
 
 ## High Availability and Business Continuity / Disaster Recovery  
 
-* **Do you have Availability Requirements defined for the workload? How much downtime is acceptable? Have you defined a Recovery Time OBjective (RTO) and Recovery Point Objective (RPO)?**
+* **Do you have Availability Requirements defined for the workload? How much downtime is acceptable? Have you defined a Recovery Time Objective (RTO) and Recovery Point Objective (RPO)?**
 
-    It is critical that there are defind Resiliency (High Availability and Disaster Recovery) metrics like RPO/RTO/SLA. Without these metrics it will be hard to design an application to hit business needs.    
+    It is critical that there are defined Resiliency (High Availability and Disaster Recovery) metrics like RPO/RTO/SLA. Without these metrics it will be hard to design an application to hit business needs.    
     
     > [Designing resilient applications for Azure](https://docs.microsoft.com/en-us/azure/architecture/resiliency/index#defining-your-resiliency-requirements)
 
 * **Is there a defined SLA for the workload?**
 
-    It is important to understand how this impacts the SLA that you provide your end-users. You should define a target SLA for each workload. An SLA makes it possible to evaluate whether the architecture meets the business requirements.  Ensure that you calculate Composite SLA (SLA of multiple Azure and other dependent services that makes up the workload) and see if that meets the business SLA requirements.  You can then cross compare your SLAs with Microsoft Azure's to determine the neccessary requirements needed.    
+    It is important to understand how this impacts the SLA that you provide your end-users. You should define a target SLA for each workload. An SLA makes it possible to evaluate whether the architecture meets the business requirements.  Ensure that you calculate Composite SLA (SLA of multiple Azure and other dependent services that makes up the workload) and see if that meets the business SLA requirements.  You can then cross compare your SLAs with Microsoft Azure's to determine the necessary requirements needed.    
     
     > [Defining Resiliency Requirements](https://docs.microsoft.com/en-us/azure/architecture/resiliency/index#defining-your-resiliency-requirements)
     > 

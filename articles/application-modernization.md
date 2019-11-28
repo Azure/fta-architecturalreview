@@ -27,7 +27,7 @@ This architecture discussion can be run by anyone who is responsible for applica
 
 * **Have you investigated the full range of Azure compute (hosting) options and compared their features before making a decision?**
 
-    Azure offers several compute options: Azure App Service, Service Fabric, Azure Container Services, Azure Functions, Virtual Machines, Cloud Services (legacy). It is critical that you choose the right hosting model by comparing different options and select the right hosting model(s) based on your requirements. All of the different services have different characteristics for maintenance, operations, resiliency, scalability, cost and performance envelope.   
+    Azure offers several compute options: Azure App Service, Service Fabric, Azure Container Services, Azure Functions, Virtual Machines, Cloud Services (legacy). It is critical that you choose the right hosting model by comparing different options and select the right hosting model(s) based on your requirements. All the different services have different characteristics for maintenance, operations, resiliency, scalability, cost and performance envelope.   
     
     > [Criteria for choosing an Azure compute option](https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-comparison)
     >
@@ -45,13 +45,13 @@ This architecture discussion can be run by anyone who is responsible for applica
 
 * ****Existing App Migration**: What type of authentication is being used?**
 
-    Web Apps support Anonymous Authentication by default and Forms Authentication where specified by an application. Windows Authentication is not supported within App Service; however Azure Active Directory can be used (optionally with ADFS) by implementing token based Authentication (SAML / Oauth based), this approach can also provide a fully integrated Single Sign On Experience if required. All other forms of authentication - for example, Basic Authentication - are not currently supported.    
+    Web Apps support Anonymous Authentication by default and Forms Authentication where specified by an application. Windows Authentication is not supported within App Service; however Azure Active Directory can be used (optionally with ADFS) by implementing token-based Authentication (SAML- / Oauth-based), this approach can also provide a fully integrated Single Sign On Experience if required. All other forms of authentication - for example, Basic Authentication - are not currently supported.    
         
 * ****Existing App Migration**: Does the application reference assemblies from the GAC (Global Assembly Cache)?**
 
     The GAC is not supported in Web Apps. If your application references assemblies which you usually deploy to the GAC, you will need to deploy to the application bin folder in Web Apps.    
     
-* ****Existing App Migration**: Does the application makes use of COM Components?**
+* ****Existing App Migration**: Does the application make use of COM Components?**
     Web Apps do not allow the registration of COM Components on the platform. If your websites or applications make use of any COM Components, you must rewrite them and deploy them with the website or application.
     
 
@@ -63,7 +63,7 @@ This architecture discussion can be run by anyone who is responsible for applica
 
     Web Apps do not support access to shared subsystems in Windows and do not support write access to any registry keys. 
 
-* ****Session State**: Does your application store session state in process on a server? 
+* **Session State**: Does your application store session state in process on a server? 
  
     In an ideal case, you can make your application stateless in order to scale/switch at will. Where this is not feasible, use the  session state provider for Azure Redis Cache to persist your state across multiple services via a distributed cache mechanism.
 
@@ -229,16 +229,16 @@ This architecture discussion can be run by anyone who is responsible for applica
 
 ## Security    
 
-* **Have you looked in to Azure App Service Security best practices?**
+* **Have you looked into Azure App Service Security best practices?**
 
     Security in Azure App Service has two levels:
     
     * Infrastructure and platform security - You trust Azure to have the services you need to run things securely in the cloud.
     
-    * Application security - You need to design the app itself securely. This includes how you integrate with Azure Active Directory, how you manage certificates , and how you make sure that you can securely talk to different services.
+    * Application security - You need to design the app itself securely. This includes how you integrate with Azure Active Directory, how you manage certificates, and how you make sure that you can securely talk to different services.
 
     
-    While Azure is responsible for securing the underlying infrastructure and platform that your application runs on, it is your responsibility to secure your application itself. In other words, you need to develop, deploy, and manage your application code and content in a secure way. Without this, your application code or content can still be vulnerable to threats such as:
+    While Azure is responsible for securing the underlying infrastructure and platform that your application runs on, it is your responsibility to secure your application yourself. In other words, you need to develop, deploy, and manage your application code and content in a secure way. Without this, your application code or content can still be vulnerable to threats such as:
 
     * SQL Injection
     * Session hijacking
@@ -362,7 +362,7 @@ This architecture discussion can be run by anyone who is responsible for applica
 
 * **Are you going to manually scale the cluster or use auto-scale?**
 
-    Virtual machine scale sets are an Azure compute resource that you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is set up as a separate Virtual Machine scale set. With scaling you are trying to achieve the right balance with cost vs availability. Try to use calendar based auto scale rather than reactive. Do not turn on auto-scale unless Monitoring is on. Generally, scale up aggressively and scale down conservatively.
+    Virtual machine scale sets are an Azure compute resource that you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in a Service Fabric cluster is set up as a separate Virtual Machine scale set. With scaling you are trying to achieve the right balance with cost vs availability. Try to use calendar-based auto scale rather than reactive. Do not turn on auto-scale unless Monitoring is on. Generally, scale up aggressively and scale down conservatively.
 
     > [Scale a Service Fabric cluster in or out using auto-scale rules](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-cluster-scale-up-down/)
     
@@ -431,7 +431,7 @@ This architecture discussion can be run by anyone who is responsible for applica
 
 * **Are you wondering about application security for applications running on Service Fabric?**
 
-    This is no different than implementing security using AD for example, for any other regular application. The guidance on using AD is the same. Did you know that you can implement the same infrastructure level security to a Service Fabric Cluster as you would to any server farm.  
+    This is no different than implementing security using AD for example, for any other regular application. The guidance on using AD is the same. Did you know that you can implement the same infrastructure level security to a Service Fabric Cluster as you would to any server farm?  
     
     > [Secure a standalone cluster on Windows by using Windows security](https://azure.microsoft.com/en-us/documentation/articles/service-fabric-windows-cluster-windows-security/)
 
