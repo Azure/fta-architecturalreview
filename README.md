@@ -1,8 +1,4 @@
-# FastTrack for Azure
-
-See our [FastTrack for Azure landing page](https://github.com/Azure/FastTrackForAzure) for more information.
-
-# Architectural Review 
+# FastTrack for Azure - Architectural Review 
 * [Introduction](articles/introduction.md)
 * [Application Modernization](articles/application-modernization.md)
 * [Backup, Archive & Disaster Recovery](articles/backup-archive-disaster-recovery.md)
