@@ -1,0 +1,10 @@
+# FastTrack for Azure CODEOWNERS file
+# This file controls the designated owners for certain files within the repository which will be used for assigning Pull Request reviewers
+
+# Each line is a file pattern followed by one or more owners.
+
+# adding global reviewer as default
+*  @azure/fta-githubmanagers
+
+# set the reviews for files in the root directory
+/*  @azure/fta-githubmanagers
