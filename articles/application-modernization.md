@@ -27,7 +27,7 @@ This architecture discussion can be run by anyone who is responsible for applica
 
 * **Have you investigated the full range of Azure compute (hosting) options and compared their features before making a decision?**
 
-    Azure offers several compute options: Azure App Service, Service Fabric, Azure Container Services, Azure Functions, Virtual Machines, Cloud Services (legacy). It is critical that you choose the right hosting model by comparing different options and select the right hosting model(s) based on your requirements. All the different services have different characteristics for maintenance, operations, resiliency, scalability, cost and performance envelope.   
+    Azure offers several compute options: Azure App Service, Azure Kubernetes Service, Azure Container Services, Azure Functions, Virtual Machines, Service Fabric (de-emphasized), Cloud Services (legacy). It is critical that you choose the right hosting model by comparing different options and select the right hosting model(s) based on your requirements. All the different services have different characteristics for maintenance, operations, resiliency, scalability, cost and performance envelope.   
     
     > [Criteria for choosing an Azure compute option](https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-comparison)
     >
@@ -41,7 +41,7 @@ This architecture discussion can be run by anyone who is responsible for applica
 
     The App Service Migration assistant tool creates a readiness report to identify any potential blocking issues which may prevent a successful migration from on-premises to Azure. If you do not feel comfortable using the tool to migrate (i.e. prefer a manual migration), then you can use the readiness report as a minimum to identify potential blocking issues.    
     
-    > [Azure App Service Migration Assistant](http://www.migratetoazure.net)
+    > [Azure App Service Migration Assistant](https://appmigration.microsoft.com/)
 
 * ****Existing App Migration**: What type of authentication is being used?**
 
@@ -77,7 +77,7 @@ This architecture discussion can be run by anyone who is responsible for applica
 
     Consider if this level of HA is actually required, are you willing to pay for the extra expense for the extra potential uptime?
 
-    > [Run a web application in multiple regions](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/)
+    > [Run a web application in multiple regions](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/multi-region)
 
 * **Did you design the workload with resiliency in mind? Are you following one or more of the following common resiliency strategies?**
   * Retry Transient failures
@@ -105,13 +105,13 @@ This architecture discussion can be run by anyone who is responsible for applica
 
     It is critical that you have defined Resiliency (High Availability & Disaster Recovery) metrics like RPO/RTO/SLA. Without these metrics it will be hard to design an application and meet your end-customer expectations.    
     
-    > [Defining your resiliency requirements](https://docs.microsoft.com/en-us/azure/architecture/resiliency/index#defining-your-resiliency-requirements)
+    > [Defining your resiliency requirements](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/overview#define-requirements)
 
 * **Is there a defined SLA for the workload?**
 
     Microsoft provides an SLA for each of the Azure services. A customer should define their own target SLA for each workload. This makes it possible to evaluate whether the architecture meets the proposed business requirements. A customer should calculate the composite SLA (SLA of multiple Azure & other dependent services that makes up the workload) and see if that meets their business SLA requirements.    
     
-    > [Defining your target SLA](https://docs.microsoft.com/en-us/azure/architecture/resiliency/index#slas)
+    > [Understand service-level agreements (SLAs)](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/business-metrics#understand-service-level-agreements)
 
 * **Are there any third-party services used as part of your workload? If so, does the third-party provide an SLA?**
 
@@ -133,7 +133,7 @@ This architecture discussion can be run by anyone who is responsible for applica
 * **Do I deploy a HA or DR copy of my service in an Active-Active vs. Active-Passive design?**
     Active-Active architectures reduce the amount of compute resource wasted and sitting idle when compared to Active-Passive, which are less complex to implement and create lower network egress charges.
     
-    > [Disaster Recovery](https://docs.microsoft.com/en-us/azure/architecture/resiliency/disaster-recovery-azure-applications)
+    > [Disaster Recovery](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/backup-and-recovery)
 
     > [High Availability](https://docs.microsoft.com/en-us/azure/architecture/resiliency/high-availability-azure-applications)
 
