@@ -8,3 +8,6 @@
 
 # set the reviews for files in the root directory
 /*  @azure/fta-githubmanagers
+
+# reviewers specific to this repository
+/articles/  @xstof  @colincole
