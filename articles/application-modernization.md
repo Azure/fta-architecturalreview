@@ -41,7 +41,7 @@ This architecture discussion can be run by anyone who is responsible for applica
 
     The App Service Migration assistant tool creates a readiness report to identify any potential blocking issues which may prevent a successful migration from on-premises to Azure. If you do not feel comfortable using the tool to migrate (i.e. prefer a manual migration), then you can use the readiness report as a minimum to identify potential blocking issues.    
     
-    > [Azure App Service Migration Assistant](http://www.migratetoazure.net)
+    > [Azure App Service Migration Assistant](https://appmigration.microsoft.com/)
 
 * ****Existing App Migration**: What type of authentication is being used?**
 
