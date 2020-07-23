@@ -91,7 +91,7 @@ The [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/en-u
 * [Reliability](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/overview)
 * [Security](https://docs.microsoft.com/en-us/azure/architecture/framework/security/overview)
 
-Some, but not all, of the pillars have checklists (see the References(#references)) for manual review.  There is also a self-guided [assessment](https://docs.microsoft.com/assessments/) available that you can potentially use as part of your discussion.
+Some, but not all, of the pillars have checklists (see the [References](#references)) for manual review.  There is also a self-guided [assessment](https://docs.microsoft.com/assessments/) available that you can potentially use as part of your discussion.
 
 ### Discovery
 If the reviewee has no documentation that follows the below pattern, then ask the customer to use a whiteboard (a digital whiteboard if doing remote delivery, or a physical one if reviewing / assisting at an onsite event) to map out:
