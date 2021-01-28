@@ -83,14 +83,16 @@ Regardless of the type of review, the aim for this section is to consider whethe
 
 ### Review Areas
 
-These are the pillars of software quality we are looking for and areas to look out for regardless of the review type.
+The [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/en-us/azure/architecture/framework/) defines five pillars of architecture excellence:
 
-* Availability and Resilience 
-* Performance and Scalability
-* Security and Identity 
-* Manageability and Supportability 
-* Development, Testing and Deployment (DevOps)
-   
+* [Cost optimization](https://docs.microsoft.com/en-us/azure/architecture/framework/cost/overview)
+* [Operational excellence](https://docs.microsoft.com/en-us/azure/architecture/framework/devops/overview)
+* [Performance efficiency](https://docs.microsoft.com/en-us/azure/architecture/framework/scalability/overview)
+* [Reliability](https://docs.microsoft.com/en-us/azure/architecture/framework/resiliency/overview)
+* [Security](https://docs.microsoft.com/en-us/azure/architecture/framework/security/overview)
+
+Some, but not all, of the pillars have checklists (see the [References](#references)) for manual review.  There is also a self-guided [assessment](https://docs.microsoft.com/assessments/) available that you can potentially use as part of your discussion.
+
 ### Discovery
 If the reviewee has no documentation that follows the below pattern, then ask the customer to use a whiteboard (a digital whiteboard if doing remote delivery, or a physical one if reviewing / assisting at an onsite event) to map out:
 
@@ -190,7 +192,6 @@ If the review identified a need for additional engagements or discovered additio
 
 ## References
 * [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)
-* [Azure Architecture Center - Design Review Checklist: Availability](https://docs.microsoft.com/en-gb/azure/architecture/checklist/availability)
-* [Azure Architecture Center - Design Review Checklist: DevOps](https://docs.microsoft.com/en-gb/azure/architecture/checklist/dev-ops)
-* [Azure Architecture Center - Design Review Checklist: Resiliency](https://docs.microsoft.com/en-gb/azure/architecture/checklist/resiliency)
-* [Azure Architecture Center - Design Review Checklist: Scalability](https://docs.microsoft.com/en-gb/azure/architecture/checklist/scalability)
+* [Azure Architecture Center - Design Review Checklist: Operational excellence (DevOps)](https://docs.microsoft.com/azure/architecture/checklist/dev-ops)
+* [Azure Architecture Center - Design Review Checklist: Performance efficiency](https://docs.microsoft.com/azure/architecture/checklist/performance-efficiency)
+* [Azure Architecture Center - Design Review Checklist: Reliability (Resiliency)](https://docs.microsoft.com/azure/architecture/checklist/resiliency)
