@@ -293,9 +293,15 @@ This architecture discussion can be run by anyone who is responsible for applica
     > [Learn about the differences between Cloud Services and Service Fabric before migrating applications](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cloud-services-migration-differences)
 
 * **Are you considering containerizing your application?**
-    One of the most common scenarios supported by Service Fabric is to containerize your existing applications and orchestrate the containerized applications on Service Fabric.
+    One of the most common scenarios supported by Service Fabric is to containerize your existing applications and orchestrate the containerized applications on Service Fabric.  However, Azure also supports other container orchestrators.  There's a lot involved in the decision of what orchestrator to use; it's an important architectural decision.
 
     >[Service Fabric and containers](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-containers-overview)
+    
+    >[Azure Kubernetes Services](https://azure.microsoft.com/en-us/services/kubernetes-service/)
+    
+    >[Azure Red Hat OpenShift](https://azure.microsoft.com/en-us/services/openshift/)
+    
+    >[VMware Tanzu (formerly Pivotal Cloud Foundary)](https://azure.microsoft.com/en-us/overview/linux-on-azure/pivotal/)
 
 ## Distributed architecture
 * **Are you aware of microservices architecture style and best practices?**
