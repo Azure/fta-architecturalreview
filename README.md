@@ -1,3 +1,7 @@
+# IMPORTANT
+
+Due to the disbandment of the FastTrack for Azure organization within Microsoft, this project is no longer being maintained and is archived.
+
 # FastTrack for Azure - Architectural Review 
 * [Introduction](articles/introduction.md)
 * [Application Modernization](articles/application-modernization.md)
